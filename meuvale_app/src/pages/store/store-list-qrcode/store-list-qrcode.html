@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Rede Credenciada</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <div class="text-center">
+        <ion-item>
+            <ion-label class="text-label" stacked>Pais *</ion-label>
+            <ion-select [(ngModel)]="paisSelected" [disabled]="!paises.length">
+                <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label class="text-label" stacked>Estado *</ion-label>
+            <ion-select [(ngModel)]="estadoSelected" (ionChange)="onChangeEstado()" [disabled]="!estados.length">
+                <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <div class="autocomplete">
+            <ion-item>
+                <ion-label class="text-label" stacked>Cidade</ion-label>
+                <ion-input type="text" [(ngModel)]="cidadeBusca" (ionChange)="searchCity()" (ionBlur)="removeFocus()"
+                    debounce=500></ion-input>
+            </ion-item>
+            <ion-list>
+                <ion-item *ngFor="let cidade of cidadesFilter" (click)="selecionaCidade(cidade)">
+                    {{cidade.Descricao}}
+                </ion-item>
+            </ion-list>
+        </div>
+        <div>
+            <ion-item>
+                <ion-label class="text-label" stacked>Bairro</ion-label>
+                <ion-input type="text" [(ngModel)]="bairro" debounce=500></ion-input>
+            </ion-item>
+        </div>
+        <ion-item>
+            <ion-label class="text-label" stacked>Quantidade de Impressões por Loja (multiplos de 3): </ion-label>
+            <ion-input min="2" type="number" placeholder="Quantidade de Impressões por Loja" [(ngModel)]="qtdPesquisa">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label class="text-label" stacked>Busque por Código Infox, Nome Fantasia, Razão Social, CNPJ:
+            </ion-label>
+            <ion-input [(ngModel)]="lojaPesquisa" name="pesquisa" debounce=500
+                placeholder="Para buscar mais de um Código Infox separe por ponto e vírgula ( ; )">
+            </ion-input>
+        </ion-item>
+        <button class="store-form" ion-button color="primary" block (click)="search()">
+            Pesquisar
+        </button>
+        <h1 *ngIf="lojas && lojas.length > 0">Páginas: {{(lojas.length / 18).toFixed(0)}} - Quantidade de Registros:
+            {{lojas.length}}</h1>
+        <h1 *ngIf="lojas && lojas.length > 0">Página: {{_page + 1}}</h1>
+        <button class="store-form" ion-button color="primary" block (click)="print()">
+            Imprimir Página
+        </button>
+    </div>
+    <ion-grid>
+        <ion-row *ngFor="let r of [0,1,2,3,4,5]">
+            <ng-container *ngFor="let c of [0,1,2]">
+                <ion-col class="column-grid-home" *ngFor="let loja of lojasPaginadas.slice(r*3+c, r*3+c+1)">
+                    <div class="blue-background text-center">
+                        <div class="row justify-content-center">
+                            <qr-code [value]="loja.Id.toString()"></qr-code>
+                            <span class="cnpj">{{loja.Cnpj}}</span>
+                        </div>
+                        <div class="row justify-content-center">
+                            <p class="descricao">{{loja.Descricao}}</p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ng-container>
+        </ion-row>
+    </ion-grid>
+
+    <h1 *ngIf="lojas && lojas.length > 0">Página: {{_page + 1}}</h1>
+
+    <ion-fab bottom left [hidden]="_page <= 0">
+        <button ion-fab (click)="clickPrevious()">
+            <ion-icon large name="arrow-back"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-fab bottom right [hidden]="lojasPaginadas.length < 18">
+        <button ion-fab (click)="clickNext()">
+            <ion-icon large name="arrow-forward"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

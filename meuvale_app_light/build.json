@@ -1,0 +1,11 @@
+﻿{
+  "android": {
+    "release": {
+      "keystore": "smartconsumidor.keystore",
+      "storePassword": "Leo22072004",
+      "alias": "4world",
+      "password": "Leo22072004",
+      "keystoreType": ""
+    }
+  }
+}

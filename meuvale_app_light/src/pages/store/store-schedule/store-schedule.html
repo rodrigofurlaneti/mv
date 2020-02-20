@@ -1,0 +1,135 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Horário Funcionamento</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card >
+        <ion-card-header class="text-center">
+            Estabelecimento
+        </ion-card-header>
+        <ion-card-content class="text-center">
+            {{loja.Descricao}}
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header class="text-center">
+            Horário de Funcionamento
+        </ion-card-header>
+        <ion-card-content>
+            <p>Selecione os dias da semana: </p>
+            <ion-grid class="text-center">
+                <ion-row>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Segunda === false,'selecionado': Segunda === true }"
+                            ion-button (click)="btnActivate('seg')">
+                            S
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Terca === false,'selecionado': Terca === true }" ion-button
+                            (click)="btnActivate('ter')">
+                            T
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Quarta === false,'selecionado': Quarta === true }" ion-button
+                            (click)="btnActivate('qua')">
+                            Q
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Quinta === false,'selecionado': Quinta === true }" ion-button
+                            (click)="btnActivate('qui')">
+                            Q
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Sexta === false,'selecionado': Sexta === true }" ion-button
+                            (click)="btnActivate('sex')">
+                            S
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Sabado === false,'selecionado': Sabado === true }" ion-button
+                            (click)="btnActivate('sab')">
+                            S
+                        </button>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <button style="background-color: transparent;" ion-button disabled>
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button [ngClass]="{ 'diasemana': Domingo === false,'selecionado': Domingo === true }"
+                            ion-button (click)="btnActivate('dom')">
+                            D
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button style="background-color: transparent;" ion-button disabled>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <p>O horário deve ser preenchido no formato de 24H</p>
+            <ion-item class="nopadding-left">
+                <ion-label>Abertura: </ion-label>
+                <ion-input placeholder="08:00" [(ngModel)]="diaSelecionado.Abertura" [brmasker]="{mask:'00:00', len:5}"
+                    type="tel" (change)="validaHorario()"></ion-input>
+            </ion-item>
+            <ion-item class="nopadding-left">
+                <ion-label>Fechamento: </ion-label>
+                <ion-input placeholder="18:00" [(ngModel)]="diaSelecionado.Fechamento"
+                    [brmasker]="{mask:'00:00', len:5}" type="tel" (change)="validaHorario()"></ion-input>
+            </ion-item>
+        </ion-card-content>
+        <button ion-button block (click)="add()">
+            Adicionar
+        </button>
+    </ion-card>
+    <ion-list>
+        <ion-item *ngFor="let dia of diasSemana">
+            <ion-label start>{{ dia.Nome }}</ion-label>
+            <ion-label *ngIf="dia.Abertura != ''">{{ dia.Abertura }} - {{ dia.Fechamento }}</ion-label>
+            <ion-label *ngIf="dia.Abertura == ''">Não trabalha</ion-label>
+
+            <div item-end>
+                <button (click)='edit(dia)' ion-button clear>
+                    <ion-icon name="create"></ion-icon>
+                </button>
+                <button (click)='exclude(dia)' ion-button clear>
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+            </div>
+        </ion-item>
+    </ion-list>
+    <div>
+        <button ion-button block (click)="save()">
+            Salvar
+        </button>
+    </div>
+    <div *ngIf="loja && loja.Id > 0">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <img src="assets/image/shop.png" (click)="openStoreRegister()"/>
+                    </ion-col>
+                    <ion-col>
+                        <img src="assets/image/horario_funcionamento.png" />
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+</ion-content>

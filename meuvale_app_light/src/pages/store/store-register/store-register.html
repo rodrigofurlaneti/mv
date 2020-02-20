@@ -1,0 +1,164 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Estabelecimento</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Documentos
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label floating>CNPJ*</ion-label>
+                    <ion-input class="input-edit" formControlName="cnpj"
+                        [brmasker]="{mask:'00.000.000/0000-00', len:18}" type="tel"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Inscricão Estadual</ion-label>
+                    <ion-input class="input-edit" formControlName="ie" type="number"></ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+
+    <ion-card>
+        <ion-card-header class="text-center">
+            Logo
+        </ion-card-header>
+        <ion-card-content>
+
+            <ion-item class="avatar-position">
+                <ion-avatar class="avatar" *ngIf="loja && loja.Logo">
+                    <img src="{{loja.Logo}}">
+                </ion-avatar>
+                <ion-avatar class="avatar" *ngIf="!loja || !loja.Logo">
+                    <img src="assets/image/logo.png">
+                </ion-avatar>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+    <!-- file-name definite o nome do arquivo, tem de ter a extençao .png, padrão timestamp-->
+    <!-- eventos (uploadStart), (uploadComplete), (imageCaptureError), (uploadError) -->
+    <div class="text-center" *ngIf="storeForm.value.cnpj">
+        <firebase-uploader path-file="loja" file-name="{{storeForm.value.cnpj}}-{{date}}.png"
+            (uploadComplete)="handleEvent($event)">
+        </firebase-uploader>
+    </div>
+
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Dados Cadastrais
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label floating>Nome Fantasia *</ion-label>
+                    <ion-input class="input-edit" formControlName="nomefantasia" type="text"> </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Razao Social *</ion-label>
+                    <ion-input class="input-edit" formControlName="razaosocial" type="text"> </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Tipo de Parceria?</ion-label>
+                    <ion-select class="input-select" formControlName="classificacao">
+                        <ion-option value="MeuClube">Meu Clube</ion-option>
+                        <ion-option value="MeuShopping">Meu Shopping</ion-option>
+                        <ion-option value="Ambos">Ambos</ion-option>
+                        <ion-option value="Nenhum">Nenhum</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Telefone *</ion-label>
+                    <ion-input class="input-edit" formControlName="telefone" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Celular (Whatsapp)</ion-label>
+                    <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>E-mail *</ion-label>
+                    <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Possuí Loja Física?</ion-label>
+                    <ion-select class="input-select" formControlName="lojafisica">
+                        <ion-option value="Sim">Sim</ion-option>
+                        <ion-option value="Nao">Não</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label floating>CEP *</ion-label>
+                    <ion-input formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}" type="tel"
+                        (ionBlur)="onChangeCep()">
+                    </ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label floating>Logradouro *</ion-label>
+                    <ion-input [(ngModel)]="logradouro" formControlName="logradouro" type="text"></ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label floating>Número *</ion-label>
+                    <ion-input formControlName="numero" type="tel"></ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label floating>Complemento</ion-label>
+                    <ion-input formControlName="complemento" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>pais *</ion-label>
+                    <ion-select formControlName="paisSelected" [disabled]="!paises.length">
+                        <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Estado *</ion-label>
+                    <ion-select formControlName="estadoSelected" (ionChange)="onChangeEstado()"
+                        [disabled]="!estados.length">
+                        <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Cidade *</ion-label>
+                    <ion-select formControlName="cidadeSelected" [disabled]="!cidades.length">
+                        <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-item>
+            <ion-label>Loja Ativa?</ion-label>
+            <ion-toggle [hidden]="!lojaAprovada" checked="false" formControlName="ativo"></ion-toggle>
+            <ion-label [hidden]="lojaAprovada" end style="font-size: 12px;">Aguardando aprovação!</ion-label>
+        </ion-item>
+
+        <div>
+            <button class="store-form" type="submit" ion-button color="primary" block>
+                Salvar
+            </button>
+        </div>
+    </form>
+    <div *ngIf="loja && loja.Id > 0">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <img src="assets/image/shop.png" />
+                </ion-col>
+                <ion-col>
+                    <img src="assets/image/horario_funcionamento.png" (click)="openSchedule()" />
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

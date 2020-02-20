@@ -1,0 +1,47 @@
+partner-struct {
+    .img-parceiro-home{
+        height: 127px !important;
+        margin-top: -36px;
+    }
+
+    .img-header {
+        position: relative;
+    }
+
+    .fundo-descricao {
+        background-color: #13bffe;
+        height: 32.5% !important;
+        position: relative !important;
+        z-index: 1 !important;
+        border-radius: 20px 20px 5px 5px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .font-descricao {
+        color: white !important;
+        font-size: 1.9rem !important;
+        margin: -5% 0 0 0 !important;
+        font-family: 'Din Alternate Bold' !important;
+    }
+
+    .column-grid-home {
+        height: 157px !important;
+        width: calc(100% - 10px) !important;
+        background-color: white;
+        padding: 0px;
+        // border-radius: 5px;
+        border-radius: 20px 20px 5px 5px !important;
+    }
+
+    .container-imagem{
+        height: 55%;
+        width: 90%;
+        margin: 22.5% 5% 0 5%;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}

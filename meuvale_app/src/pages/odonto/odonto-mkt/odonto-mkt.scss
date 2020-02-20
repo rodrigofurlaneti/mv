@@ -1,0 +1,27 @@
+page-odonto-mkt {
+    .title-cupom{
+        strong{
+          width: 50%;
+          padding: 0 3%;
+          background-color: #37369c;
+          margin: 0 30%;
+        }
+        hr{
+          height: 5px;
+          background-color: #1caaac !important;
+          position: relative;
+          z-index: -1;
+          margin-top: -2.75%;
+        }
+      }
+
+      .topo-logo{
+        width: 30%;
+        height: 5vh;
+        margin: 10vh 35% 3vh 35%;
+        img{
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+}

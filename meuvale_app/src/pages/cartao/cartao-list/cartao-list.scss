@@ -1,0 +1,120 @@
+page-cartao-list {
+    .icon {
+        width: 30px;
+        height: auto;
+        float: left;
+        margin-top: 3px;
+    }
+
+    .icon-bandeira {
+        width: 30px;
+        height: auto;
+        float: left;
+    }
+
+    .item-ios [item-left], .item-ios [item-start]{
+        margin: 0px;
+    }
+
+    .img-cartoes{
+        height: 45%;
+    }
+
+    .botoes-acao{
+        font-size: 1.1rem;
+    }
+
+    .botao-addCartao{
+        width: 40%;
+        height: 45px;
+        border-radius: 5px;
+        margin-bottom: 16px;
+    }
+    .imgBandeiras{
+        width: 100%;
+    }
+
+    .list-md, .item-block, .item-inner {
+        border-bottom: 0 !important;
+        margin-right: 0 !important;
+    }
+    .item-inner {
+        padding-right: 0 !important;
+    }
+
+    .item-border-bottom {
+        border-bottom: 1px solid #18BAE8 !important;
+    }
+    .item-padding-left{
+        padding-left: 0 !important;
+    }
+
+    .float-left{
+        float: left !important;
+    }
+
+    .text-lower {
+        text-transform: lowercase !important;
+    }
+
+    .btn-saldo {
+        background-color: #02D28D !important;
+        color: #3C3A92 !important;
+        text-transform: lowercase !important;
+        float: left !important;
+        height: 30px;
+        line-height: 30px;
+        width: 75px;
+    }
+
+    .btn-extrato {
+        background-color: #18BAE8 !important;
+        color: #3C3A92 !important;
+        text-transform: lowercase !important;
+        float: left !important;
+        height: 30px;
+        line-height: 30px;
+        width: 75px;
+    }
+
+    .money-label {
+        min-width: 64%;
+        line-height: 24px;
+        margin-left: -5px;
+        height: 24px;
+        margin-top: 4px;
+        text-align: -webkit-left;
+        float: left;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .label-ios {
+        margin: 11px 0 11px 0;
+    }
+
+    .imgBtnCartao-edit {
+        width: 30px;
+        height: 30px;
+    }
+    .imgBtnCartao-remove {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px
+    }
+    .paragraphCard {
+        margin-top: 0;
+        margin-left: 10px !important;
+        font-size: 10px;
+        float: left;
+    }
+    .paragraphCardType {
+        font-size: 10px;
+    }
+    .paragraphCardBandeira {
+        margin-top: 7px;
+        margin-left: 10px !important;
+        font-size: 13px;
+        float: left;
+    }
+}

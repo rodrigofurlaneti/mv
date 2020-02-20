@@ -1,0 +1,61 @@
+<div class="text-center">
+    <ion-searchbar style="width: 80%; left: 10%" [(ngModel)]="produtoPesquisa" placeholder="Encontre aqui um produto"
+        name="pesquisa" (ionInput)="search()" debounce=500>
+    </ion-searchbar>
+    <button [hidden]="!limparBusca" style="color: red;" (click)="limparBuscaProdutos()">
+        Limpar busca
+    </button>
+    <ion-list style="background: white;">
+        <ion-item style="color: black" *ngFor="let produto of proudtosFilter" (click)="retornaProdutos(produto)">
+            {{produto.Nome}}
+        </ion-item>
+    </ion-list>
+</div>
+<div style="margin-top: -3%; margin-left: 0.5%">
+    <ion-slides pager *ngIf="produtos != null" slidesPerView="2.3">
+        <ion-slide #slider *ngFor="let item of produtos; let i = index;">
+            <ion-card>
+                <ion-card-header class="header-card-produto">
+                    <div (click)="detalhes(item)" *ngIf="!item || item.Imagens.length <= 0">
+                        <img class="img-produto-home" src="{{item.Produto.DepartamentoProduto.LogoUpload}}" alt="">
+                    </div>
+
+                    <div (click)="detalhes(item)" *ngIf="item && item.Imagens.length == 1">
+                        <img class="img-produto-home" src={{item.Imagens[0].Descricao}} alt="">
+                    </div>
+
+                    <ion-slides (click)="detalhes(item)" pager autoplay *ngIf="item && item.Imagens.length > 1">
+                        <ion-slide *ngFor="let slide of item.Imagens">
+                            <img class="img-produto-home" src={{slide.Descricao}} alt="">
+                        </ion-slide>
+                    </ion-slides>
+                </ion-card-header>
+                <ion-card-content class="card-produto">
+                    <div (click)="detalhes(item)">
+                        <p class="nome-produto" style="color: black; height: 40px;">{{item.Nome}}</p>
+                        <div *ngIf="item.Valor > 0" class="produto-item-preco">
+                            <div class="produto-preco" *ngIf="item.ValorDesconto && item.ValorDesconto > 0">
+                                <span class="preco-completo preco-de text-decoration-line-through">
+                                    <span class="preco-titulo">De</span>
+                                    <strong>R$ {{item.Valor.toFixed(2)}}</strong>
+                                </span>
+                                <span class="preco-completo">
+                                    <span class="preco-titulo">Por</span>
+                                    <strong>R$ {{item?.ValorDesconto.toFixed(2)}}</strong>
+                                </span>
+                            </div>
+                            <div class="produto-preco" *ngIf="!item.ValorDesconto || item.ValorDesconto <= 0">
+                                <span class="preco-completo">
+                                    <strong>R$ {{item?.Valor.toFixed(2)}}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div *ngIf="item.Valor <= 0">
+                            <p style="color: black; overflow: hidden; width:100%;"></p>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+</div>

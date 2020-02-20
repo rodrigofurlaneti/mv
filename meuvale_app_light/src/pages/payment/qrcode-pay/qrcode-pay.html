@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pague com QR code</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p class="text-center" style="font-size: 145%; font-weight: 900">Pague suas compras escaneando o QR code do estabelecimento!</p>
+  <div class="text-center">
+    <img src="assets/image/qrcode-example.png" >
+  </div>
+  <div class="text-center">
+    <button style="font-size: 145%; font-weight: 900" ion-button color="primary" block (click)="showBarcodeScan()">Ler QR code</button>
+  </div>
+</ion-content>

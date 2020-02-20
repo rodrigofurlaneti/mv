@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "454295619129",
+    "firebase_url": "https://meuvale-aed97.firebaseio.com",
+    "project_id": "meuvale-aed97",
+    "storage_bucket": "meuvale-aed97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454295619129:android:c14531e59217dd3caa2fe8",
+        "android_client_info": {
+          "package_name": "br.com.grupormc.meuvaleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEiSNesVlr62CZYhtC68OG4tn6A3NtDjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "454295619129-c90g7kjlih0h7n0ggqncmjmk5649mm4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.grupormc.meuvaleapp",
+                "app_store_id": "1484221844"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454295619129:android:70779eb9d3b49760aa2fe8",
+        "android_client_info": {
+          "package_name": "com.grupormc.meuvale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEiSNesVlr62CZYhtC68OG4tn6A3NtDjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "454295619129-c90g7kjlih0h7n0ggqncmjmk5649mm4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.grupormc.meuvaleapp",
+                "app_store_id": "1484221844"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454295619129:android:49bf843d6cfd11baaa2fe8",
+        "android_client_info": {
+          "package_name": "com.grupormc.meuvaleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEiSNesVlr62CZYhtC68OG4tn6A3NtDjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454295619129-jclps9lt66lu0qfunoudekc8gj5oh78a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "454295619129-c90g7kjlih0h7n0ggqncmjmk5649mm4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.grupormc.meuvaleapp",
+                "app_store_id": "1484221844"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

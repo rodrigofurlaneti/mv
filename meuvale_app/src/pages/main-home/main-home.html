@@ -1,0 +1,134 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>meuvale</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="fundo-primary-color">
+    <div class="text-center">
+        <img class="logo-home" src="assets/image/logo_home.png" alt="">
+    </div>
+    <div style="margin-left: 2.5%">
+        <ion-grid>
+            <ion-row>
+                <ion-slides pager slidesPerView="2.2">
+                    <ion-slide>
+                        <ion-col class="column-grid-home"
+                            *ngIf="this.platform.is('ios') || this.platform.is('android')">
+                            <div class="blue-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_pague.png"
+                                    alt="" (click)="gotoQrCodePay()" clear ion-button>
+                            </div>
+                        </ion-col>
+                        <ion-col class="column-grid-home"
+                            *ngIf="!(this.platform.is('ios') || this.platform.is('android'))">
+                            <div class="blue-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_pague.png"
+                                    alt="Disponívle apenas via Aplicativo!" (click)="gotoQrCodePay()" clear ion-button
+                                    disabled>
+                                <p style="margin-top: -26px;">Disponível apenas via Aplicativo!</p>
+                            </div>
+                        </ion-col>
+                        <ion-col class="column-grid-home">
+                            <div class="green-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_meuclube.png"
+                                    alt="" (click)="gotoMinhasPromocoes()" clear ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-col class="column-grid-home">
+                            <div class="green-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_rede.png"
+                                    alt="" (click)="gotoRedeCredenciada()" clear ion-button>
+                            </div>
+                        </ion-col>
+                        <ion-col class="column-grid-home">
+                            <div class="blue-background">
+                                <img style="margin-top: 8%; padding: 0 0em;"
+                                    src="assets/image/home/botao_meushopping.png" alt="" (click)="gotoMinhasCompras()"
+                                    clear ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-col class="column-grid-home">
+                            <div class="blue-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_cliente.png"
+                                    alt="" (click)="gotoCartao()" clear ion-button>
+                            </div>
+                        </ion-col>
+                        <ion-col class="column-grid-home">
+                            <div class="green-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_odonto.png"
+                                    alt="" (click)="gotoOdonto()" clear ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-col class="column-grid-home">
+                            <div class="green-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_indique.png"
+                                    alt="" (click)="gotoAddCredenciado()" clear ion-button>
+                            </div>
+                        </ion-col>
+                        <ion-col class="column-grid-home">
+                            <div class="blue-background">
+                                <img style="margin-top: 8%; padding: 0 0em;" src="assets/image/home/botao_conta.png"
+                                    alt="" (click)="gotoConta()" clear ion-button>
+                            </div>
+                        </ion-col>
+                    </ion-slide>
+                </ion-slides>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <ion-list no-lines>
+        <ion-item-divider class="list-divider">
+            <strong item-start class="line">--</strong>
+            <img class="icon-category" item-start src="assets/image/Icones/iconealimentacao.png">
+            <strong class="item-divider">Alimentação</strong>
+        </ion-item-divider>
+        <partner-struct #partners categoria-oferta="55"></partner-struct>
+        <ion-item-divider class="list-divider">
+            <strong item-start class="line">--</strong>
+            <img class="icon-category" item-start src="assets/image/Icones/iconelazer.png">
+            <strong class="item-divider">Lazer</strong>
+        </ion-item-divider>
+        <partner-struct #partners categoria-oferta="57"></partner-struct>
+        <ion-item-divider  class="list-divider">
+            <strong item-start class="line">--</strong>
+            <img class="icon-category" item-start src="assets/image/Icones/iconeeducacao.png">
+            <strong class="item-divider">Educação</strong>
+        </ion-item-divider>
+        <partner-struct #partners categoria-oferta="58"></partner-struct>
+        <ion-item-divider  class="list-divider">
+            <strong item-start class="line">--</strong>
+            <img class="icon-category" item-start src="assets/image/Icones/iconeservicos.png">
+            <strong class="item-divider">Produtos & Serviços</strong>
+        </ion-item-divider>
+        <partner-struct #partners categoria-oferta="59"></partner-struct>
+        <ion-item-divider  class="list-divider">
+            <strong item-start class="line">--</strong>
+            <img class="icon-category" item-start src="assets/image/Icones/iconesaudeebemestar.png">
+            <strong class="item-divider">Bem-Estar & Saúde</strong>
+        </ion-item-divider>
+        <partner-struct #partners categoria-oferta="56"></partner-struct>
+    </ion-list>
+    <ion-fab bottom right>
+        <button ion-fab style="background: transparent !important">
+            <img src="assets/image/Icones/ico_duvidas.png">
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="facebook()">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+            <button ion-fab (click)="contact()">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-content>

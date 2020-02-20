@@ -1,0 +1,15 @@
+page-store-schedule {
+
+.diasemana{
+    border-radius: 50%;
+    background-color: #e52528;
+    .button-inner{color: white;}
+}
+
+.selecionado{
+    border-radius: 50%;
+    background-color: map-get($map: $colors, $key: background-light);
+    .button-inner{color: white;}
+}
+
+}

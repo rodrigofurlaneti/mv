@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalhe do pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+  <h1 class="h1-default">Pedido #{{pedido.Id}}</h1>
+
+  <div *ngIf="pedido.Status == 'Aguardando avaliação'" (click)="avaliarPedido(pedido)" [hidden]="lojista">
+    <p class="text-center">Ajude-nos a melhorar nossa qualidade, avalie seu pedido!</p>
+    <p class="text-center" style="color: white; font-weight: bold; font-size: 20px;">Avalie aqui seu Pedido!</p>
+  </div>
+
+  <div *ngIf="pedido.Status == 'Pedido finalizado'" (click)="avaliarPedido(pedido)">
+    <div class="text-center">
+      <div [hidden]="lojista">
+        <p>Sua avaliação para este Pagamento</p>
+      </div>
+      <div [hidden]="!lojista">
+        <p>Avaliação Recebida para este Pagamento</p>
+      </div>
+      <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 1">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 1">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 2">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 2">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 3">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 3">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 4">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 4">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 5">
+      </ion-icon>
+      <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 5">
+      </ion-icon>
+    </div>
+  </div>
+
+  <div *ngIf="pedido.ListaCompra != null && pedido.ListaCompra.Loja != null">
+    <p>
+      <b>Loja:</b> {{pedido.ListaCompra.Loja.Descricao}}
+    </p>
+  </div>
+  <div *ngIf="pedido.Loja != null">
+    <p>
+      <b>Loja:</b> {{pedido.Loja.Descricao}}
+    </p>
+  </div>
+  <p>
+    <b>Data da compra:</b> {{pedido.DataInsercao | date: 'dd/MM/yyyy'}} às {{pedido.DataInsercao | date: 'HH:mm:ss'}}
+  </p>
+  <div *ngIf="pedido.ListaCompra != null">
+    <p *ngIf="pedido.ListaCompra.ValorCupom != null && pedido.ListaCompra.ValorCupom > 0">
+      <b>Valor Sub-Total:</b> R${{pedido.ListaCompra.SubTotal.toFixed(2)}}
+    </p>
+    <p *ngIf="pedido.ListaCompra.ValorCupom != null && pedido.ListaCompra.ValorCupom > 0">
+      <b>Valor de Desconto:</b> R${{pedido.ListaCompra.ValorCupom.toFixed(2)}}
+    </p>
+    <p>
+      <b>Valor Total:</b> R${{pedido.ListaCompra.Total.toFixed(2)}}
+    </p>
+  </div>
+  <div *ngIf="pedido.ListaCompra != null">
+    <p>
+      <b>Valor Total:</b> R${{pedido.Valor.toFixed(2)}}
+    </p>
+  </div>
+  <p>
+    <b>Forma de pagamento:</b> Cartão <span
+      style="text-transform: capitalize;">{{ pedido.Cartao.Numero | cardType}}</span>
+    {{pedido.Cartao.NumeroSemMascara ? 
+      pedido.Cartao.NumeroSemMascara.length > 4 ? 
+        pedido.Cartao.Numero.substr(pedido.Cartao.Numero.length - 4) : 
+        pedido.Cartao.NumeroSemMascara : '' }}
+  </p>
+  <div *ngIf="pedido.ListaCompra && !pedido.Agendamento">
+    <p>
+      <b>Endereço de Entrega:</b> {{pedido.Endereco.Descricao}}
+    </p>
+  </div>
+  <div *ngIf="pedido.ListaCompra && pedido.Agendamento">
+    <p *ngIf="pedido.Status != 'Pedido retirado'">
+      <b>Agendado para: </b> {{pedido.Agendamento.Data | date: 'dd/MM/yyyy'}} às {{pedido.Agendamento.Data | date:
+      'HH:mm:ss'}}
+    </p>
+  </div>
+  <p>
+    <b>Status:</b> <span class="status-pedido" [ngClass]="{ 'status-erro': pedido.Status == 'Erro' }">{{pedido.Status}}{{pedido.Motivo
+      != null && pedido.Motivo != '' ? ' - ' + pedido.Motivo : ''}}</span>
+  </p>
+
+  <div [hidden]="!lojista">
+    <p>
+      <b>Cliente:</b> {{pedido.Usuario?.Pessoa?.Nome}} {{pedido.Usuario?.Pessoa?.Sobrenome}}
+    </p>
+  </div>
+
+  <div *ngIf="pedido.ListaCompra != null && pedido.Status == 'Aguardando retirada'" [hidden]="lojista">
+
+    <p class="text-boxed text-center">Exiba o QRCode para retirar seu pedido</p>
+    <div class="text-center">
+      <qr-code [value]="pedido.QrCode.Url" size="250"></qr-code>
+    </div>
+
+  </div>
+
+  <h1 *ngIf="pedido.ListaCompra != null">Itens</h1>
+
+  <ion-list *ngIf="pedido.ListaCompra != null">
+    <ion-item *ngFor="let item of pedido.ListaCompra.Itens">
+      <p>{{item.Produto.Nome}}</p>
+      <ion-row>
+        <ion-col col-6>
+          {{item.Quantidade}} x
+        </ion-col>
+        <ion-col col-6 class="text-right">
+          R${{item.Preco.Valor.toFixed(2)}}
+        </ion-col>
+      </ion-row>
+      <p class="item-valor-destaque">R${{item.Total.toFixed(2)}}</p>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="pedido.ListaCompra != null" [hidden]="!lojista">
+    <div *ngIf="pedido.Status == 'Pagamento aprovado'">
+      <button ion-button clear large>
+        <ion-icon style="color:green" name="thumbs-up"></ion-icon>
+      </button>
+      <button ion-button clear large>
+        <ion-icon style="color:red" name="thumbs-down"></ion-icon>
+      </button>
+    </div>
+    <div *ngIf="pedido.Status == 'Aguardando envio'">
+      <button ion-button clear large>
+        <ion-icon style="color:red" name="paper-plane"></ion-icon>
+      </button>
+    </div>
+  </div>
+</ion-content>

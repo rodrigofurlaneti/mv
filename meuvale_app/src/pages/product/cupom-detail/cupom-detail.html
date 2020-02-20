@@ -1,0 +1,84 @@
+<!--
+  Generated template for the CupomDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{produtoMv.Produto.Nome}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list no-lines>
+    <div class="topo-logo">
+      <img src="assets/image/logo_home_white.png">
+    </div>
+    <div class="title-cupom">
+      <strong> Clube de Descontos </strong>
+      <hr>
+    </div>
+    <ion-item-divider class="list-divider">
+      <strong item-start class="line">-- </strong>
+      <strong class="item-divider"> {{produtoMv.Produto.CategoriaProduto.Nome}}</strong>
+    </ion-item-divider>
+  </ion-list>
+
+  <strong *ngIf="produtoMv.Loja" class="text-center loja-descricao">{{produtoMv.Loja.Descricao}}</strong>
+  <strong *ngIf="produtoMv.Fornecedor" class="text-center loja-descricao">{{produtoMv.Fornecedor.Descricao}}</strong>
+  <div class="img-produto-detalhe-container">
+    <div *ngIf="!produtoMv || produtoMv.Imagens.length <= 0">
+      <img class="img-produto-home" src="{{produtoMv.Produto.DepartamentoProduto.LogoUpload}}" alt="">
+    </div>
+
+    <div *ngIf="produtoMv && produtoMv.Imagens.length == 1">
+      <img class="img-produto-home" src={{produtoMv.Imagens[0].Descricao}} alt="">
+    </div>
+
+    <ion-slides pager autoplay *ngIf="produtoMv && produtoMv.Imagens.length > 1">
+      <ion-slide *ngFor="let slide of produtoMv.Imagens">
+        <img class="img-produto-home" src={{slide.Descricao}} alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <div class="green-squad text-center">
+          <strong>{{produtoMv.Valor.toFixed(0)}}%</strong>
+          <strong>de desconto</strong>
+        </div>
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-8>
+        <div class="logo-white">
+          <img class="logo-white" *ngIf="produtoMv.Loja" src={{produtoMv.Loja.Logo}} alt="">
+          <img class="logo-white" *ngIf="produtoMv.Fornecedor" src={{produtoMv.Fornecedor.Logo}} alt="">
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <button ion-button secundary large block (click)='voucher()' *ngIf="voucherResgatado == false">
+    <h3>Retirar Voucher</h3>
+  </button>
+  <button ion-button primary large block (click)='voucher()' *ngIf="voucherResgatado == true">
+    <h3>Visualizar Voucher</h3>
+  </button>
+
+  <div class="tutorial-desconto">
+    <p>{{produtoMv.Produto.Descricao}}</p>
+    <ol *ngFor="let info of produtoMv.Produto.Descricoes; let i = index">
+      <li><span>{{i+1}}</span><span>{{info.Descricao}}</span></li>
+    </ol>
+  </div>
+</ion-content>

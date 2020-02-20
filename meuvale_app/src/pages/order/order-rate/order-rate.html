@@ -1,0 +1,160 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Avalie seu pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+  <h1 class="h1-default">Pedido #{{pedido.Id}}</h1>
+  <div *ngIf="pedido.ListaCompra != null && pedido.ListaCompra.Loja != null">
+    <p>
+      <b>Loja:</b> {{pedido.ListaCompra.Loja.Descricao}}
+    </p>
+  </div>
+  <div *ngIf="pedido.ListaCompra == null">
+      <p>
+        <b>Loja:</b> {{pedido.Loja.Descricao}}
+      </p>
+    </div>
+  <p>
+    <b>Data da compra:</b> {{pedido.DataInsercao | date: 'dd/MM/yyyy'}} às {{pedido.DataInsercao | date: 'HH:mm:ss'}}
+  </p>
+  <div *ngIf="pedido.ListaCompra != null">
+  <p>
+    <b>Valor Total:</b> R${{pedido.ListaCompra.Total.toFixed(2)}}
+  </p>
+</div>
+<div *ngIf="pedido.ListaCompra == null">
+    <p>
+      <b>Valor Total:</b> R${{pedido.Valor.toFixed(2)}}
+    </p>
+  </div>
+
+  <h1>Avaliação</h1>
+
+  <div>
+    <ion-list radio-group [(ngModel)]="pedido.AvaliacaoPedido.ItensDeAcordoComAnuncio" name="itensDeAcordoComAnuncio"
+      required>
+      <ion-list-header>
+        Tudo estava de acordo com o esperado?
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Sim</ion-label>
+        <ion-radio value="true"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Não</ion-label>
+        <ion-radio value="false"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <div>
+    <p class="text-center">Qual a nota para o Estabelecimento?</p>
+    <div class="text-center">
+      <button (click)="notaPedido(1)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaPedido < 1">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido >= 1">
+        </ion-icon>
+      </button>
+      <button (click)="notaPedido(2)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaPedido < 2">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido >= 2">
+        </ion-icon>
+      </button>
+      <button (click)="notaPedido(3)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaPedido < 3">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido >= 3">
+        </ion-icon>
+      </button>
+      <button (click)="notaPedido(4)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaPedido < 4">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido >= 4">
+        </ion-icon>
+      </button>
+      <button (click)="notaPedido(5)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaPedido < 5">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido >= 5">
+        </ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaPedido < 5">
+    <p>O que precisa ser melhor na próxima experiência?</p>
+    <ion-textarea class="input-textarea" color="secundary" rows="5" clearOnEdit="true"
+      placeholder="escreva aqui seu comentário" aria-multiline="true" [(ngModel)]="pedido.AvaliacaoPedido.Comentario">
+    </ion-textarea>
+  </div>
+
+  <div class="row">
+    <p class="text-center">Qual a nota para o App MeuVale?</p>
+    <div class="text-center">
+      <button (click)="notaAplicativo(1)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaAplicativo < 1">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaAplicativo >= 1">
+        </ion-icon>
+      </button>
+      <button (click)="notaAplicativo(2)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaAplicativo < 2">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaAplicativo >= 2">
+        </ion-icon>
+      </button>
+      <button (click)="notaAplicativo(3)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaAplicativo < 3">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaAplicativo >= 3">
+        </ion-icon>
+      </button>
+      <button (click)="notaAplicativo(4)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaAplicativo < 4">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaAplicativo >= 4">
+        </ion-icon>
+      </button>
+      <button (click)="notaAplicativo(5)" ion-button clear>
+        <ion-icon name="star" class="classificacao"
+          *ngIf="!pedido.AvaliacaoPedido || pedido.AvaliacaoPedido.NotaAplicativo < 5">
+        </ion-icon>
+        <ion-icon name="star" class="classificacao-check"
+          *ngIf="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.NotaAplicativo >= 5">
+        </ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <div [hidden]="pedido.AvaliacaoPedido && pedido.AvaliacaoPedido.Id > 0">
+    <button ion-button block class="botao" (click)="avaliarPedido(pedido)">Avaliar Pedido</button>
+  </div>
+</ion-content>

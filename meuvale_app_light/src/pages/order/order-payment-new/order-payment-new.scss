@@ -1,0 +1,32 @@
+page-order-payment-new {
+    .img {
+        width: 30px;
+    }
+
+    .img-cartoes{
+        height: 45%;
+    }
+
+    .confirmar{
+        font-size: 145%; 
+        font-weight: 900;
+        background: map-get($colors, danger);
+        .button-inner{color: white;}
+    }
+
+    .swiper-pagination-fraction, 
+  .swiper-pagination-custom, 
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 10px;
+    width: 45%;
+    margin-left: 25%; 
+  }
+
+  .dados-cartao{
+      color: white;
+    position:absolute; 
+    top: 120px; 
+    left: 26px;
+    text-align: left;
+  }
+}

@@ -1,0 +1,155 @@
+<!--
+  Generated template for the ProductRegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastro de Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+
+  <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+    <ion-card class="text-center">
+      <ion-card-header>
+        Classificação
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label stacked>Categoria *</ion-label>
+          <ion-select formControlName="categoriaSelected" (ionChange)="onChangeCategoria()"
+            [disabled]="!categorias.length">
+            <ion-option *ngFor="let categoria of categorias" [value]="categoria.Id">{{categoria.Nome}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Departamento *</ion-label>
+          <ion-select formControlName="departamentoSelected" [disabled]="!departamentos.length" (ionChange)="onChangeDepartamento()">
+            <ion-option *ngFor="let departamento of departamentos" [value]="departamento.Id">{{departamento.Nome}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Foto / Ícone Padrão para Produtos
+    </ion-card-header>
+    <ion-card-content>
+      <div class="img-produto-detalhe-container">
+        <div *ngIf="!produtoMv || produtoMv.Imagens.length <= 0">
+          <img src="assets/image/logo.png" class="img-produto-detalhe" alt="">
+        </div>
+
+        <div *ngIf="produtoMv && produtoMv.Imagens.length == 1">
+          <img src="{{produtoMv.Imagens[0].Descricao}}" class="img-produto-detalhe" alt="">
+        </div>
+
+        <ion-slides pager autoplay *ngIf="produtoMv && produtoMv.Imagens.length > 1">
+          <ion-slide *ngFor="let slide of produtoMv.Imagens">
+            <img src={{slide.Descricao}} class="img-produto-detalhe" alt="">
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- file-name definite o nome do arquivo, tem de ter a extençao .png, padrão timestamp-->
+  <!-- eventos (uploadStart), (uploadComplete), (imageCaptureError), (uploadError) -->
+  <div class="text-center" *ngIf="admUsr">
+    <firebase-uploader path-file="produto" file-name="{{loja.Id}}-{{date}}.png" (uploadComplete)="handleEvent($event)">
+    </firebase-uploader>
+  </div>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Dados do 
+      <p *ngIf="this.productForm.value.categoriaSelected != 3">Produto</p> 
+      <p *ngIf="this.productForm.value.categoriaSelected == 3">Cupom</p>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+        <div class="descricao">
+          <ion-item>
+            <ion-label stacked *ngIf="this.productForm.value.categoriaSelected != 3">Nome *</ion-label>
+            <ion-label stacked *ngIf="this.productForm.value.categoriaSelected == 3">Cupom *</ion-label>
+            <ion-input formControlName="nome" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Descricao *</ion-label>
+            <ion-textarea formControlName="descricao" rows="5" clearOnEdit="true" aria-multiline="true" maxlength="255">
+            </ion-textarea>
+          </ion-item>
+          <ion-item *ngIf="this.productForm.value.categoriaSelected == 3">
+              <ion-label stacked>Detalhe</ion-label>
+              <ion-textarea formControlName="detalhe" rows="5" clearOnEdit="true" aria-multiline="true" maxlength="255">
+              </ion-textarea>
+            </ion-item>
+            <ion-item *ngIf="this.productForm.value.categoriaSelected == 3">
+                <ion-label stacked>Termos & Condições</ion-label>
+                <ion-textarea formControlName="termo" rows="5" clearOnEdit="true" aria-multiline="true" maxlength="255">
+                </ion-textarea>
+              </ion-item>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Valores
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+        <ion-item class="text-center">
+          <ion-label *ngIf="this.productForm.value.categoriaSelected != 3">Preço de Venda: *</ion-label>
+          <ion-label *ngIf="this.productForm.value.categoriaSelected == 3">Valor do Cupom: *</ion-label>
+          <ion-input formControlName="precovenda" class="text-center" type="text" name="money" placeholder="(R$) 0.00"
+            [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2'}"></ion-input>
+        </ion-item>
+
+        <ion-item class="text-center" *ngIf="this.productForm.value.categoriaSelected != 3">
+          <ion-label>Preço Desconto: </ion-label>
+          <ion-input formControlName="precodesconto" class="text-center" type="text" name="money"
+            placeholder="(R$) 0.00" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2'}">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="text-center">
+          <ion-label>Início Vigência: *</ion-label>
+          <ion-input class="input-edit" formControlName="inicioVigencia"
+            [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+        </ion-item>
+
+        <ion-item class="text-center">
+          <ion-label>Fim Vigência: *</ion-label>
+          <ion-input class="input-edit" formControlName="fimVigencia"
+            [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Ativo</ion-label>
+          <ion-toggle slot="end" formControlName="status">
+          </ion-toggle>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+    <div>
+      <button class="product-form" type="submit" class="product-form" ion-button block>
+        Salvar
+      </button>
+    </div>
+  </form>
+
+</ion-content>

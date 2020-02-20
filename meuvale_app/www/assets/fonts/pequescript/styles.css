@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'pequescript';
+  src: url('pequescript.eot?#iefix') format('embedded-opentype'),  url('pequescript.otf')  format('opentype'),
+	     url('pequescript.woff') format('woff'), url('pequescript.ttf')  format('truetype'), url('pequescript.svg#pequescript') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

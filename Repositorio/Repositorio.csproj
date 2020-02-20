@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7E0240B2-B47E-40CC-AF42-AEB2744E4CD8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Repositorio</RootNamespace>
+    <AssemblyName>Repositorio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
+    <OutputPath>bin\Development\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.SimpleInjectorAdapter, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.SimpleInjectorAdapter.2.8.0\lib\portable-net4+sl4+wp8+win8+wpa81\CommonServiceLocator.SimpleInjectorAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.CommonServiceLocator.1.2.2\lib\net35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.10.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.4\lib\net452\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.2.5\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AvaliacaoPedidoRepositorio.cs" />
+    <Compile Include="DispositivoRepositorio.cs" />
+    <Compile Include="DescontoPessoaRepositorio.cs" />
+    <Compile Include="DescontoGlobalRepositorio.cs" />
+    <Compile Include="DescontoRepositorio.cs" />
+    <Compile Include="CupomRepositorio.cs" />
+    <Compile Include="Base\AuditEventListener.cs" />
+    <Compile Include="Base\FluentNHibContext.cs" />
+    <Compile Include="Base\NHibContext.cs" />
+    <Compile Include="Base\NHibRepository.cs" />
+    <Compile Include="Base\NHibSession.cs" />
+    <Compile Include="DepartamentoProdutoRepositorio.cs" />
+    <Compile Include="HorarioFuncionamentoLojaRepositorio.cs" />
+    <Compile Include="Mapeamento\AtendimentoProdutoMap.cs" />
+    <Compile Include="Mapeamento\BancoMap.cs" />
+    <Compile Include="Mapeamento\DadosBancariosMap.cs" />
+    <Compile Include="Mapeamento\HistoricoPedidoVoucherMap.cs" />
+    <Compile Include="Mapeamento\HorarioFuncionamentoLojaMap.cs" />
+    <Compile Include="Mapeamento\ConvenioMap.cs" />
+    <Compile Include="Mapeamento\MarcaMap.cs" />
+    <Compile Include="Mapeamento\PedidoVoucherMap.cs" />
+    <Compile Include="Mapeamento\PlanoVendaMap.cs" />
+    <Compile Include="Mapeamento\TerminalCobrancaLojaMap.cs" />
+    <Compile Include="Mapeamento\ProdutoAtivacaoLojaMap.cs" />
+    <Compile Include="Mapeamento\TerminalCobrancaMap.cs" />
+    <Compile Include="Mapeamento\TipoLojaMap.cs" />
+    <Compile Include="Mapeamento\TipoCartaoMap.cs" />
+    <Compile Include="Mapeamento\VeiculoMap.cs" />
+    <Compile Include="MarcaRepositorio.cs" />
+    <Compile Include="FornecedorRepositorio.cs" />
+    <Compile Include="GrupoProdutoRepositorio.cs" />
+    <Compile Include="Mapeamento\CategoriaProdutoMap.cs" />
+    <Compile Include="Mapeamento\DispositivoMap.cs" />
+    <Compile Include="Mapeamento\DescontoPessoaMap.cs" />
+    <Compile Include="Mapeamento\ComentarioMap.cs" />
+    <Compile Include="Mapeamento\InformacaoProdutoMap.cs" />
+    <Compile Include="Mapeamento\MuralMap.cs" />
+    <Compile Include="Mapeamento\PessoaJuridicaMap.cs" />
+    <Compile Include="Mapeamento\BannerMap.cs" />
+    <Compile Include="Mapeamento\AvaliacaoPedidoMap.cs" />
+    <Compile Include="Mapeamento\TutorialMap.cs" />
+    <Compile Include="BannerRepositorio.cs" />
+    <Compile Include="BancoRepositorio.cs" />
+    <Compile Include="MuralRepositorio.cs" />
+    <Compile Include="CategoriaProdutoRepositorio.cs" />
+    <Compile Include="ConvenioRepositorio.cs" />
+    <Compile Include="PedidoVoucherRepositorio.cs" />
+    <Compile Include="PlanoVendaRepositorio.cs" />
+    <Compile Include="TerminalCobrancaLojaRepositorio.cs" />
+    <Compile Include="TerminalCobrancaRepositorio.cs" />
+    <Compile Include="TutorialRepositorio.cs" />
+    <Compile Include="TabloideRepositorio.cs" />
+    <Compile Include="Mapeamento\DescontoMap.cs" />
+    <Compile Include="Mapeamento\CupomMap.cs" />
+    <Compile Include="Mapeamento\DepartamentoProdutoMap.cs" />
+    <Compile Include="Mapeamento\FornecedorMap.cs" />
+    <Compile Include="Mapeamento\GrupoProdutoMap.cs" />
+    <Compile Include="Mapeamento\TabloideMap.cs" />
+    <Compile Include="Mapeamento\MenuMap.cs" />
+    <Compile Include="Mapeamento\DescontoGlobalMap.cs" />
+    <Compile Include="Mapeamento\HistoricoPedidoMap.cs" />
+    <Compile Include="Mapeamento\QrCodeMap.cs" />
+    <Compile Include="Mapeamento\AgendamentoMap.cs" />
+    <Compile Include="AgendamentoRepositorio.cs" />
+    <Compile Include="InformacaoProdutoRepositorio.cs" />
+    <Compile Include="Mapeamento\SecaoProdutoMap.cs" />
+    <Compile Include="Mapeamento\SubGrupoProdutoMap.cs" />
+    <Compile Include="MenuRepositorio.cs" />
+    <Compile Include="QrCodeRepositorio.cs" />
+    <Compile Include="PedidoRepositorio.cs" />
+    <Compile Include="CartaoRepositorio.cs" />
+    <Compile Include="DocumentoRepositorio.cs" />
+    <Compile Include="EnderecoRepositorio.cs" />
+    <Compile Include="ContatoRepositorio.cs" />
+    <Compile Include="ItemCompraRepositorio.cs" />
+    <Compile Include="Mapeamento\PedidoMap.cs" />
+    <Compile Include="Mapeamento\ItemCompraMap.cs" />
+    <Compile Include="Mapeamento\ListaCompraMap.cs" />
+    <Compile Include="Mapeamento\ProdutoPrecoMap.cs" />
+    <Compile Include="ProdutoPrecoRepositorio.cs" />
+    <Compile Include="PaisRepositorio.cs" />
+    <Compile Include="EstadoRepositorio.cs" />
+    <Compile Include="CidadeRepositorio.cs" />
+    <Compile Include="ListaCompraRepositorio.cs" />
+    <Compile Include="ProdutoRepositorio.cs" />
+    <Compile Include="Mapeamento\ProdutoMap.cs" />
+    <Compile Include="PdvRepositorio.cs" />
+    <Compile Include="Mapeamento\TokenMap.cs" />
+    <Compile Include="Mapeamento\PdvMap.cs" />
+    <Compile Include="PermissaoRepositorio.cs" />
+    <Compile Include="PerfilRepositorio.cs" />
+    <Compile Include="LojaRepositorio.cs" />
+    <Compile Include="Mapeamento\AuditMap.cs" />
+    <Compile Include="Mapeamento\CartaoMap.cs" />
+    <Compile Include="Mapeamento\CidadeMap.cs" />
+    <Compile Include="Mapeamento\ContatoMap.cs" />
+    <Compile Include="Mapeamento\DocumentoMap.cs" />
+    <Compile Include="Mapeamento\EnderecoMap.cs" />
+    <Compile Include="Mapeamento\EstadoMap.cs" />
+    <Compile Include="Mapeamento\LojaMap.cs" />
+    <Compile Include="Mapeamento\PaisMap.cs" />
+    <Compile Include="Mapeamento\PermissaoMap.cs" />
+    <Compile Include="Mapeamento\PerfilMap.cs" />
+    <Compile Include="Mapeamento\PushNotificationMap.cs" />
+    <Compile Include="Mapeamento\UsuarioMap.cs" />
+    <Compile Include="Mapeamento\PessoaMap.cs" />
+    <Compile Include="PushNotificationRepositorio.cs" />
+    <Compile Include="SecaoProdutoRepositorio.cs" />
+    <Compile Include="SubGrupoProdutoRepositorio.cs" />
+    <Compile Include="TokenRepositorio.cs" />
+    <Compile Include="UsuarioRepositorio.cs" />
+    <Compile Include="PessoaRepositorio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VeiculoRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidade\Entidade.csproj">
+      <Project>{3c0337df-e437-4905-9848-0845b9f46610}</Project>
+      <Name>Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Dominio.csproj">
+      <Project>{9DC80615-73E7-4D73-814E-90E469364530}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Core.csproj">
+      <Project>{D910ECAD-DDF8-409C-B7D6-ABC6CA831B53}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="docs\MySqlCommand.xml" />
+    <Content Include="docs\MySqlCommandBuilder.xml" />
+    <Content Include="docs\MySqlConnection.xml" />
+    <Content Include="docs\MySqlConnectionStringBuilder.xml" />
+    <Content Include="docs\MySqlDataAdapter.xml" />
+    <Content Include="docs\MySqlDataReader.xml" />
+    <Content Include="docs\MySqlException.xml" />
+    <Content Include="docs\MySqlHelper.xml" />
+    <Content Include="docs\MySqlParameter.xml" />
+    <Content Include="docs\MySqlParameterCollection.xml" />
+    <Content Include="docs\MySqlTransaction.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

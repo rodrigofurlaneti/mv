@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Indique um Estabelecimento</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <ion-item>
+        <div item-start>
+            <img style="max-height: 50px;" start src="assets/image/Icones/pin.png">
+        </div>
+        <div item-end style="font-size: 13px;">
+            Se algum estabelecimento que você gosta ainda não aceita o Meu<b>Vale</b>, indique-o para nós que iremos
+            credenciá-lo.
+        </div>
+    </ion-item>
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <ion-item style="margin-left: calc(50% - 50%); margin-top: calc(50% - 45%);">
+            <div item-start>
+                <img style="max-height: 25px;" start src="assets/image/Icones/loja.png">
+            </div>
+            <div>
+                DADOS DO ESTABELECIMENTO
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Nome</ion-label>
+            <ion-input class="input-edit" formControlName="nomefantasia" type="text"> </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Telefone</ion-label>
+            <ion-input class="input-edit" formControlName="telefone" [brmasker]="{phone: true}" type="tel">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Celular (Whatsapp)</ion-label>
+            <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel">
+            </ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>País</ion-label>
+            <ion-select formControlName="paisSelected" [disabled]="!paises.length">
+                <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Estado</ion-label>
+            <ion-select formControlName="estadoSelected" (ionChange)="onChangeEstado()" [disabled]="!estados.length">
+                <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Cidade</ion-label>
+            <ion-select formControlName="cidadeSelected" [disabled]="!cidades.length">
+                <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <div class="margin-top-10">
+            <button class="store-form" type="submit" ion-button color="primary" block>
+                Indicar
+            </button>
+        </div>
+    </form>
+</ion-content>

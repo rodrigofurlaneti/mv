@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Finalizar Pagamento</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <ion-card>
+        <ion-card-content>
+            <ion-item color="light">
+                Escolha um cartão
+            </ion-item>
+
+            <ion-slides pager *ngIf="cartoes && cartoes.length > 0" class="img-cartoes">
+                <ion-slide *ngFor="let cartao of cartoes" (onchange)="selecionaCartao(cartao)">
+                    <div style='position:relative; top:0px; left:0px;'>
+                        <img class="icon" src="assets/image/cartoes/{{cartao.TipoCartao.Descricao | cardType}}.png"
+                            *ngIf="cartao != null && cartao.TipoCartao != null && cartao.TipoCartao.Id > 0">
+                        <img class="icon" src="assets/image/cartoes/default.png"
+                            *ngIf="cartao == null || cartao.TipoCartao == null || cartao.TipoCartao.Id <= 0">
+                    </div>
+                    <div class="dados-cartao">
+                        <p style="font-weight: 900;">{{cartao.Numero}}</p>
+                        <p>{{cartao.NomeImpresso}}</p>
+                        <p>{{cartao.Validade}}</p>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </ion-card-content>
+    </ion-card>
+    <button ion-button [disabled]="!pedido.Cartao.Id" class="confirmar" block (click)="confirmarCompra()">
+        Próximo
+    </button>
+    <div class="text-center">
+        <button style="font-size: 115%; font-weight: 900; text-transform: lowercase !important;" ion-button
+            (click)="adicionarCartao()"><b>+</b>&nbsp;adicionar um cartão de crédito</button>
+    </div>
+    <div class="text-center" style="margin-top: 15px">
+        <ion-grid>
+            <ion-row>
+                <ion-col><img src="assets/image/cartoes/mastercard@2x.png"></ion-col>
+                <ion-col><img src="assets/image/cartoes/visa@2x.png"></ion-col>
+                <ion-col><img src="assets/image/cartoes/amex@2x.png"></ion-col>
+                <ion-col><img src="assets/image/cartoes/dinners@2x.png"></ion-col>
+                <ion-col><img src="assets/image/cartoes/hipercard@2x.png"></ion-col>
+                <ion-col><img src="assets/image/cartoes/elo@2x.png"></ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+            <ion-icon name="close"></ion-icon>
+        </button> 
+      </ion-buttons>
+      <ion-title>Dados pessoais</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding class="listWhite">
+      <form [formGroup]="clientForm" (ngSubmit)="doSubmit()">
+          <ion-list>
+              <p style="text-align:center;" >Preencha o restante dos dados</p>
+              <ion-item>                    
+                  <ion-label floating>CPF *</ion-label>
+                  <ion-input class="input-edit" formControlName="cpf" [brmasker]="{mask:'000.000.000-00', len:14}" type="tel"></ion-input>               
+              </ion-item>
+              <small *ngIf="sended && !clientForm.controls['cpf'].value">
+                  Campo obrigatório
+              </small>
+              <ion-item>
+                  <ion-label floating>Nome *</ion-label>
+                  <ion-input class="input-edit" formControlName="nome" type="text"> </ion-input>
+              </ion-item>
+              <small *ngIf="sended && !clientForm.controls['nome'].value">
+                  Campo obrigatório
+              </small>
+              <ion-item >
+                  <ion-label floating>E-mail *</ion-label>
+                  <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+              </ion-item>
+              <small *ngIf="sended && !clientForm.controls['email'].value">
+                  Campo obrigatório
+              </small>
+              <ion-item >
+                  <ion-label floating>Senha *</ion-label>
+                  <ion-input class="input-edit" formControlName="senha" type="password"></ion-input>
+              </ion-item>
+              <small *ngIf="sended && !clientForm.controls['senha'].value && !logado)">
+                  Campo obrigatório
+              </small>
+              <ion-item >
+                  <ion-label floating>Confirmar senha *</ion-label>
+                  <ion-input class="input-edit" formControlName="confirmaSenha" type="password"></ion-input>
+              </ion-item>
+              <small *ngIf="sended && !clientForm.controls['confirmaSenha'].value && (!logado)">
+                  Campo obrigatório
+              </small>
+            </ion-list>
+          <br>
+          <div>
+              <button class="cliente-form" type="submit" ion-button color="primary" block>
+                  Salvar
+              </button>
+          </div>
+      </form>
+  </ion-content>
+  

@@ -1,0 +1,51 @@
+<!--
+  Generated template for the StoreDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{loja.Descricao}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content class="listWhite">
+      <div id="map_canvas_2"></div>
+      <div padding>
+          <ion-list>
+              <ion-item>
+                  <ion-icon name="map" item-start></ion-icon>
+                  {{endereco.Logradouro}}, {{endereco.Numero}}
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="call" item-start></ion-icon>
+                  {{loja.Telefone}}
+              </ion-item>
+              <ion-item text-wrap *ngIf="loja.HorarioFuncionamento">
+                  <ion-icon name="time" item-start></ion-icon>
+                  <div *ngFor="let horario of loja.HorarioFuncionamento">
+                  <p *ngIf="horario.HoraInicio"> {{horario.Dia}} - {{horario.HoraInicio}} às {{horario.HoraFim}} 
+                            <b *ngIf="horario.Status">({{horario.Status}})</b></p>
+                  <p *ngIf="!horario.HoraInicio"> {{horario.Dia}} - Não Abre </p>
+                </div>
+              </ion-item>
+              <ion-item>
+                  <ion-icon name="navigate" item-start></ion-icon>
+                  {{loja.Distancia ? (loja.Distancia/1000).toFixed(2) : '--'}} km
+              </ion-item>
+          </ion-list>
+          <div>
+              <button class="novaloja-form" ion-button color="primary" block (click)="navegarpara()">
+                  Navegar para o Estabelecimento
+              </button>
+          </div>
+      </div>
+  </ion-content>
+  

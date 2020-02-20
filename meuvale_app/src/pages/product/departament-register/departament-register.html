@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Departamentos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <form [formGroup]="departamentForm" (ngSubmit)="doSubmit()">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Dados Cadastrais
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Categoria *</ion-label>
+                    <ion-select formControlName="categoriaSelected" [disabled]="!categorias.length">
+                        <ion-option *ngFor="let categoria of categorias" [value]="categoria.Id">{{categoria.Nome}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Descrição</ion-label>
+                    <ion-input class="input-edit" formControlName="nome" type="text"> </ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+    <ion-card class="text-center">
+        <ion-card-header>
+            Foto / Ícone Padrão para Produtos
+        </ion-card-header>
+        <ion-card-content>
+            <div class="img-produto-detalhe-container">
+                <div *ngIf="!departamentForm || !departamentForm.value.logoUpload">
+                    <img src="assets/image/product/default.png" class="img-produto-detalhe" alt="">
+                </div>
+                <div *ngIf="departamentForm.value.logoUpload">
+                    <img src={{departamentForm.value.logoUpload}} class="img-produto-detalhe" alt="">
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <!-- file-name definite o nome do arquivo, tem de ter a extençao .png, padrão timestamp-->
+    <!-- eventos (uploadStart), (uploadComplete), (imageCaptureError), (uploadError) -->
+    <div class="text-center" *ngIf="departamentForm.value.nome">
+        <firebase-uploader path-file="departamento" file-name="{{departamentForm.value.nome}}-{{date}}.png"
+            (uploadComplete)="handleEvent($event)">
+        </firebase-uploader>
+    </div>
+
+    <form [formGroup]="departamentForm" (ngSubmit)="doSubmit()">
+        <div>
+            <button class="store-form" type="submit" ion-button color="primary" block>
+                Salvar
+            </button>
+        </div>
+    </form>
+
+    <h1 class="h1-default">Itens Cadastrados</h1>
+    <ion-card *ngFor="let departamento of departamentos">
+        <ion-item>
+            <ion-icon item-end name="create" (click)='edit(departamento)'></ion-icon>
+            <ion-icon item-end name="trash" (click)='trash(departamento)'></ion-icon>
+            <ion-label>{{departamento.CategoriaProduto.Nome}} -> {{departamento.Nome}}</ion-label>
+        </ion-item>
+    </ion-card>
+</ion-content>

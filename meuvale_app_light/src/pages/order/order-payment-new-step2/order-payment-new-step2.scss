@@ -1,0 +1,22 @@
+page-order-payment-new-step2 {
+    .confirmar{
+        font-size: 145%; 
+        font-weight: 900;
+        background: map-get($colors, danger);
+        .button-inner{color: white;}
+    }
+
+  .input-edit{
+    background: white;
+    border-radius: 4px;
+  }
+
+  .input-edit{
+      color: black;
+  }
+
+  .input-wrapper{
+  color: map-get($colors, primary);   
+  }
+
+}

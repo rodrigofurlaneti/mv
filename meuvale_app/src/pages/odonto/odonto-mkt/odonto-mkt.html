@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bem+ Odonto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="produtoMv">
+  <ion-list no-lines>
+    <div class="topo-logo">
+      <img src="assets/image/logo_home_white.png">
+    </div>
+    <div class="title-cupom">
+      <strong> Bem+ Odonto </strong>
+      <hr>
+    </div>
+  </ion-list>
+
+  <div>
+    <img class="text-center"
+      src="{{produtoMv.Produto.Imagens[0].Descricao}}">
+  </div>
+  <div class="text-center" style="text-align: left; ">
+    {{produtoMv.Produto.Descricao}}
+  </div>
+  <p class="text-center" style="background: #18bbe8; color: white;">
+    <strong>R$ {{produtoMv.ValorDesconto.toFixed(2)}}</strong>
+  </p>
+  <div class="text-center" style="margin-top: 10px;">
+    <button style="font-size: 115%; font-weight: 900" ion-button color="primary" block (click)="pagar()">Contrate o seu
+      clicando aqui</button>
+  </div>
+  <div class="text-center" style="margin-top: 10px;">
+    <button style="font-size: 115%; font-weight: 900" ion-button color="primary" block (click)="showForm()">Solicitar
+      Ligação</button>
+  </div>
+  <div class="text-center">
+    Clique que entraremos em contato
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <button *ngIf="!modalMode" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons *ngIf="modalMode" start>
+      <button (click)="dismiss()" ion-button>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Endereço</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+  <button type="submit" ion-button color="primary" icon-start block (click)="obterEndereco()">
+    <ion-icon name="send"></ion-icon>
+    Obter Por Geolocalização
+  </button>
+  <form [formGroup]="addressForm" (ngSubmit)="doSubmit()">
+    <ion-list>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Nome do Endereço *</ion-label>
+        <ion-input formControlName="descricao" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>CEP *</ion-label>
+        <ion-input formControlName="cep" [brmasker]="{mask:'00000-000', len:10, type:'num'}" type="tel"
+          (ionBlur)="onChangeCep()"></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Logradouro *</ion-label>
+        <ion-input formControlName="logradouro" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Número *</ion-label>
+        <ion-input formControlName="numero" type="tel"></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Complemento</ion-label>
+        <ion-input formControlName="complemento" type="text"></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Bairro</ion-label>
+        <ion-input formControlName="bairro" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>pais *</ion-label>
+        <ion-select formControlName="paisSelected" [disabled]="!paises.length">
+          <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Estado *</ion-label>
+        <ion-select formControlName="estadoSelected" (ionChange)="onChangeEstado()" [disabled]="!estados.length">
+          <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Cidade *</ion-label>
+        <ion-select formControlName="cidadeSelected" [disabled]="!cidades.length">
+          <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button type="submit" ion-button color="primary" icon-start block>
+      <ion-icon name="send"></ion-icon>
+      Salvar
+    </button>
+  </form>
+  <br>
+</ion-content>

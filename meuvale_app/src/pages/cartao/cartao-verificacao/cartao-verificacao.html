@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button *ngIf="!modalMode" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons *ngIf="modalMode" start>
+      <button (click)="dismiss()" ion-button>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Verificação de Senha do Cartão</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <form [formGroup]="cardForm" (ngSubmit)="doSubmit()">
+    <ion-list>
+      <ion-item class="nopadding-left">
+        <ion-label stacked>Número</ion-label>
+        <ion-input formControlName="numero" [brmasker]="{mask:'0000 0000 0000 0000', len:19, type:'num'}" type="tel" readonly></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left" [hidden]="false">
+        <ion-label stacked>Validade</ion-label>
+        <ion-input formControlName="validade" [brmasker]="{mask:'00/00', len:5, type:'num'}" type="tel" readonly></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left" [hidden]="false">
+        <ion-label stacked>CVV</ion-label>
+        <ion-input formControlName="cvv" [brmasker]="{mask:'0000', len:4, type:'num'}" type="tel" readonly></ion-input>
+      </ion-item>
+      <ion-item class="nopadding-left">
+          <ion-label stacked>Senha</ion-label>
+          <ion-input formControlName="senha" type="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button type="submit" ion-button color="primary" icon-start block>
+      <ion-icon name="send"></ion-icon>
+      Verificar
+    </button>
+  </form>
+</ion-content>

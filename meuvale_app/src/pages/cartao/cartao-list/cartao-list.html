@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="header-center">Cartões</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let cartao of cartoes" class="item-border-bottom item-padding-left">
+      <div *ngIf="cartao.TipoCartao != null">
+        <div class="row" style="width:100%;">
+          <div style="width:77%;">
+            <p>
+              <img class="icon" src="assets/image/Icones/{{cartao.TipoCartao.Descricao | cardType}}.png"
+                *ngIf="cartao != null && cartao.TipoCartao != null && cartao.TipoCartao.Id > 0">
+              <img class="icon" src="assets/image/Icones/default.png"
+                *ngIf="cartao == null || cartao.TipoCartao == null || cartao.TipoCartao.Id <= 0">
+            </p>
+            <label class="paragraphCard"
+              *ngIf="cartao != null && cartao.NumeroSemMascara != null && cartao.NumeroSemMascara.length >= 4">
+              <p class="paragraphCardType"><b>{{cartao.TipoCartao.Descricao}}</b></p> Final:
+              {{cartao.NumeroSemMascara.substr(cartao.NumeroSemMascara.length - 4)}} | {{cartao.Validade}}
+            </label>
+            <label class="paragraphCard"
+              *ngIf="(cartao != null && cartao.NumeroSemMascara != null && cartao.NumeroSemMascara.length < 4) || (cartao == null || cartao.NumeroSemMascara == null)">
+              <p class="paragraphCardType"><b>Card</b></p>Final: 0000 | 00/00
+            </label>
+          </div>
+        </div>
+
+        <div class="row" style="width: 100%;">
+          <div style="width: 100%;">
+            <div style="width: 60%; float: left; margin-left: 8px;">
+              <button ion-button class="btn-saldo" (click)='saldo(cartao)'>
+                <h3 class="btn-saldo">saldo</h3>
+              </button>
+              <p class="text-center backcolor-money-label color-money-active money-label"
+                [hidden]="!cartao.Senha && cartao.SaldoDisponivel >= 0">
+                &nbsp;&nbsp;R$ {{cartao.SaldoDisponivel ? cartao.SaldoDisponivel : ""}}
+              </p>
+              <p class="text-center backcolor-money-label color-money-inactive money-label" [hidden]="cartao.Senha">
+                &nbsp;&nbsp;R$
+              </p>
+            </div>
+            <div style="width: 30%; float: right;">
+              <button class="btn-extrato" ion-button (click)='extrato(cartao)'>
+                <h3 class="btn-extrato">extrato</h3>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cartaos Bandeiras -->
+      <div *ngIf="cartao.TipoCartao == null" class="row" style="width:100%;">
+          <div style="width:77%;">
+  
+            <div item-start class="icon-bandeira" *ngIf="cartao != null && cartao.NumeroSemMascara != null">
+              <img src="assets/image/cartoes/{{cartao.NumeroSemMascara | cardType}}.png">
+            </div>
+            <div item-start class="icon-bandeira" *ngIf="cartao == null || cartao.NumeroSemMascara == null">
+              <img src="assets/image/cartoes/default.png">
+            </div>
+  
+            <label class="paragraphCardBandeira"
+              *ngIf="cartao != null && cartao.NumeroSemMascara != null && cartao.NumeroSemMascara.length >= 4">
+              <p class="paragraphCardType"><b>{{cardType}}</b></p> Final:
+              {{cartao.NumeroSemMascara.substr(cartao.NumeroSemMascara.length - 4)}} | {{cartao.Validade}}
+            </label>
+            <label class="paragraphCardBandeira"
+              *ngIf="(cartao != null && cartao.NumeroSemMascara != null && cartao.NumeroSemMascara.length < 4) || (cartao == null || cartao.NumeroSemMascara == null)">
+              <p class="paragraphCardType"><b>Card</b></p>Final: 0000 | 00/00
+            </label>
+          </div>
+          <div style="width:23%; text-align:right;">
+            <img src="assets/image/Icones/botao_edit@2x.png" alt="" class="imgBtnCartao-edit" (click)="editar(cartao)"
+              clear>
+            <img src="assets/image/Icones/botao_lixo@2x.png" alt="" class="imgBtnCartao-remove" (click)="remover(cartao)"
+              clear>
+          </div>
+        </div>
+
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="cartoes == null || cartoes.length == 0">
+    <p class="text-center">Ainda não há cartões cadastrados</p>
+  </div>
+  <div class="text-center" style="margin-top:30px">
+    <button style="font-size: 115%; font-weight: 900; text-transform: lowercase !important;" ion-button
+      (click)="editar()"><b>+</b>&nbsp;adicionar um cartão de crédito</button>
+  </div>
+  <div class="text-center" style="margin-top: 15px">
+    <ion-grid>
+      <ion-row>
+        <ion-col><img src="assets/image/cartoes/mastercard@2x.png"></ion-col>
+        <ion-col><img src="assets/image/cartoes/visa@2x.png"></ion-col>
+        <ion-col><img src="assets/image/cartoes/amex@2x.png"></ion-col>
+        <ion-col><img src="assets/image/cartoes/dinners@2x.png"></ion-col>
+        <ion-col><img src="assets/image/cartoes/hipercard@2x.png"></ion-col>
+        <ion-col><img src="assets/image/cartoes/elo@2x.png"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

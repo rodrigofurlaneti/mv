@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Endereços</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div *ngIf="!enderecos.length && isLoaded" class="text-center">
+        <p>Ainda não há endereços cadastrados</p>
+    </div>
+
+    <ion-list *ngIf="enderecos.length">
+        <ion-item *ngFor="let endereco of enderecos">
+          <div item-start class="icon">
+            <img src="assets/image/loja-pin.png">
+          </div>
+          <p>{{endereco.Descricao}}</p>
+          <div item-end>
+            <button (click)='editar(endereco)' ion-button clear><ion-icon name="create"></ion-icon></button>
+            <button (click)='remover(endereco)' ion-button clear><ion-icon name="trash"></ion-icon></button>
+          </div>
+        </ion-item>
+      </ion-list>
+
+    <div class="text-center">
+        <button ion-button (click)="add()">Novo endereco</button>
+    </div>
+</ion-content>

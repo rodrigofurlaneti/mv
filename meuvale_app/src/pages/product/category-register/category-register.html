@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Categorias</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <form [formGroup]="categoryForm" (ngSubmit)="doSubmit()">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Dados Cadastrais
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Descrição</ion-label>
+                    <ion-input class="input-edit" formControlName="nome" type="text"> </ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <div>
+            <button class="store-form" type="submit" ion-button color="primary" block>
+                Salvar
+            </button>
+        </div>
+    </form>
+
+    <h1 class="h1-default">Itens Cadastrados</h1>
+    <ion-card *ngFor="let categoria of categorias">
+        <ion-item>
+            <ion-icon item-end name="create" (click)='edit(categoria)'></ion-icon>
+            <ion-icon item-end name="trash" (click)='trash(categoria)'></ion-icon>
+            <ion-label>{{categoria.Nome}}</ion-label>
+        </ion-item>
+    </ion-card>
+</ion-content>

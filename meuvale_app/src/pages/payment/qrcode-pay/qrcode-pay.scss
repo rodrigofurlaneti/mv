@@ -1,0 +1,18 @@
+page-qrcode-pay {
+    .swiper-slide img{
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+        display: none;
+    }
+
+    .content{
+        margin-top: 40px;
+    }
+
+    .content-default {
+        margin: auto;
+    }
+}

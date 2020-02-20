@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Contato</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <form [formGroup]="contactForm" (ngSubmit)="doContact()">
+        <ion-list>
+            <ion-item class="nopadding-left" *ngIf="!this.tipoContato">
+                <ion-label floating>Nome</ion-label>
+                <ion-input formControlName="Usuario" type="text"></ion-input>
+            </ion-item>
+            <ion-item class="nopadding-left">
+                <ion-label floating>E-mail</ion-label>
+                <ion-input formControlName="Email" type="email"></ion-input>
+            </ion-item>
+            <ion-item class="nopadding-left">
+                <ion-label floating>Telefone</ion-label>
+                <ion-input formControlName="Telefone" [brmasker]="{phone: true}" type="tel"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="!this.tipoContato">
+                <ion-label floating>Assunto</ion-label>
+                <ion-select formControlName="Assunto">                    
+                    <ion-option value="Ajuda">Ajuda</ion-option>
+                    <ion-option value="Sugestões">Sugestões</ion-option>
+                    <ion-option value="Reclamações">Reclamações</ion-option>
+                    <ion-option value="Elogios">Elogios</ion-option>
+                    <ion-option value="PlanoOdonto">Plano Odontológico</ion-option>
+                    <ion-option value="ContaDigital">Conta Digital</ion-option>
+                    <ion-option value="Outros">Outros</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="nopadding-left" *ngIf="!this.tipoContato">
+                <ion-label floating>Descricao</ion-label>
+                <ion-textarea formControlName="Descricao"></ion-textarea>
+            </ion-item>            
+        </ion-list>
+        <button type="submit" ion-button color="primary" icon-start block>
+            <ion-icon name="send"></ion-icon>
+            Enviar
+        </button>
+    </form>   
+</ion-content>

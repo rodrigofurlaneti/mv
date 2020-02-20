@@ -1,0 +1,111 @@
+page-cartao-extrato {
+    .scroll-content{
+        background-color: #ffffff !important;
+        color: #3C3A92 !important;
+        padding: 8px !important;
+    }
+    .backcolor-white {
+        background-color: #ffffff;
+        color: #3C3A92 !important;
+    }
+
+    ion-item .item-inner {
+        margin: 0 !important;
+        padding: 0 !important;
+
+        .label, .label-ios, .label-md {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
+
+    .inputCard {
+        background-color: #2C2B6D !important;
+        color: #ffffff !important;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 4px !important;
+        margin: 0 !important;
+        text-align: center;
+
+        .text-input {
+            padding: 0 !important;
+            margin: 0 !important;
+            text-align: center !important;
+        }
+    }
+
+    .backcolor-itemHeader {
+        background-color: #dedede !important;
+    }
+    .itemHeader-tittle {
+        min-height: 18px !important;
+    }
+    .item-details {
+        min-height: 25px !important;
+    }
+    .column-perc-data {
+        width: 15%;
+    }
+    .column-perc-credenciado {
+        width: 67%;
+    }
+    .column-perc-valor {
+        width: 18%;
+    }
+
+    .btn-days {
+        background-color: #02D28D !important;
+        color: #3C3A92 !important;
+        text-transform: lowercase !important;
+        float: left !important;
+        height: 30px;
+        line-height: 30px;
+        width: 65px;
+        font-size: medium;
+    }
+
+    .btn-days-default {
+        background-color: #02D28D !important;
+        color: #3C3A92 !important;
+        text-transform: lowercase !important;
+        float: left !important;
+        height: 30px;
+        line-height: 30px;
+        width: 35px;
+        font-size: medium;
+    } 
+
+    .btn-more {
+        background-color: #18BAE8 !important;
+        color: #3C3A92 !important;
+        text-transform: lowercase !important;
+        float: right !important;
+        height: 30px;
+        line-height: 30px;
+        width: 65px;
+        font-size: medium;
+    }
+
+    .no-registers {
+        color: #3C3A92 !important;
+        font-size: 12px !important;
+    }
+
+    .text-header {
+        font-weight: bold;
+        font-size: 12px !important;
+        color: #3C3A92 !important;
+    }
+    .text-details {
+        font-size: x-small;
+        color: #3C3A92 !important;
+    }
+    .ionData {
+        background-color: #3c3a92;
+        color: #ffffff;
+        width: 12px;
+        border-radius: 5px;
+        margin-right: 2px;
+    }
+}

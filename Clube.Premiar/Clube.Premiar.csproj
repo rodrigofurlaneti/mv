@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5B98301-BF0F-4E5E-A598-720D78D41826}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Clube.Premiar</RootNamespace>
+    <AssemblyName>Clube.Premiar</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api.cs" />
+    <Compile Include="Models\Availability.cs" />
+    <Compile Include="Models\CardBrand.cs" />
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\MobileOperator.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\Catalog.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\ShippingCustomer.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="OAuth.cs" />
+    <Compile Include="PremiarClubeException.cs" />
+    <Compile Include="PremiarClubeProvider.pagamento.cs" />
+    <Compile Include="PremiarClubeProvider.carrinho.cs" />
+    <Compile Include="PremiarClubeProvider.compra.cs" />
+    <Compile Include="PremiarClubeProvider.cs" />
+    <Compile Include="PremiarClubeProvider.endereco.cs" />
+    <Compile Include="PremiarClubeProvider.lojas.cs" />
+    <Compile Include="PremiarClubeProvider.recarga.cs" />
+    <Compile Include="PremiarClubeProvider.participante.cs" />
+    <Compile Include="PremiarClubeProvider.produto.cs" />
+    <Compile Include="PremiarClubeProvider.settings.cs" />
+    <Compile Include="PremiarClubeProvider.vitrine.cs" />
+    <Compile Include="PremiarClubeSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

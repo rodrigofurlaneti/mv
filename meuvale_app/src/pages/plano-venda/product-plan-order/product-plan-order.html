@@ -1,0 +1,215 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Assinar um Combo</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <p class="instrucoes" *ngIf="etapa == 1">
+        Seja bem vindo ao seu Plano de Benefícios, por gentileza,
+        selecione o combo de deseja associar ao seu cartão!
+    </p>
+    <div>
+        <ion-slides pager *ngIf="planos && planos.length > 0 && etapa == 1" slidesPerView="1.3" style="height: 595px;">
+            <ion-slide #slider style="height: 589px !important;" *ngFor="let plano of planos">
+                <ion-card>
+                    <ion-slides pager="false" style="margin-bottom: 0px !important;" autoplay="400" loop="true"
+                        speed="5000" *ngIf="plano.Fotos && plano.Fotos.length > 1">
+                        <ion-slide #slider *ngFor="let foto of plano.Fotos">
+                            <img class="img-plano" src="{{foto.split(';')[0]}}">
+                        </ion-slide>
+                    </ion-slides>
+                    <img class="img-plano" src="{{plano.Fotos[0].split(';')[0]}}"
+                        *ngIf="plano.Fotos && plano.Fotos.length === 1">
+                    <ion-card-header style="background-color: white;">
+                        <ion-fab top right>
+                            <p class="text-center box-shadow">{{plano.Nome}}</p>
+                        </ion-fab>
+                        <div class="beneficios">
+                            <p class="bullet" style="color: black;" *ngFor="let beneficio of plano.Beneficios">
+                                {{beneficio}}</p>
+                        </div>
+                    </ion-card-header>
+                    <ion-card-content style="background-color: white;">
+                        <div class="produto-preco" style="color: black;"
+                            *ngIf="plano.ValorDesconto && plano.ValorDesconto > 0">
+                            <span class="preco-completo">
+                                <span class="preco-de text-decoration-line-through preco-titulo">De R$</span>
+                                <strong class="preco-de text-decoration-line-through"
+                                    *ngIf="plano.Valor > 0">{{plano.Valor.toFixed(2)}}</strong>
+                                <span class="preco-titulo">Por R$</span>
+                                <strong *ngIf="plano.ValorDesconto > 0">{{plano?.ValorDesconto.toFixed(2)}}</strong>
+                            </span>
+                        </div>
+                        <div class="produto-preco" style="color: black;"
+                            *ngIf="!plano.ValorDesconto || plano.ValorDesconto <= 0">
+                            <span class="preco-completo">
+                                <strong *ngIf="plano.Valor > 0">R$ {{plano?.Valor.toFixed(2)}}</strong>
+                            </span>
+                        </div>
+                        <ion-item text-wrap>
+                            <ion-label stacked style="color: black;">Escolha o % de limite de crédito, do seu cartão de
+                                Adiantamento Salarial
+                            </ion-label>
+                            <ion-select class="input-select" style="color: black;" [ngModel]="percentual">
+                                <ion-option *ngFor="let perc of plano.Percentuais" [value]="perc"
+                                    [selected]="perc == plano.Percentuais[0]">{{perc}}% do seu salário
+                                </ion-option>
+                            </ion-select>
+                        </ion-item>
+                        <button *ngIf="pedido.ListaCompra && pedido.ListaCompra.Itens.indexOf(plano.Nome) === 1"
+                            disabled ion-button primary block (click)="assinar(plano)">
+                            Plano já assinado!
+                        </button>
+                        <button ion-button primary block (click)="assinar(plano)">
+                            Assinar este aqui
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+    <div *ngIf="etapa == 2">
+        <p class="instrucoes">
+            Parabéns, você já escolheu seu combo. Deseja adicionar dependente(s)?
+        </p>
+        <img
+            src="https://firebasestorage.googleapis.com/v0/b/meuvale-aed97.appspot.com/o/combo%2Ffamilia_combos.png?alt=media&token=5dbf6f11-bba7-43e8-92ec-8c5a91c3bea0">
+        <button ion-button block primary (click)="proximaEtapa()">
+        <!-- <button ion-button block primary (click)="proximaEtapa()"> -->
+            Adicionar Dependente
+        </button>
+        <div *ngIf="dependentes && dependentes.length > 0">
+            <p>
+                Meus Dependentes:
+            </p>
+            <ion-list *ngFor="let dependente of dependentes">
+                <ion-item>
+                    <p class="text-details column-perc-nome float-left text-center">
+                        {{dependente.Pessoa.Nome}}
+                    </p>
+                </ion-item>
+            </ion-list>
+        </div>
+        <button ion-button block primary *ngIf="dependentes.length == 0 " (click)="proximaEtapa()">
+            Somente Titular
+        </button>
+        <button ion-button block primary *ngIf="dependentes.length >= 1 " (click)="proximaEtapa2()">
+            Próximo
+        </button>
+        <button ion-button block color="secondary" style="color: white;" (click)="voltarEtapa()">
+            Voltar
+        </button>
+    </div>
+
+
+    
+    <div *ngIf="etapa == 3">
+        <form [formGroup]="clientForm" (ngSubmit)="adicionarDependete()">
+            <ion-list>
+                <p style="text-align:center;" [hidden]="!isFacebookRegister">Preencha o restante dos dados</p>
+                <ion-item>
+                    <ion-label stacked>CPF *</ion-label>
+                    <ion-input id="cpfProprietario" class="input-edit" formControlName="cpf"
+                        [brmasker]="{mask:'000.000.000-00', len:14}" type="tel" (blur)="searchFunc($event)"
+                        placeholder="Digite o número do CPF para buscar ou cadastrar"></ion-input>
+                </ion-item>
+                <small *ngIf="sendedDependente && !clientForm.controls['cpf'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Nome *</ion-label>
+                    <ion-input class="input-edit" formControlName="nome" type="text"> </ion-input>
+                </ion-item>
+                <small *ngIf="sendedDependente && !clientForm.controls['nome'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Sexo</ion-label>
+                    <ion-select class="input-select" formControlName="sexo">
+                        <ion-option value="Masculino">Masculino</ion-option>
+                        <ion-option value="Feminino">Feminino</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Data de nascimento</ion-label>
+                    <ion-input class="input-edit" formControlName="dataNascimento"
+                        [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Celular</ion-label>
+                    <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>E-mail *</ion-label>
+                    <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+                </ion-item>
+                <small *ngIf="sendedDependente && !clientForm.controls['email'].value">
+                    Campo obrigatório
+                </small>
+            </ion-list>
+            <br>
+            <div>
+                <button class="cliente-form" type="submit" ion-button primary block (click)= "voltarEtapa(); adicionarDependete()">
+                    Salvar Dependente(s)
+                </button>
+            </div>
+        </form>
+        <button ion-button color="secondary" style="color: white;" block (click)="cancelaDependente(); voltarEtapa()">
+            Cancelar
+        </button>
+    </div>
+
+
+
+        <div *ngIf="pedido.ListaCompra && exibirDependente == false && etapa == 4" style="margin-top: 5%;">
+            <p class="instrucoes">
+                Confira se os dados estão corretos e prossiga.
+            </p>
+            <h1>Carrinho:</h1>
+            <ion-list *ngFor="let item of pedido.ListaCompra.Itens">
+                <ion-item>
+                    <p class="text-details column-perc-nome float-left text-center">
+                        {{item.Beneficiario.Nome}}
+                    </p>
+                    <p class="text-details column-perc-plano float-left text-right">{{item.PlanoVenda.Nome}}</p>
+                    <div class="text-center" item-end>
+                        <button (click)='removerDoCarrinho(item)' ion-button clear>
+                            <ion-icon name="trash"></ion-icon>
+                        </button>
+                    </div>
+                </ion-item>
+            </ion-list>
+            <div *ngIf="!pedido.ListaCompra.Itens || pedido.ListaCompra.Itens.length <= 0">
+                Nenhum combo adicionado ao Carrinho!
+            </div>
+            <button ion-button block primary (click)="proximaEtapa()">
+                Próximo
+            </button>
+            <button ion-button block color="secondary" style="color: white;" (click)="voltarEtapa()">
+                Voltar
+            </button>
+        </div>
+
+        <div *ngIf="etapa == 5">
+            <p class="instrucoes">
+                Pronto! Confirme sua senha e aproveite seus benefícios!
+            </p>
+            <ion-item>
+                <ion-label stacked style="font-size: 1.6rem;">Confirme a senha do Cartão para finalizar</ion-label>
+                <ion-input class="input-edit" type="password" pattern="[0-9]*" inputmode="numeric" name="password"
+                    [(ngModel)]="pedido.Cartao.Senha">
+                </ion-input>
+            </ion-item>
+            <button ion-button primary block (click)="confirmarCompra(); showModal()"
+                [disabled]="!pedido.Cartao.Id || !pedido.Cartao.Senha || (!pedido.ListaCompra.Itens || pedido.ListaCompra.Itens.length <= 0)">
+                Finalizar Pedido - R$ {{valorTotal}}
+            </button>
+            <button ion-button block color="secondary" style="color: white;" (click)="voltarEtapa()">
+                Voltar
+            </button>
+        </div>
+
+</ion-content>

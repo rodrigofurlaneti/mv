@@ -1,0 +1,136 @@
+{
+  "name": "AppNew",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "start": "ionic-app-scripts serve",
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint"
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.11",
+    "@angular/common": "5.2.11",
+    "@angular/compiler": "5.2.11",
+    "@angular/compiler-cli": "5.2.11",
+    "@angular/core": "5.2.11",
+    "@angular/forms": "5.2.11",
+    "@angular/http": "5.2.11",
+    "@angular/platform-browser": "5.2.11",
+    "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/barcode-scanner": "^4.19.0",
+    "@ionic-native/calendar": "^4.20.0",
+    "@ionic-native/camera": "^4.3.0",
+    "@ionic-native/core": "^4.19.0",
+    "@ionic-native/facebook": "^4.19.0",
+    "@ionic-native/geolocation": "^4.19.0",
+    "@ionic-native/google-maps": "^4.15.1",
+    "@ionic-native/in-app-browser": "^4.19.0",
+    "@ionic-native/launch-navigator": "^4.19.0",
+    "@ionic-native/push": "^4.19.0",
+    "@ionic-native/social-sharing": "^4.19.0",
+    "@ionic-native/splash-screen": "~4.18.0",
+    "@ionic-native/status-bar": "~4.18.0",
+    "@ionic/storage": "^2.2.0",
+    "angular2-qrcode": "^2.0.1",
+    "brmasker-ionic-3": "^1.6.3",
+    "cache": "^2.1.0",
+    "clean": "^4.0.2",
+    "cordova-android": "6.3.0",
+    "cordova-browser": "5.0.4",
+    "cordova-ios": "4.5.5",
+    "cordova-plugin-actionsheet": "^2.3.3",
+    "cordova-plugin-calendar": "^5.1.4",
+    "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-facebook4": "^4.1.0",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-googlemaps": "^2.4.6",
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-ionic-keyboard": "^2.1.3",
+    "cordova-plugin-ionic-webview": "^2.3.2",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "^5.4.4",
+    "cordova-sqlite-storage": "^2.6.0",
+    "cordova-support-google-services": "^1.1.0",
+    "es6-promise-plugin": "^4.2.2",
+    "ionic": "4.8.0",
+    "ionic-angular": "3.9.2",
+    "ionicons": "3.0.0",
+    "node-sass": "^4.11.0",
+    "npm": "^6.6.0",
+    "phonegap-plugin-barcodescanner": "^8.0.1",
+    "phonegap-plugin-multidex": "^1.0.0",
+    "phonegap-plugin-push": "^2.2.3",
+    "rxjs": "5.5.11",
+    "sw-toolbox": "3.6.0",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^4.2.2",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.2.1",
+    "typescript": "~2.6.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "258282668399914",
+        "APP_NAME": "IPet Delivery",
+        "FACEBOOK_ANDROID_SDK_VERSION": "4.38.1",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false"
+      },
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Localizar as lojas próximas ao cliente"
+      },
+      "phonegap-plugin-push": {
+        "FCM_VERSION": "15.0.0",
+        "SENDER_ID": "941089825182"
+      },
+      "cordova-plugin-googlemaps": {
+        "PLAY_SERVICES_VERSION": "15.0.0",
+        "API_KEY_FOR_ANDROID": "AIzaSyADuuwKB--qgH9u90JxEWc5mwsC2KsIPAw",
+        "API_KEY_FOR_IOS": "AIzaSyADuuwKB--qgH9u90JxEWc5mwsC2KsIPAw"
+      },
+      "cordova-plugin-x-socialsharing": {
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
+      "cordova-plugin-inappbrowser": {},
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "OKHTTP_VERSION": "3.+",
+        "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
+      },
+      "cordova-plugin-calendar": {
+        "CALENDAR_USAGE_DESCRIPTION": "This app requires access to your Calendar for sync your events",
+        "CONTACTS_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-camera": {
+        "NSCameraUsageDescription": "This app requires access to your camera to capture a your's pet photo",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app requires access to your camera to capture a your's pet photo",
+        "CAMERA_USAGE_DESCRIPTION": "This app requires access to your camera to capture a your's pet photo"
+      }
+    },
+    "platforms": [
+      "ios",
+      "browser",
+      "android"
+    ]
+  }
+}

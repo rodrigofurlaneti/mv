@@ -1,0 +1,6 @@
+node_modules
+platforms
+plugins
+*.sourcemaps
+*.DS_Store
+node_modules/package-log.json

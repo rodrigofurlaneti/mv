@@ -1,0 +1,56 @@
+page-main-home {
+    .logo-home{
+        margin-top: 20px;
+        margin-bottom: 5px;
+        width: 220px;
+    }
+
+    .slider {
+        ion-slide {
+            //height: 117px !important;
+            img {
+                width: 100% !important;
+            }
+        }
+    }
+   
+  .swiper-pagination-fraction, 
+  .swiper-pagination-custom, 
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 10px;
+    width: 95%;
+    margin-left: 2%;
+    color: transparent !important;
+    background:  transparent !important;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+    background-color: transparent !important;
+  }
+
+  .grid{
+      padding: 0px;
+  }
+
+  .icon-category{
+    max-width: 45px !important;
+  }
+
+  .item-divider {
+    color: white;
+  }
+
+  .line {
+    font-size: 5rem;
+    letter-spacing: -8px;
+  }
+
+  .item-ios [item-left], .item-ios [item-start]{
+    margin: 8px 4px 8px 0;
+  }
+
+  .list-divider {
+    margin-left: -16px;
+  }
+
+}

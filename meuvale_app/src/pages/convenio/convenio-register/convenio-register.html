@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Convênios</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <ion-card>
+            <ion-card-content>
+                <ion-item text-wrap>
+                    <ion-label>Pessoa Física?</ion-label>
+                    <ion-toggle checked="false" formControlName="pessoaFisica">
+                    </ion-toggle>
+                </ion-item>
+                    <ion-item>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == false">CNPJ*</ion-label>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == true">CPF*</ion-label>
+                        <ion-input class="input-edit" formControlName="cnpj" *ngIf="storeForm.value.pessoaFisica == false"
+                            [brmasker]="{mask:'00.000.000/0000-00', len:18}" type="tel"></ion-input>
+                            <ion-input class="input-edit" formControlName="cnpj" *ngIf="storeForm.value.pessoaFisica == true"
+                            [brmasker]="{mask:'000.000.000-00', len:14}" type="tel"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == false">Nome Fantasia *</ion-label>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == true">Nome / Nome Fantasia *</ion-label>
+                        <ion-input class="input-edit" formControlName="nomefantasia" type="text"> </ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == false">Razao Social *</ion-label>
+                        <ion-label stacked *ngIf="storeForm.value.pessoaFisica == true">Razao Social</ion-label>
+                        <ion-input class="input-edit" formControlName="razaosocial" type="text"> </ion-input>
+                    </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>CEP *</ion-label>
+                    <ion-input formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}" type="tel"
+                        (ionBlur)="onChangeCep()">
+                    </ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Logradouro *</ion-label>
+                    <ion-input [(ngModel)]="logradouro" formControlName="logradouro" type="text"></ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Número *</ion-label>
+                    <ion-input formControlName="numero" type="tel"></ion-input>
+                </ion-item>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Complemento</ion-label>
+                    <ion-input formControlName="complemento" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Pais *</ion-label>
+                    <ion-select formControlName="paisSelected" [disabled]="!paises.length">
+                        <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Estado *</ion-label>
+                    <ion-select formControlName="estadoSelected" (ionChange)="onChangeEstado()"
+                        [disabled]="!estados.length">
+                        <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Cidade *</ion-label>
+                    <ion-select formControlName="cidadeSelected" [disabled]="!cidades.length">
+                        <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-item>
+            <ion-label>Ativo?</ion-label>
+            <ion-toggle checked="false" formControlName="ativo"></ion-toggle>
+        </ion-item>
+
+        <div>
+            <button class="store-form" type="submit" ion-button color="primary" block>
+                Salvar
+            </button>
+        </div>
+    </form>
+</ion-content>

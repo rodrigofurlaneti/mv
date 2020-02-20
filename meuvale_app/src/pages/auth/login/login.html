@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>meuvale</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="listWhite">
+    <div class="text-center">
+        <img style="height: 170px;" src="assets/image/08_Logo negativo sem tag.png">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+        <div>
+            <ion-item class="nopadding-left">
+                <ion-label stacked>
+                    <p>CPF/CNPJ</p>
+                </ion-label>
+                <ion-input class="input-edit" formControlName="name" [brmasker]="{person: true}" type="text"></ion-input>
+            </ion-item>
+            <ion-item class="nopadding-left">
+                <ion-label stacked>
+                    <p>Senha</p>
+                </ion-label>
+                <ion-input class="input-edit" formControlName="password" type="password" 
+                    inputmode="numeric"></ion-input>
+            </ion-item>
+        </div>
+    </form>
+    <button class="text-center" ion-button block style="background-color: transparent;" (click)="tutorial()">
+        <p style="color: white; ">Primeiro Login?</p>
+    </button>
+    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+        <div style="margin-top: 5%;">
+            <button type="submit" ion-button color="primary" icon-start block>
+                <ion-icon name="log-in" class="paragraphDefault"></ion-icon>
+                <p class="paragraphDefault">Login</p>
+            </button>
+        </div>
+        <div style="margin-top: 5%;">
+            <button type="button" ion-button block color="secundary" (click)="doRecovery()">
+                <p>Esqueci Minha Senha</p>
+            </button>
+        </div>
+        <!--        
+        <ion-label>
+            <p>Ainda não possui cadastro?</p>
+        </ion-label>
+        <button type="button" ion-button color="primary" icon-start block (click)="doRegistry()">
+            <ion-icon name="person-add" class="paragraphDefault"></ion-icon>
+            <p class="paragraphDefault">Cadastre-se</p>
+        </button> -->
+    </form>
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Rede Credenciada</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <stores-map #map></stores-map>
+  <ion-label style="color: white;">Exibir mais estabelecimentos?</ion-label>
+    <ion-grid style="margin-top: -5%;">
+      <ion-row>
+        <ion-col col-3>
+          <button [ngClass]="{ 'range': range == 50,'selecionado': range != 50 }" ion-button
+            (click)="rangeChanged('50')">
+            50
+          </button>
+        </ion-col>
+        <ion-col col-3>
+            <button [ngClass]="{ 'range': range == 250,'selecionado': range != 250 }" ion-button
+            (click)="rangeChanged('250')">
+            250
+          </button>
+        </ion-col>
+        <ion-col col-3>
+            <button [ngClass]="{ 'range': range == 500,'selecionado': range != 500 }" ion-button
+            (click)="rangeChanged('500')">
+            500
+          </button>
+        </ion-col>
+        <ion-col col-3>
+            <button [ngClass]="{ 'range': range == 10000,'selecionado': range != 10000 }" ion-button
+            (click)="rangeChanged('10000')">
+            + 1000
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <ion-list style="margin-top: 2vh; color: black; background-color: white;">
+    <ion-item *ngFor="let loja of lojas" (click)="entrar(loja)" text-wrap>
+      <div item-start class="text-center">
+        <ion-icon color="black" class="loja-pin" name="pin"></ion-icon>
+        <br>
+        <small>{{loja.Distancia ? (loja.Distancia/1000).toFixed(2) : '--'}}<br>km</small>
+      </div>
+      <h3>{{loja.Descricao}}</h3>
+      <h3>{{loja.Classificacao}}</h3>
+      <p class="paragraph">{{loja.Endereco.Resumo}}</p>
+      <p class="paragraph" *ngIf="loja.Endereco.Cidade != null && loja.Endereco.Cidade.Estado != null">
+        {{loja.Endereco.Cidade.Descricao}}/{{loja.Endereco.Cidade.Estado.Sigla}}
+      </p>
+      <div item-end class="fecha-agora" *ngIf="false">
+        <span>Fecha agora</span>
+      </div>
+    </ion-item>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content style="color: white;" loadingSpinner="bubbles" loadingText="Carregando...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+
+</ion-content>

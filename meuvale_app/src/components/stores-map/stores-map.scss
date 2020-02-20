@@ -1,0 +1,9 @@
+stores-map {
+    height: 37vh;
+    width:100%;
+    box-shadow: 5px 5px 10px map-get($colors, dark);
+    #map_canvas{
+        height: 37vh; 
+        width: 100%;
+    }
+}

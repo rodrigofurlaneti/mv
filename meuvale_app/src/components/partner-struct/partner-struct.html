@@ -1,0 +1,16 @@
+<div style="margin-left: 15px">
+    <ion-slides pager *ngIf="produtos != null" slidesPerView="2.1">
+        <ion-slide #slider *ngFor="let item of produtos; let i = index;" (click)="detalhes(item)">
+            <ion-col class="column-grid-home">
+                <!-- <img class="img-header" src="assets/image/header_parceiros.png" alt=""> -->
+                <div class="fundo-descricao">
+                    <p class="font-descricao">{{item.Valor.toFixed(0)}}% de desconto</p>
+                </div>
+                <div class="container-imagem">
+                    <img class="img-parceiro-home" *ngIf="item.Fornecedor" src={{item.Fornecedor.Logo}} alt="">
+                    <img class="img-parceiro-home" *ngIf="item.Loja" src={{item.Loja.Logo}} alt="">
+                </div>
+            </ion-col>
+        </ion-slide>
+    </ion-slides>
+</div>

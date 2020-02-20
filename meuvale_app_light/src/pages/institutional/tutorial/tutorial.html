@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tutorial</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+          <ion-slides pager autoplay>
+              <ion-slide *ngFor="let imagem of tutorial">
+                  <img src={{imagem.URL}} alt="">
+              </ion-slide>
+          </ion-slides>
+      </ion-row>
+  </ion-grid>
+  <div>
+    <button class="cliente-form" ion-button color="primary" block (click)="dismiss()">
+        ENTENDI
+    </button>
+  </div>
+</ion-content>

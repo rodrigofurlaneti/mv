@@ -1,0 +1,18 @@
+    <div *ngIf="mobile == true" class="text-center">
+        <button item-end ion-button (click)="getPicture(1)">
+            <ion-icon name="camera"></ion-icon>
+            Capturar
+        </button>
+        <button item-end ion-button (click)="getPicture(0)">
+            <ion-icon name="images"></ion-icon>
+            Galeria
+        </button>
+    </div>
+    <div *ngIf="mobile == false" class="text-center">
+        <label class="image-upload-container btn btn-bwm">
+            <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile(imageInput)">
+          </label>
+    </div>

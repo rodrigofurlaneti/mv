@@ -1,0 +1,87 @@
+page-product-plan-order {
+    .img-plano {
+        width: 260px;
+        height: 125px;
+    }
+
+    .img-cartoes{
+        height: 45%;
+    }
+
+    .confirmar{
+        font-size: 145%; 
+        font-weight: 900;
+        background: map-get($colors, danger);
+        .button-inner{color: white;}
+    }
+
+    .swiper-container .swiper-container-horizontal{
+      height: 126px;
+    }
+
+  .dados-cartao{
+      color: white;
+    position:absolute; 
+    top: 120px; 
+    left: 26px;
+    text-align: left;
+  }
+
+  .avatar {
+    height: 55px;
+    width: 55px;
+    margin-top: -25%;
+    border-radius: 30px;
+    border-color: lightgray;
+    border-style: solid;
+    z-index: 1;
+    position:relative;
+}
+
+.produto-preco {
+  vertical-align: middle;
+  display: contents;
+  .preco-completo {
+    line-height: 2;
+  }
+}
+
+.column-perc-nome {
+  width: 60%;
+}
+
+.column-perc-plano {
+  width: 30%;
+}
+
+.column-perc-valor {
+  width: 20%;
+}
+
+.bullet {
+  margin-left: 15px;
+}
+
+.instrucoes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.box-shadow {
+  border-radius: 20px 0px 0px 30px;
+  box-shadow: 0px 3px 6px rgba(112,112,112,1);
+  background-color: map-get($colors, primary);
+  color: map-get($colors, title-text);
+  width: 100px;
+  height: 25px;
+  margin-top: -4%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.beneficios {
+  height: 215px;
+  white-space: initial;
+}
+
+}

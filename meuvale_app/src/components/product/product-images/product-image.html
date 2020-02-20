@@ -1,0 +1,13 @@
+<div *ngIf="!item || item.Imagens.length <= 0">
+    <img class="img-produto-home" src="{{item.DepartamentoProduto.LogoUpload}}" alt="">
+</div>
+
+<div *ngIf="item && item.Imagens.length == 1">
+    <img class="img-produto-home" src={{item.Imagens[0].Descricao}} alt="">
+</div>
+
+<ion-slides pager autoplay *ngIf="item && item.Imagens.length > 1">
+    <ion-slide *ngFor="let slide of item.Imagens">
+        <img class="img-produto-home" src={{slide.Descricao}} alt="">
+    </ion-slide>
+</ion-slides>

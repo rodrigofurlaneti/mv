@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus Pagamentos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <div *ngIf="!isLoading">
+    <ion-list *ngIf="listaPedidos && listaPedidos != null && listaPedidos.length > 0">
+      <ion-item *ngFor="let pedido of listaPedidos" (click)="detalhes(pedido)">
+        <div item-start>
+          <figure class="product--thumb">
+            <img src="assets/image/order.png">
+          </figure>
+        </div>
+        <h4>#{{pedido.Id}} - {{pedido.DataInsercao | date: 'dd/MM/yyyy'}}</h4>
+        <p class="item-valor-destaque">Total: R$ {{pedido.Valor.toFixed(2)}}</p>
+        <p class="status-pedido"><small>{{pedido.Status}}{{pedido.Motivo != null && pedido.Motivo != '' ? ': ' +
+            pedido.Motivo : ''}}</small></p>
+      </ion-item>
+    </ion-list>
+    <div class="text-center" *ngIf="!listaPedidos || listaPedidos == null || listaPedidos.length == 0">
+      <p>Ainda não há pagamentos realizados</p>
+    </div>
+  </div>
+</ion-content>

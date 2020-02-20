@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>meuvale</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="listWhite">
+    <div class="text-center">
+        <img style="height: 170px;" src="assets/image/08_Logo negativo sem tag.png">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+        <ion-list>
+            <ion-item class="nopadding-left">
+                <ion-label floating>
+                    <p>CPF</p>
+                </ion-label>
+                <ion-input formControlName="name" [brmasker]="{mask:'000.000.000-00', len:14}" type="tel"></ion-input>
+            </ion-item>
+            <ion-item class="nopadding-left">
+                <ion-label floating>
+                    <p>Senha</p>
+                </ion-label>
+                <ion-input formControlName="password" type="password" pattern="[0-9]*" inputmode="numeric"></ion-input>
+            </ion-item>
+            <button type="submit" ion-button color="primary" icon-start block>
+                <ion-icon name="log-in" class="paragraphDefault"></ion-icon>
+                <p class="paragraphDefault">Login</p>
+            </button>
+        </ion-list>
+        <button type="button" ion-button block color="secundary" (click)="doRecovery()">
+            <p>Esqueci Minha Senha</p>
+        </button>
+        <br>
+        
+        <ion-label>
+            <p>Ainda não possui cadastro?</p>
+        </ion-label>
+        <button type="button" ion-button color="primary" icon-start block (click)="doRegistry()">
+            <ion-icon name="person-add" class="paragraphDefault"></ion-icon>
+            <p class="paragraphDefault">Cadastre-se</p>
+        </button>
+    </form>
+</ion-content>

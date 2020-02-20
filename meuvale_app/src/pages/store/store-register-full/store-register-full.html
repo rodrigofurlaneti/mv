@@ -1,0 +1,518 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Cadastro Estabelecimento/Prestador</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="faseCadastro == 1">
+        <p><b>Bem Vindo</b> ao cadastro de Credenciados.</p>
+    </div>
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()" *ngIf="faseCadastro == 1">
+        <ion-card>
+            <ion-card-header text-wrap class="text-center">
+                Primeira Etapa (Documentos da Empresa)
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>CPF/CNPJ</ion-label>
+                    <ion-input class="input-edit" formControlName="cnpj" (blur)="search($event)"
+                        [brmasker]="{person: true}" type="text"
+                        placeholder="Digite um CPF/CNPJ para buscar dados ou iniciar um cadastro"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Inscricão Estadual</ion-label>
+                    <ion-input class="input-edit" formControlName="ie" type="number"
+                        placeholder="Apenas para estabelecimentos com IE"></ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+    <ion-card *ngIf="faseCadastro == 2">
+        <ion-card-header class="text-center">
+            Logo
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-avatar class="avatar" *ngIf="loja && loja.Logo">
+                    <img style="height: 100%; width: 100%;" src="{{loja.Logo}}">
+                </ion-avatar>
+                <ion-avatar class="avatar" *ngIf="!loja || !loja.Logo">
+                    <img style="height: 100%; width: 100%;" src="assets/image/logo.png">
+                </ion-avatar>
+            </ion-item>
+
+            <div class="text-center" *ngIf="storeForm.value.cnpj">
+                <firebase-uploader path-file="loja" file-name="{{date}}.png" (uploadComplete)="handleEvent($event)">
+                </firebase-uploader>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <ion-card *ngIf="faseCadastro == 3">
+            <ion-card-header class="text-center">
+                Dados Cadastrais
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Nome Fantasia *</ion-label>
+                    <ion-input class="input-edit" formControlName="nomefantasia" type="text"> </ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['nomefantasia'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Razao Social *</ion-label>
+                    <ion-input class="input-edit" formControlName="razaosocial" type="text"> </ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['razaosocial'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Telefone *</ion-label>
+                    <ion-input class="input-edit" formControlName="telefone" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['telefone'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Celular (Whatsapp)</ion-label>
+                    <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>E-mail *</ion-label>
+                    <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['email'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Atividade Principal do Estebelecimento? *</ion-label>
+                    <ion-select class="input-select" formControlName="classificacao" placeholder="Selecione um tipo..."
+                        (ionChange)="alteraClassificacao($event)">
+                        <ion-option *ngFor="let cat of categorias" [value]="cat.Nome">{{cat.Nome}}</ion-option>
+                        <ion-option value="Outros">Outros</ion-option>
+                    </ion-select>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['classificacao'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item *ngIf="exibeCampoTipoOutrosEstabelecimento == true">
+                    <ion-label stacked>Descreva o Tipo de Estabelecimento *</ion-label>
+                    <ion-input class="input-edit" formControlName="classificacaoOutros" type="text"></ion-input>
+                </ion-item>
+                <small style="color: red;"
+                    *ngIf="exibeCampoTipoOutrosEstabelecimento == true && sendedEtapa3 && !storeForm.controls['classificacaoOutros'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>CEP *</ion-label>
+                    <ion-input formControlName="cep" [brmasker]="{mask:'00000-000', len:9, type:'num'}" type="tel"
+                        (ionBlur)="onChangeCep()" placeholder="Informe o CEP para bucar o endereço">
+                    </ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['cep'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Logradouro *</ion-label>
+                    <ion-input formControlName="logradouro" type="text"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['logradouro'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Número *</ion-label>
+                    <ion-input formControlName="numero" type="tel"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['numero'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item class="nopadding-left">
+                    <ion-label stacked>Complemento</ion-label>
+                    <ion-input formControlName="complemento" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Pais *</ion-label>
+                    <ion-select formControlName="paisSelected" [disabled]="!paises.length">
+                        <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['paisSelected'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Estado *</ion-label>
+                    <ion-select formControlName="estadoSelected" (ionChange)="onChangeEstado()"
+                        [disabled]="!estados.length">
+                        <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['estadoSelected'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Cidade *</ion-label>
+                    <ion-select formControlName="cidadeSelected" [disabled]="!cidades.length">
+                        <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa3 && !storeForm.controls['cidadeSelected'].value">
+                    Campo obrigatório
+                </small>
+            </ion-card-content>
+        </ion-card>
+    </form>
+    <form [formGroup]="proprietarioForm" (ngSubmit)="doSubmit()">
+        <ion-card *ngIf="faseCadastro == 4">
+            <ion-card-header class="text-center">
+                Dados do Proprietário
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>CPF *</ion-label>
+                    <ion-input id="cpfProprietario" class="input-edit" formControlName="cpf"
+                        [brmasker]="{mask:'000.000.000-00', len:14}" type="tel" (blur)="searchFunc($event)"
+                        placeholder="Digite o número do CPF para buscar ou cadastrar"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa4 && !proprietarioForm.controls['cpf'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>RG c/ dígito *</ion-label>
+                    <ion-input class="input-edit" formControlName="rg" [brmasker]="{mask:'00.000.000-0', len:12}"
+                        type="tel"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa4 && !proprietarioForm.controls['rg'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Nome *</ion-label>
+                    <ion-input class="input-edit" formControlName="nome" type="text"> </ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa4 && !proprietarioForm.controls['nome'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Sexo *</ion-label>
+                    <ion-select class="input-select" formControlName="sexo">
+                        <ion-option value="Masculino">Masculino</ion-option>
+                        <ion-option value="Feminino">Feminino</ion-option>
+                    </ion-select>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa4 && !proprietarioForm.controls['sexo'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Data de nascimento *</ion-label>
+                    <ion-input class="input-edit" formControlName="dataNascimento"
+                        [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+                </ion-item>
+                <small style="color: red;" *ngIf="sendedEtapa4 && !proprietarioForm.controls['dataNascimento'].value">
+                    Campo obrigatório
+                </small>
+                <ion-item>
+                    <ion-label stacked>Celular</ion-label>
+                    <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>E-mail</ion-label>
+                    <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()" *ngIf="faseCadastro == 5">
+        <ion-card>
+            <ion-card-content>
+                <ion-item text-wrap>
+                    <ion-label>Realiza Serviços Delivery ou Leva e Traz?</ion-label>
+                    <ion-toggle checked="false" formControlName="delivery">
+                    </ion-toggle>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+        <ion-card *ngIf="storeForm.value.delivery">
+            <ion-card-content>
+                <ion-item text-wrap>
+                    <ion-label stacked style="font-size: 17.2px; color: white;">Qual seu raio de atendimento em
+                        KM(quilômetros) para entregas?</ion-label>
+                    <ion-input class="input-edit" formControlName="raioAtendimento" type="number"
+                        placeholder="KM(quilômetros)"> </ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+
+    <form [formGroup]="bankForm" (ngSubmit)="doSubmit()" *ngIf="faseCadastro == 5">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Dados do Bancários
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Banco</ion-label>
+                    <ion-select class="input-select" formControlName="banco" placeholder="Selecione um banco...">
+                        <ion-option *ngFor="let banco of bancos" [value]="banco.Id">{{banco.CodigoDescricao}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Agência</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="agencia"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Digito Agência</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="digitoAgencia"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Conta</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="conta"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Digito Conta</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="digitoConta"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Documento Titular</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="documentoTitular"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Nome Titular</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="nomeTitular"></ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+
+    <form [formGroup]="produtoAtivacaoLojaForm" (ngSubmit)="doSubmit()" *ngIf="faseCadastro == 6 && usuarioLogado">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Ativação de Produtos
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label>Alimentação</ion-label>
+                    <ion-checkbox slot="end" formControlName="alimentacao"></ion-checkbox>
+                </ion-item>
+                <ion-item *ngIf="produtoAtivacaoLojaForm.value.alimentacao">
+                    <ion-label stacked>Taxa Alimentação</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaAlimentacao" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Refeição</ion-label>
+                    <ion-checkbox slot="end" formControlName="refeicao"></ion-checkbox>
+                </ion-item>
+                <ion-item *ngIf="produtoAtivacaoLojaForm.value.refeicao">
+                    <ion-label stacked>Taxa Refeição</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaRefeicao" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Adiantamento</ion-label>
+                    <ion-checkbox slot="end" formControlName="adiantamento"></ion-checkbox>
+                </ion-item>
+                <ion-item *ngIf="produtoAtivacaoLojaForm.value.adiantamento">
+                    <ion-label stacked>Taxa Adiantamento Salarial</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaAdiantamento" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Combustível</ion-label>
+                    <ion-checkbox slot="end" formControlName="combustivel"></ion-checkbox>
+                </ion-item>
+                <ion-item *ngIf="produtoAtivacaoLojaForm.value.combustivel">
+                    <ion-label stacked>Taxa Combustível</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaCombustivel" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Farmácia</ion-label>
+                    <ion-checkbox slot="end" formControlName="farmacia"></ion-checkbox>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+    <form [formGroup]="machineForm" (ngSubmit)="insertMachine()" *ngIf="faseCadastro == 6 && usuarioLogado">
+        <ion-card>
+            <ion-card-header class="text-center">
+                Condições Comerciais
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Maquininhas</ion-label>
+                    <ion-select formControlName="maquininha">
+                        <ion-option *ngFor="let maquina of maquininhas" [value]="maquina.Descricao">
+                            {{maquina.Descricao}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Taxa de Crédito</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaCredito" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Taxa de Débito</ion-label>
+                    <ion-input class="input-edit" type="text" formControlName="taxaDebito" name="money"
+                        placeholder="(%) 0.00"
+                        [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2', len: 3}">
+                    </ion-input>
+                </ion-item>
+                <ion-list *ngIf="machineForm.value.maquininha == 'TEFF'">
+                    <ion-item>
+                        <ion-label stacked>Nome da Gerenciadora</ion-label>
+                        <ion-input class="input-edit" type="text" formControlName="gerenciadora"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Software House</ion-label>
+                        <ion-input class="input-edit" type="text" formControlName="softwareHouse"></ion-input>
+                    </ion-item>
+                </ion-list>
+                <ion-list *ngIf="machineForm.value.maquininha == 'Rede Vale'">
+                    <ion-item>
+                        <ion-label stacked>Modelo</ion-label>
+                        <ion-select class="input-select" formControlName="modelo">
+                            <ion-option value="A920">A920</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Número Serial?</ion-label>
+                        <ion-input class="input-edit" formControlName="numeroSerial" type="number"
+                            placeholder="Localizado atrás da máquina"> </ion-input>
+                    </ion-item>
+                </ion-list>
+                <ion-list *ngIf="machineForm.value.maquininha == 'Cielo'">
+                    <ion-item>
+                        <ion-label stacked>EC?</ion-label>
+                        <ion-input class="input-edit" formControlName="numeroSerial" type="number"
+                            placeholder="Informe o número EC da máquina"> </ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+        <button class="store-form" ion-button color="primary" block>
+            Inserir Máquina na Lista
+        </button>
+        <h1 class="text-center">Máquinas Vínculadas</h1>
+        <p class="text-center" *ngIf="!maquinasLoja || maquinasLoja.length <= 0">Nenhuma maquininha vínculada!</p>
+        <ion-card *ngFor="let item of maquinasLoja">
+            <ion-item>
+                <ion-icon (click)='editMachine(item)' item-end name="create"></ion-icon>
+                <ion-icon (click)='removeMachine(item)' item-end name="trash"></ion-icon>
+                <ion-label>{{item.Terminal.Maquininha}}</ion-label>
+            </ion-item>
+        </ion-card>
+    </form>
+
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()" *ngIf="faseCadastro == 6">
+        <ion-card>
+            <ion-card-content>
+                <ion-item text-wrap>
+                    <ion-label>Código Infox</ion-label>
+                    <ion-input class="input-edit" type="number" formControlName="codigoInfox">
+                    </ion-input>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+    </form>
+
+
+    <div *ngIf="faseCadastro == 7">
+        <div class="title">Assine aqui seu contrato:</div>
+        <ion-row [ngClass]="{'drawing-active': isDrawing}">
+            <ion-col></ion-col>
+            <ion-col>
+                <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                    (onEndEvent)="drawComplete()"></signature-pad>
+            </ion-col>
+            <ion-col></ion-col>
+
+        </ion-row>
+        <button ion-button full color="danger" (click)="clearPad()">Limpar</button>
+        <button ion-button full (click)="savePad()">Assinar</button>
+
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col width-80>
+                <img [src]="signature" />
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+    </div>
+
+    <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+        <div *ngIf="faseCadastro >= 8">
+            <p>PARABÉNS! Você finalizou seu cadastro, aguarde aprovação para ativar sua Loja.</p>
+            <a href="https://www.mmeuvale.com.br/">www.meuvale.com.br</a>
+            <ion-card>
+                <ion-card-header class="text-center">
+                    Foto do Estabelecimento
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-item *ngIf="loja && loja.FotoFachada">
+                        <img style="height: 100%; width: 100%;" src="{{loja.FotoFachada}}">
+                    </ion-item>
+
+                    <div class="text-center" *ngIf="storeForm.value.cnpj">
+                        <firebase-uploader path-file="loja" file-name="{{storeForm.value.cnpj}}.png"
+                            (uploadComplete)="handleEvent($event)">
+                        </firebase-uploader>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <button class="store-form" (click)="qrCode()" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Visualizar QrCode
+        </button>
+        <button class="store-form" (click)="voltarFase(2)" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Atualizar cadastro
+        </button>
+        <button class="store-form" (click)="voltarFase(5)" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Atualizar dados bancários
+        </button>
+        <button class="store-form" (click)="voltarFase(6)" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Ativar novos produtos
+        </button>
+        <button class="store-form" (click)="voltarFase(6)" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Adicionar maquininhas
+        </button>
+        <button class="store-form" (click)="novoCadastro()" ion-button color="primary" block *ngIf="faseCadastro >= 8">
+            Novo cadastro
+        </button>
+    </form>
+    <div [hidden]="faseCadastro >= 8">
+        <button class="store-form" (click)="voltarFase()" ion-button color="secondary" block *ngIf="faseCadastro > 1">
+            Voltar
+        </button>
+        <form [formGroup]="storeForm" (ngSubmit)="doSubmit()">
+            <button [disabled]="habilitaBotaoAceitar == false" class="store-form" type="submit" ion-button
+                color="primary" block>
+                {{faseCadastro == 7 ? "Salvar" : faseCadastro == 1 ? 
+                 !usuarioLogado ? "Aceitar & Prosseguir" : "Iniciar Cadastro" : "Proximo" }}
+            </button>
+        </form>
+        <p class="text-center" *ngIf="faseCadastro == 1 && !usuarioLogado">Declaro que li e aceito os <a>Termos &
+                Condições</a>
+            para realizar meu cadastro!</p>
+        <button *ngIf="faseCadastro == 1 && !usuarioLogado" (click)="contract()" ion-button color="primary" block>
+            Termos & Condições
+        </button>
+    </div>
+</ion-content>

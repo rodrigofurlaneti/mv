@@ -1,0 +1,28 @@
+page-store-indicate {
+
+    .item.item-block .item-inner{
+        border-bottom: 0px;
+    }
+
+    .scroll-content{
+        background: linear-gradient(to bottom, map-get($colors, background-color) calc(50% - 35%), #311d72 calc(50% - 35%))
+    }
+
+    .input-edit{
+        background: white;
+        border-radius: 4px;
+    }
+
+    .input-edit{
+        color: black;
+    }
+
+    .input-wrapper{
+     color: map-get($colors, primary);   
+    }
+
+    ion-select {
+        border: 1px solid;
+        border-radius: 4px;
+    }
+}

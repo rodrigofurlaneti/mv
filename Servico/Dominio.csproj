@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9DC80615-73E7-4D73-814E-90E469364530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dominio</RootNamespace>
+    <AssemblyName>Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
+    <OutputPath>bin\Development\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.SimpleInjectorAdapter, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.SimpleInjectorAdapter.2.8.0\lib\portable-net4+sl4+wp8+win8+wpa81\CommonServiceLocator.SimpleInjectorAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.CommonServiceLocator.1.2.2\lib\net35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=5.2.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.2.5\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AvaliacaoPedidoServico.cs" />
+    <Compile Include="Base\BaseServico.cs" />
+    <Compile Include="Base\IBaseServico.cs" />
+    <Compile Include="DispositivoServico.cs" />
+    <Compile Include="DescontoPessoaServico.cs" />
+    <Compile Include="DescontoServico.cs" />
+    <Compile Include="CupomServico.cs" />
+    <Compile Include="DepartamentoProdutoServico.cs" />
+    <Compile Include="DescontoGlobalServico.cs" />
+    <Compile Include="IRepositorio\IHorarioFuncionamentoLojaRepositorio.cs" />
+    <Compile Include="IRepositorio\IMarcaRepositorio.cs" />
+    <Compile Include="IRepositorio\IConvenioRepositorio.cs" />
+    <Compile Include="IRepositorio\IPedidoVoucherRepositorio.cs" />
+    <Compile Include="IRepositorio\IPlanoVendaRepositorio.cs" />
+    <Compile Include="IRepositorio\ITerminalCobrancaLojaRepositorio.cs" />
+    <Compile Include="IRepositorio\ITerminalCobrancaRepositorio.cs" />
+    <Compile Include="IRepositorio\IBancoRepositorio.cs" />
+    <Compile Include="IRepositorio\IVeiculoRepositorio.cs" />
+    <Compile Include="MarcaServico.cs" />
+    <Compile Include="GrupoProdutoServico.cs" />
+    <Compile Include="IRepositorio\IAvaliacaoPedidoRepositorio.cs" />
+    <Compile Include="IRepositorio\IDispositivoRepositorio.cs" />
+    <Compile Include="IRepositorio\IDescontoPessoaRepositorio.cs" />
+    <Compile Include="IRepositorio\IBannerRepositorio.cs" />
+    <Compile Include="IRepositorio\IMuralRepositorio.cs" />
+    <Compile Include="IRepositorio\ICategoriaProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\ITutorialRepositorio.cs" />
+    <Compile Include="BannerServico.cs" />
+    <Compile Include="BancoServico.cs" />
+    <Compile Include="MuralServico.cs" />
+    <Compile Include="CategoriaProdutoServico.cs" />
+    <Compile Include="ConvenioServico.cs" />
+    <Compile Include="PedidoVoucherServico.cs" />
+    <Compile Include="PlanoVendaServico.cs" />
+    <Compile Include="Providers\IClubeProvider.cs" />
+    <Compile Include="TerminalCobrancaLojaServico.cs" />
+    <Compile Include="TerminalCobrancaServico.cs" />
+    <Compile Include="TutorialServico.cs" />
+    <Compile Include="TabloideServico.cs" />
+    <Compile Include="IRepositorio\IAgendamentoRepositorio.cs" />
+    <Compile Include="AgendamentoServico.cs" />
+    <Compile Include="IRepositorio\IDescontoGlobalRepositorio.cs" />
+    <Compile Include="IRepositorio\IDescontoRepositorio.cs" />
+    <Compile Include="IRepositorio\ICupomRepositorio.cs" />
+    <Compile Include="IRepositorio\IDepartamentoProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\IGrupoProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\ITabloideRepositorio.cs" />
+    <Compile Include="IRepositorio\IInformacaoProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\IForncedorRepositorio.cs" />
+    <Compile Include="IRepositorio\IMenuRepositorio.cs" />
+    <Compile Include="IRepositorio\IQrCodeRepositorio.cs" />
+    <Compile Include="InformacaoProdutoServico.cs" />
+    <Compile Include="IRepositorio\ISecaoProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\ISubGrupoProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\IVendedorRepositorio.cs" />
+    <Compile Include="FornecedorServico.cs" />
+    <Compile Include="MenuServico.cs" />
+    <Compile Include="QrCodeServico.cs" />
+    <Compile Include="PedidoServico.cs" />
+    <Compile Include="CartaoServico.cs" />
+    <Compile Include="DocumentoServico.cs" />
+    <Compile Include="EnderecoServico.cs" />
+    <Compile Include="ContatoServico.cs" />
+    <Compile Include="IRepositorio\IPedidoRepositorio.cs" />
+    <Compile Include="IRepositorio\IDocumentoRepositorio.cs" />
+    <Compile Include="IRepositorio\IEnderecoRepositorio.cs" />
+    <Compile Include="IRepositorio\IContatoRepositorio.cs" />
+    <Compile Include="IRepositorio\ItemCompraRepositorio.cs" />
+    <Compile Include="IRepositorio\IProdutoPrecoRepositorio.cs" />
+    <Compile Include="IRepositorio\IPaisRepositorio.cs" />
+    <Compile Include="IRepositorio\IListaCompraRepositorio.cs" />
+    <Compile Include="ItemCompraServico.cs" />
+    <Compile Include="ProdutoPrecoServico.cs" />
+    <Compile Include="PaisServico.cs" />
+    <Compile Include="EstadoServico.cs" />
+    <Compile Include="CidadeServico.cs" />
+    <Compile Include="IRepositorio\IEstadoRepositorio.cs" />
+    <Compile Include="IRepositorio\ICidadeRepositorio.cs" />
+    <Compile Include="ListaCompraServico.cs" />
+    <Compile Include="ProdutoServico.cs" />
+    <Compile Include="IRepositorio\Base\IRepository.cs" />
+    <Compile Include="IRepositorio\ICartaoRepositorio.cs" />
+    <Compile Include="IRepositorio\IProdutoRepositorio.cs" />
+    <Compile Include="IRepositorio\IPdvRepositorio.cs" />
+    <Compile Include="IRepositorio\IPermissaoRepositorio.cs" />
+    <Compile Include="IRepositorio\IPerfilRepositorio.cs" />
+    <Compile Include="IRepositorio\ITokenRepositorio.cs" />
+    <Compile Include="IRepositorio\IPushNotificationRepositorio.cs" />
+    <Compile Include="IRepositorio\IUsuarioRepositorio.cs" />
+    <Compile Include="IRepositorio\ILojaRepositorio.cs" />
+    <Compile Include="IRepositorio\IPessoaRepositorio.cs" />
+    <Compile Include="PdvServico.cs" />
+    <Compile Include="PermissaoServico.cs" />
+    <Compile Include="PerfilServico.cs" />
+    <Compile Include="LojaServico.cs" />
+    <Compile Include="PessoaServico.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecaoProdutoServico.cs" />
+    <Compile Include="SubGrupoProdutoServico.cs" />
+    <Compile Include="TokenServico.cs" />
+    <Compile Include="PushNotificationServico.cs" />
+    <Compile Include="UsuarioServico.cs" />
+    <Compile Include="VeiculoServico.cs" />
+    <Compile Include="VendedorServico.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidade\Entidade.csproj">
+      <Project>{3C0337DF-E437-4905-9848-0845B9F46610}</Project>
+      <Name>Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Core.csproj">
+      <Project>{d910ecad-ddf8-409c-b7d6-abc6ca831b53}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

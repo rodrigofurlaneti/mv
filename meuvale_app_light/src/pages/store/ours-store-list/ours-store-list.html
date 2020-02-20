@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus Estabelecimentos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <div class="text-center" *ngIf="!lojas || lojas == null || lojas.length == 0">
+    <p>Ainda não há Establecimentos cadastrados</p>
+  </div>
+    <ion-list>
+      <ion-item *ngFor="let loja of lojas">
+        <h3>{{loja.Descricao}}</h3>
+        <h3>{{loja.Classificacao}}</h3>
+        <p>{{loja.Endereco.Resumo}}</p>
+        <p *ngIf="loja.Endereco.Cidade != null && loja.Endereco.Cidade.Estado != null">
+          {{loja.Endereco.Cidade.Descricao}}/{{loja.Endereco.Cidade.Estado.Sigla}}
+        </p>
+        <div class="text-center" item-end>
+          <div>
+            <button (click)='goToStoreRegister(loja)' ion-button clear>
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button (click)='qrCode(loja)' ion-button clear>
+              <ion-icon name="barcode"></ion-icon>
+            </button>
+          </div>
+          <div>
+            <button (click)='entrar(loja)' style="background: lightgray;" ion-button clear>
+              <p style="color: #3C3A92">Ofertas Diárias</p>
+            </button>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab (click)="goToStoreRegister()">
+      <ion-icon large name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

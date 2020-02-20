@@ -1,0 +1,452 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face {
+    font-family: 'Encode Sans';
+    src: url('../assets/fonts/Encode/EncodeSans-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../assets/fonts/Nunito/Nunito-Light.ttf');
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+ion-header {
+    .toolbar-title, .bar-button-default {
+        color: map-get($colors, title-text);
+        text-align: center !important;
+        
+    }
+
+    .toolbar-background {
+        background: map-get($colors, primary);
+    }
+}
+
+ion-slide {
+    margin-bottom: 20px;
+}
+img {
+    max-width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.avatar-position {
+    text-align: center;
+}
+
+.avatar-pet {
+    height: 85px;
+    width: 85px;
+    border-radius: 30px;
+    border-color: lightgray;
+    border-style: solid;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+.img-produto-lista {
+    display: block;
+    width: auto !important;
+    height: 130px !important;
+    margin: 0 auto;
+    padding-bottom: 17%;
+}
+
+.produto-detalhe-desc-titulo {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: "Proxima Nova","Arial","Helvetica",sans-serif;
+    font-weight: bold;
+    //margin-top: 7%;
+    color: map-get($colors, light);
+}
+
+.produto-detalhe-desc {
+    font-size: 14px;
+    color: #918989;
+    line-height: 2em;
+    margin: .5em 0 0;
+    //margin-bottom: -4%;
+    font-family: "Proxima Nova","Arial","Helvetica",sans-serif;
+    white-space: unset;
+    text-align: justify;
+}
+
+.product--actions-detalhe {
+    text-align: center;
+}
+
+.text-decoration-line-through{
+    text-decoration: line-through !important;
+}
+
+.swiper-pagination-bullet{
+    background-color: #245a38;
+    height: 10px;
+    width: 10px;
+}
+
+.nome-produto {
+    height: 100%;
+    overflow: hidden;
+    //margin-top: 25px;
+    margin-top: 2%;
+    font-size: 90%;
+    font-weight: 600;
+    color: map-get($map: $colors, $key: light);
+    text-align: center;
+    text-overflow: ellipsis;
+    //box-shadow: 0 2px 0 #dbdbdb;
+    padding-bottom: 9px;
+}
+
+.nome-produto-detalhe {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 0;
+    font-size: 25px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: map-get($map: $colors, $key: light);
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #dbdbdb !important;
+}
+
+.nome-produto-adicional {
+    display:inline; 
+    text-transform: uppercase;
+}
+
+.produto-item-preco {
+    display: table;
+    width: 100%;
+    height: 25px;
+    font-size: 100%;
+    text-align: center;
+}
+
+.produto-preco {
+    display: table-cell;
+    vertical-align: middle;
+    width: 60%;
+    //font-size: 122%;
+    //font-weight: 600;
+    color: #f15223;
+    text-align: center;
+}
+
+.produto-preco .preco-completo {
+    display: block;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.produto-preco .preco-completo .preco-titulo {
+    font-size: 80.5%;
+}
+
+.preco-de{
+    color: #B4B4B4;
+}
+
+.product--actions {
+    margin-top: 10px;
+    .qtd-group {
+        width: 100%;
+        display: flex;
+        button {
+            width: 25px;
+        }
+        input {
+            color: #918989;
+            border: 0;
+            border-radius: 15px;
+            background-color: #f8f8f8;
+            width: 30px;
+            flex: 1;
+            text-align: center;
+        }
+    }
+}
+
+
+.product--thumb {
+    padding: 0;
+    margin: 0;
+    img {
+        width: 50px;
+    }
+}
+
+.item-valor-destaque {
+    color: red !important;
+}
+
+.status-pedido {
+    color: #b3b304 !important;
+}
+
+.text-boxed, h1 {
+    background-color: #dbdbdb;   
+    color: #5d5757; 
+    padding: 5px;
+}
+
+.panel {
+    background: #dbdbdb;
+    padding: 0 15px;
+
+    ion-input, ion-textarea {
+        background-color: white;
+    }
+}
+
+.input-qtde-detalhe {
+    width: 20px;
+    text-align: center;
+}
+
+.input-textarea {
+    color: #918989;
+    border: 0;
+    background-color: #f8f8f8;
+    height: 80px;
+    margin-bottom: 15px;
+    color: red;
+}
+
+.avatar {
+    height: 85px;
+    width: 85px;
+    border-radius: 30px;
+    border-color: lightgray;
+    margin-left: 36%;
+}
+
+.item-ios ion-avatar ion-img, .item-ios ion-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-pagination-fraction, 
+.swiper-pagination-custom, 
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 10px;
+  width: 55px;
+  margin-left: calc(50% - 25px);
+  //background-color: map-get($colors, primary);
+  border-radius: 50px;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+  background-color: map-get($colors, primary);
+}
+
+.scroll-content{
+    background: map-get($colors, background-color);
+    color: white;
+}
+
+.button-inner{
+    color: map-get($colors, background-color);
+}
+
+.item {
+    background-color: transparent !important;
+    color: white;
+    border: transparent !important;
+    p{
+        color: white;
+    }
+    label{
+        color: white;
+    }
+    span {
+        color: white;
+    }
+}
+
+.item.item-input {
+    background-color: transparent !important;
+    color: white;
+    border: transparent !important;
+}
+
+.card{
+    background-color: transparent !important;
+    p{
+        color: white;
+    }
+}
+
+.card-header{
+    color: white;
+}
+
+.alertCartao{
+    .alert-ios, .alert-md {
+        background-color: #ffffff !important;
+        color: #7523DF !important;
+    }
+
+    .alert-input-group {
+        background-color: #ffffff !important;
+        color: #7523DF !important;
+
+        div {
+            background-color: #ffffff !important;
+            color: #7523DF !important;
+
+            input {
+                background-color: #ffffff !important;
+                color: #7523DF !important;
+            }
+        }    
+    }
+}
+
+
+.margin-right-10 {
+    margin-right: 10px !important;
+}
+.margin-left-10 {
+    margin-left: 10px !important;
+}
+.margin-bottom-5 {
+    margin-bottom: 5px !important;
+}
+.margin-bottom-0 {
+    margin-bottom: 0px !important;
+}
+
+.scrollExtrato{
+    max-height: 100vh;
+    height: 100%;
+
+    .scroll-content{
+        padding-top: 0px !important;
+    }
+}
+
+.float-left {
+    float: left !important;
+}
+.float-right {
+    float: right !important;
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+.header-center {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .backcolor-money-label {
+      background-color: #2C2B6D !important;
+  }
+  .backcolor-card-label {
+    background-color: #2C2B6D !important;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+}
+  .color-money-active {
+    color: #FFFFFF !important;
+}
+  .color-money-inactive {
+      color: #3C3A92 !important;
+  }
+.header-card-produto{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-color: #D7D8DC;
+    background: #D7D8DC;//linear-gradient(to bottom, #D7D8DC 60%, white 40%);
+}
+.card-produto{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-color: white;
+    background: white;//linear-gradient(to bottom, #D7D8DC 60%, white 40%);
+}
+
+.column-grid-home{
+    width: 100%;
+    height: 100%;
+    max-height: 405px;
+    // max-width: 300px;
+}
+
+.blue-background{
+    background: #13bffe;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.green-background{
+    background: #02d48e;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+.nomargin {
+    margin: 0 !important;
+}
+.app-root{
+    max-width: 1024px;
+    max-height: 1366px;
+}
+
+.searchbar{
+    background: transparent !important;
+}
+
+.searchbar .searchbar-input{
+    border-radius: 25px;
+    background: linear-gradient(to left, #02d48e 15%, white 15%);
+}
+
+.searchbar .searchbar-search-icon{
+    left: 90%;
+}
+
+.img-produto-detalhe-container{
+    text-align: center;
+}

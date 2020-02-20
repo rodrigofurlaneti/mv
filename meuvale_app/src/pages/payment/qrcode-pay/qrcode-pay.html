@@ -1,0 +1,29 @@
+<ion-header [hidden]="exibeTutorialQrCode">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pague com QR code</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-slides pager autoplay (click)="click()" [hidden]="!exibeTutorialQrCode">
+  <ion-slide *ngFor="let imagem of tutorial">
+    <img src={{imagem.URL}} alt="">
+  </ion-slide>
+</ion-slides>
+
+<ion-content padding [hidden]="exibeTutorialQrCode" [ngClass]="{ 'content': exibeTutorialQrCodeCss === true,'content-default': exibeTutorialQrCodeCss === false }">
+  <p class="text-center" style="font-size: 145%; font-weight: 900">Pague suas compras escaneando o QR code do
+    estabelecimento!</p>
+  <div class="text-center">
+    <img src="assets/image/qrcode-example.png">
+  </div>
+  <div class="text-center">
+    <button style="font-size: 145%; font-weight: 900" ion-button color="primary" block (click)="showBarcodeScan()">Ler
+      QR code</button>
+  </div>
+  <!-- <div class="text-center">
+      <button style="font-size: 145%; font-weight: 900" ion-button color="primary" block (click)="doacao()">DOAÇÃO</button>
+    </div> -->
+</ion-content>

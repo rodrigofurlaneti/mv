@@ -1,0 +1,21 @@
+header-retire {
+    .header-ligth {        
+        margin: 0 15px;
+        display: flex;
+        &, a {
+            color: map-get($map: $colors, $key: background-color);
+        }
+        a {
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .title {
+            flex: 1;
+            margin: 0 15px 0 8px;
+            padding-left: 8px;            
+            border-left: 2px white solid;            
+            text-overflow: ellipsis;
+            word-wrap: none;
+        }
+    }
+}

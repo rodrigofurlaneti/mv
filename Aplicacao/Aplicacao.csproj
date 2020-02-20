@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D0D41BE-DE53-477E-AD04-721FF84E8703}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aplicacao</RootNamespace>
+    <AssemblyName>Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">
+    <OutputPath>bin\Development\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CommonServiceLocator.SimpleInjectorAdapter, Version=2.8.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.SimpleInjectorAdapter.2.8.0\lib\portable-net4+sl4+wp8+win8+wpa81\CommonServiceLocator.SimpleInjectorAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.CommonServiceLocator.1.2.2\lib\net35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.0.8.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.8\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="apiebanx\ApiEbanxBase.cs" />
+    <Compile Include="apiebanx\ApiEbanxException.cs" />
+    <Compile Include="apiebanx\ApiTransacaoCartao.cs" />
+    <Compile Include="apiInfox\ApiInfoxBase.cs" />
+    <Compile Include="apiInfox\ApiTransacaoCartao.cs" />
+    <Compile Include="apimobiseg\ApiMobisegBase.cs" />
+    <Compile Include="apimobiseg\ApiTransacaoCartao.cs" />
+    <Compile Include="apipayzen\PayzenHeader.cs" />
+    <Compile Include="apipayzen\ConstantesApi.cs" />
+    <Compile Include="apipayzen\Serialization.cs" />
+    <Compile Include="apipayzen\ApiPayzenBase.cs" />
+    <Compile Include="apipayzen\SecurityHmacSha256.cs" />
+    <Compile Include="DispositivoAplicacao.cs" />
+    <Compile Include="MuralAplicacao.cs" />
+    <Compile Include="DescontoGlobalAplicacao.cs" />
+    <Compile Include="DescontoPessoaAplicacao.cs" />
+    <Compile Include="DescontoAplicacao.cs" />
+    <Compile Include="CupomAplicacao.cs" />
+    <Compile Include="DepartamentoProdutoAplicacao.cs" />
+    <Compile Include="FornecedorAplicacao.cs" />
+    <Compile Include="GrupoProdutoAplicacao.cs" />
+    <Compile Include="Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Mappers\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Mappers\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="MenuAplicacao.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BannerAplicacao.cs" />
+    <Compile Include="TutorialAplicacao.cs" />
+    <Compile Include="SecaoProdutoAplicacao.cs" />
+    <Compile Include="SubGrupoProdutoAplicacao.cs" />
+    <Compile Include="VendedorAplicacao.cs" />
+    <Compile Include="EstadoAplicacao.cs" />
+    <Compile Include="PaisAplicacao.cs" />
+    <Compile Include="EnderecoAplicacao.cs" />
+    <Compile Include="Base\BaseAplicacao.cs" />
+    <Compile Include="CidadeAplicacao.cs" />
+    <Compile Include="AgendamentoAplicacao.cs" />
+    <Compile Include="InformacaoProdutoAplicacao.cs" />
+    <Compile Include="ProdutoPrecoAplicacao.cs" />
+    <Compile Include="ProdutoAplicacao.cs" />
+    <Compile Include="PdvAplicacao.cs" />
+    <Compile Include="PessoaAplicacao.cs" />
+    <Compile Include="TokenAplicacao.cs" />
+    <Compile Include="Base\IBaseAplicacao.cs" />
+    <Compile Include="CartaoAplicacao.cs" />
+    <Compile Include="PermissaoAplicacao.cs" />
+    <Compile Include="PerfilAplicacao.cs" />
+    <Compile Include="PushNotificationAplicacao.cs" />
+    <Compile Include="UsuarioAplicacao.cs" />
+    <Compile Include="LojaAplicacao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ApiEbanx\CancelRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\CancelResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\CaptureRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\CaptureResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentChargebackModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentDetailsModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentItemModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentResponseBaseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PrintRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\QueryRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\QueryResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RefundModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RefundOrCancelRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RefundOrCancelResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RefundResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RequestBaseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\CreditCardModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentMadeModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\PaymentModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\RefundRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\DirectRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\ResponsibleModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\SetCvvRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\SetCvvResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\SubAccountModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\TokenRequestModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\ResponseBaseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\DirectResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\TokenResponseModel.cs" />
+    <Compile Include="ViewModels\ApiEbanx\TransactionStatusModel.cs" />
+    <Compile Include="ViewModels\TokenViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\ApiInfox\CartaoModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\ClienteModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\ExtratoItemModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\ExtratoModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\LojaModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\PedidoCompraModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\PessoaModelView.cs" />
+    <Compile Include="ViewModels\ApiInfox\ResponseModelView.cs" />
+    <Compile Include="ViewModels\ComentarioMuralViewModel.cs" />
+    <Compile Include="ViewModels\CupomViewModel.cs" />
+    <Compile Include="ViewModels\BannerViewModel.cs" />
+    <Compile Include="ViewModels\ApiMobiseg\ApiAuthViewModel.cs" />
+    <Compile Include="ViewModels\ApiMobiseg\ApiBaseViewModel.cs" />
+    <Compile Include="ViewModels\ApiMobiseg\ApiTransacaoCartaoViewModel.cs" />
+    <Compile Include="ViewModels\ArquivoViewModel.cs" />
+    <Compile Include="ViewModels\ChaveValorViewModel.cs" />
+    <Compile Include="ViewModels\CidadeViewModel.cs" />
+    <Compile Include="ViewModels\ContatoViewModel.cs" />
+    <Compile Include="ViewModels\DadosModal.cs" />
+    <Compile Include="ViewModels\DepartamentoProdutoViewModel.cs" />
+    <Compile Include="ViewModels\DescontoGlobalViewModel.cs" />
+    <Compile Include="ViewModels\DescontoViewModel.cs" />
+    <Compile Include="ViewModels\DocumentoViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\EspacoLojaArquivosViewModel.cs" />
+    <Compile Include="ViewModels\EstadoViewModel.cs" />
+    <Compile Include="ViewModels\FornecedorViewModel.cs" />
+    <Compile Include="ViewModels\GrupoProdutoViewModel.cs" />
+    <Compile Include="ViewModels\LojaViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\PaisViewModel.cs" />
+    <Compile Include="ViewModels\PerfilMenuViewModel.cs" />
+    <Compile Include="ViewModels\PerfilViewModel.cs" />
+    <Compile Include="ViewModels\PermissaoViewModel.cs" />
+    <Compile Include="ViewModels\PessoaContatoViewModel.cs" />
+    <Compile Include="ViewModels\PessoaViewModel.cs" />
+    <Compile Include="ViewModels\PrecoProdutoViewModel.cs" />
+    <Compile Include="ViewModels\MuralViewModel.cs" />
+    <Compile Include="ViewModels\ProdutoViewModel.cs" />
+    <Compile Include="ViewModels\RegionalEstadoViewModel.cs" />
+    <Compile Include="ViewModels\RegionalViewModel.cs" />
+    <Compile Include="ViewModels\AgendamentoViewModel.cs" />
+    <Compile Include="ViewModels\TutorialViewModel.cs" />
+    <Compile Include="ViewModels\SecaoProdutoViewModel.cs" />
+    <Compile Include="ViewModels\SubGrupoProdutoViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioPerfilViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="Web References\br.com.payzen.secure\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Mappers\AutoMapperConfig.cs.orig" />
+    <None Include="Mappers\DomainToViewModelMappingProfile.cs.orig" />
+    <None Include="Mappers\ViewModelToDomainMappingProfile.cs.orig" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\cancelCapturedPaymentResponseCancelCapturedPaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\cancelPaymentResponseCancelPaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\cancelSubscriptionResponseCancelSubscriptionResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\cancelTokenResponseCancelTokenResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\capturePaymentResponseCapturePaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\checkThreeDSAuthenticationResponseCheckThreeDSAuthenticationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\createPaymentResponseCreatePaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\createSubscriptionResponseCreateSubscriptionResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\createTokenByIbanResponseCreateTokenByIbanResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\createTokenFromTransactionResponseCreateTokenFromTransactionResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\createTokenResponseCreateTokenResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\duplicatePaymentResponseDuplicatePaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\findPaymentsResponseFindPaymentsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\getPaymentDetailsResponseGetPaymentDetailsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\getPaymentUuidResponseLegacyTransactionKeyResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\getSubscriptionDetailsResponseGetSubscriptionDetailsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\getTokenDetailsResponseGetTokenDetailsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\reactivateTokenResponseReactivateTokenResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\refundPaymentResponseRefundPaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\updatePaymentDetailsResponseUpdatePaymentDetailsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\updatePaymentResponseUpdatePaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\updateSubscriptionResponseUpdateSubscriptionResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\updateTokenResponseUpdateTokenResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\v5.wsdl" />
+    <None Include="Web References\br.com.payzen.secure\validatePaymentResponseValidatePaymentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\br.com.payzen.secure\verifyThreeDSEnrollmentResponseVerifyThreeDSEnrollmentResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidade\Entidade.csproj">
+      <Project>{3c0337df-e437-4905-9848-0845b9f46610}</Project>
+      <Name>Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj">
+      <Project>{7e0240b2-b47e-40cc-af42-aeb2744e4cd8}</Project>
+      <Name>Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Dominio.csproj">
+      <Project>{9dc80615-73e7-4d73-814e-90e469364530}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Core.csproj">
+      <Project>{d910ecad-ddf8-409c-b7d6-abc6ca831b53}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://secure.payzen.com.br/vads-ws/v5%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\br.com.payzen.secure\</RelPath>
+      <UpdateFromURL>https://secure.payzen.com.br/vads-ws/v5%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Aplicacao_br_com_payzen_secure_v5</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

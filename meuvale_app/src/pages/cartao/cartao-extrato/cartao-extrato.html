@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button *ngIf="!modalMode" ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons *ngIf="modalMode" start>
+      <button (click)="dismiss()" ion-button>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Extrato</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="backcolor-white">
+  <ion-input class="inputCard" readonly="true" [(ngModel)]="extratoCartao.Cartao.Numero"></ion-input>
+  <div style="width: 100%;">
+      <button class="btn-days-default" ion-button (click)='filterByDays(30)'>
+        <p class="text-strong">30</p>
+      </button>
+      <button class="btn-days-default margin-left-10 margin-right-10" ion-button (click)='filterByDays(60)'>
+        <p class="text-strong">60</p>
+      </button>
+      <button class="btn-days" ion-button (click)='filterByDays(90)'>
+        <p class="text-strong">90 dias</p>
+      </button>
+      <button class="btn-more" ion-button (click)='filterByDays(0)'>
+        <p class="text-strong">mais</p>
+      </button>
+  </div>
+
+  <ion-item class="nopadding nomargin">
+      <p class="text-header column-perc-50 float-left text-left">Saldo Disponível:</p>
+      
+      <p class="text-header column-perc-50 float-right text-right">R$ {{extratoCartao.SaldoDisponivel}}</p>
+  </ion-item>  
+  <ion-item class="nopadding nomargin">
+        <p class="text-header column-perc-50 float-left text-left">Total Gastos:</p>
+        
+        <p class="text-header column-perc-50 float-right text-right">R$ {{extratoCartao.TotalValorItens}}</p>
+    </ion-item>
+    <ion-item class="nopadding nomargin backcolor-itemHeader itemHeader-tittle"
+      *ngIf="itensExtrato != null && itensExtrato !== undefined && itensExtrato.length > 0">
+          <p class="text-header column-perc-data float-left text-left">&nbsp;Data</p>
+          <p class="text-header column-perc-credenciado float-left">Credenciado</p>
+          <p class="text-header column-perc-valor float-left text-right">Valor&nbsp;</p>
+    </ion-item>
+
+    <ion-list class="nopadding nomargin" 
+      *ngIf="itensExtrato != null && itensExtrato !== undefined && itensExtrato.length > 0">
+      <ion-item class="nopadding nomargin item-details" *ngFor="let item of itensExtrato">
+        <p class="text-details column-perc-data float-left text-center">
+          <ion-icon class="ionData" name="add"></ion-icon> {{item.Data | date: 'dd/MM'}}
+        </p>
+        <p class="text-details column-perc-credenciado float-left">{{item.Descricao}}</p>
+        <p class="text-details column-perc-valor float-left text-right">{{item.Valor}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-item class="nopadding nomargin no-registers" 
+      *ngIf="itensExtrato == null || itensExtrato == undefined || itensExtrato.length == 0">
+      Não possui extrato para este cartão.
+    </ion-item>
+</ion-content>

@@ -1,0 +1,4 @@
+Keystore: android-ZSeAG.keystore
+Keystore password: 40L@3v13haPR01a&52RB# //"Wro4n08X35#f45TXsDzhC$2ilMrkK7ke"
+Key alias: Meu Vale
+Key password: 40L@3v13haPR01a&52RB#

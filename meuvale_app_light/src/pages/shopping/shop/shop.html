@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar>
+      <button *ngIf="lojista == true" ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      {{ nomeLoja }}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showOrder()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <header-retire *ngIf="lojista == true"></header-retire>
+</ion-header>
+
+<ion-content padding id="page7">
+  <ion-fab top left class="fab-categoria">
+    <div class="lista-categorias">
+      <ion-slides *ngIf="categorias != null">
+        <ion-slide *ngFor="let cat of categorias; let i = index;" spaceBetween="-18" slidesPerView="2">
+          <div class="categoria-slides">
+            <div class="card-title">{{ cat.Nome}}</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </ion-fab>
+
+  <div *ngIf="!produtos && produtos.length == 0">
+    <p>Ainda não há Produtos cadastrados</p>
+  </div>
+
+  <div class="lista-produtos">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 *ngFor="let item of produtos; let i = index;">
+          <div class="produto-item">
+            <ion-card>
+              <ion-card-header class="header-card-produto">
+                <div (click)="detalhes(item)" *ngIf="!item || !item.Imagens || item.Imagens.length <= 0">
+                    <img class="img-produto-home" src="{{item.Produto.DepartamentoProduto.LogoUpload}}" alt="">
+                </div>
+
+                <div (click)="detalhes(item)" *ngIf="item && item.Imagens.length == 1">
+                  <img class="img-produto-home" src={{item.Imagens[0].Descricao}} alt="">
+                </div>
+
+                <ion-slides (click)="detalhes(item)" pager autoplay *ngIf="item && item.Imagens.length > 1">
+                  <ion-slide *ngFor="let slide of item.Imagens">
+                    <img class="img-produto-home" src={{slide.Descricao}} alt="">
+                  </ion-slide>
+                </ion-slides>
+                <ion-fab top right [hidden]="!lojista">
+                  <button small ion-fab (click)="goToProductRegister(item)">
+                    <ion-icon small name="create"></ion-icon>
+                  </button>
+                </ion-fab>
+              </ion-card-header>
+
+              <ion-card-content class="card-produto">
+                <div (click)="detalhes(item)">
+                  <p class="nome-produto" style="color: black; height: 40px;">{{item.Nome}}</p>
+                  <div class="produto-item-preco">
+                    <div class="produto-preco" *ngIf="item.ValorDesconto && item.ValorDesconto > 0">
+                      <span class="preco-completo preco-de text-decoration-line-through">
+                        <span class="preco-titulo">De</span>
+                        <strong>R$ {{item.Valor.toFixed(2)}}</strong>
+                      </span>
+                      <span class="preco-completo">
+                        <span class="preco-titulo">Por</span>
+                        <strong>R$ {{item?.ValorDesconto.toFixed(2)}}</strong>
+                      </span>
+                    </div>
+                    <div class="produto-preco" *ngIf="!item.ValorDesconto || item.ValorDesconto <= 0">
+                      <span class="preco-completo">
+                        <strong>R$ {{item?.Valor.toFixed(2)}}</strong>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div [hidden]="!lojista">
+                  <div class="text-center" *ngIf="!item.Status">
+                    <p style="color:red;">Inativa!</p>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMore">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais produtos...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+  <ion-fab bottom right [hidden]="!lojista">
+    <button ion-fab (click)="goToProductRegister()">
+      <ion-icon large name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

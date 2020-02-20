@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Convênios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <div *ngIf="lojas.length == 0">
+    <h3>Não existem Convênios cadastrados!</h3>
+  </div>
+  <ion-list style="color: black; background-color: white;" *ngIf="lojas && lojas.length > 0">
+    <ion-item *ngFor="let loja of lojas" text-wrap>
+      <h3>{{loja.Descricao}}</h3>
+      <p class="paragraph">{{loja.Endereco.Resumo}}</p>
+      <p class="paragraph" *ngIf="loja.Endereco.Cidade != null && loja.Endereco.Cidade.Estado != null">
+        {{loja.Endereco.Cidade.Descricao}}/{{loja.Endereco.Cidade.Estado.Sigla}}
+      </p>
+      <div class="text-center" item-end>
+          <button (click)='edit(loja)' ion-button clear>
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button (click)='trash(loja)' ion-button clear>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+      </div>
+    </ion-item>
+    <div>
+        <button (click)='register()' ion-button clear>
+          (+) Novo Cadastro
+        </button>
+      </div>
+  </ion-list>  
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content style="color: white;" loadingSpinner="bubbles" loadingText="Carregando...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Verificação de Segurança</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <div item-start>
+            <ion-icon name='images-outline' style='font-size: 60px;'></ion-icon>
+        </div>
+        <div item-end style="font-size: 16px;">
+            Tire uma selfie com o seu documento ao lado para validarmos o seu cadastro!
+        </div>
+    </ion-item>
+
+    <div *ngIf="capturar.length > 0">
+        <img src="{{capturar}}" class="img-produto-detalhe" alt="">
+      </div>
+
+    <div class="text-center">
+    <firebase-uploader path-file='cadastro_antifraude' file-name='{{pessoa.Id}}+{{data}}.png' (uploadComplete)="handleEvent($event)"></firebase-uploader>
+    </div>
+
+    <div class='text-center'>
+        <button ion-button primary block class='footer' (click)='prosseguir()'>
+            Continuar
+        </button>
+    </div>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Primeiro Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="listWhite">
+    <form [formGroup]="clientForm" (ngSubmit)="doSubmit()">
+        <ion-item>
+            <ion-label stacked>Senha *</ion-label>
+            <ion-input class="input-edit" formControlName="senha" type="password"></ion-input>
+        </ion-item>
+        <small *ngIf="sended && !clientForm.controls['senha'].value && (!isFacebookRegister && !logado)">
+            Campo obrigatório
+        </small>
+        <ion-item>
+            <ion-label stacked>Confirmar senha *</ion-label>
+            <ion-input class="input-edit" formControlName="confirmaSenha" type="password"></ion-input>
+        </ion-item>
+        <small *ngIf="sended && !clientForm.controls['confirmaSenha'].value && (!isFacebookRegister && !logado)">
+            Campo obrigatório
+        </small>
+        <ion-item [hidden]="isFacebookRegister">
+            <ion-label stacked>E-mail *</ion-label>
+            <ion-input class="input-edit" formControlName="email" type="email"></ion-input>
+        </ion-item>
+        <small *ngIf="sended && !clientForm.controls['email'].value">
+            Campo obrigatório
+        </small>
+        <ion-item>
+            <ion-label stacked>Celular *</ion-label>
+            <ion-input class="input-edit" formControlName="celular" [brmasker]="{phone: true}" type="tel"></ion-input>
+        </ion-item>
+        <small *ngIf="sended && !clientForm.controls['celular'].value">
+            Campo obrigatório
+        </small>
+        <br>
+        <div>
+            <button class="cliente-form" type="submit" ion-button color="primary" block>
+                {{ !isFacebookRegister ? "Salvar": "Finalizar login com o facebook" }}
+            </button>
+        </div>
+    </form>
+</ion-content>

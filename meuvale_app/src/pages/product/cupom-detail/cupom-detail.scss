@@ -1,0 +1,98 @@
+page-cupom-detail {
+
+    .descricao{
+        margin-top: 30px;
+    }
+
+    .line {
+        font-size: 5rem;
+        letter-spacing: -8px;
+      }
+
+      .icon-category{
+        max-width: 45px !important;
+      }
+    
+      .item-divider {
+        color: white;
+      }
+    
+      .item-ios [item-left], .item-ios [item-start]{
+        margin: 8px 4px 8px 0;
+      }
+    
+      .list-divider {
+        margin-left: -35px;
+      }
+
+    .text-center {
+        display: block;
+    }
+
+    .green-squad {
+        width: 130%;
+        height: 12.5vh;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        background-color: map-get($colors, primary);
+        border-radius: 5px;
+        strong:first-child{
+          font-size: 4.5rem;
+        }
+        strong:last-child{
+          font-size: 1.5rem;
+        }
+    }
+
+    .left-col {
+        width: 100px !important;
+        height: 90px;
+    }
+
+    .topo-logo{
+      width: 30%;
+      height: 5vh;
+      margin: 2.5vh 35% 3vh 35%;
+      img{
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .title-cupom{
+      strong{
+        width: 50%;
+        padding: 0 3%;
+        background-color: #37369c;
+        margin: 0 30%;
+      }
+      hr{
+        height: 5px;
+        background-color: #1caaac !important;
+        position: relative;
+        z-index: -1;
+        margin-top: -2.75%;
+      }
+    }
+
+    .list-ios{
+      margin-bottom: 2.5% !important;
+    }
+
+    .loja-descricao{
+      font-size: 2rem;
+      margin-bottom: 3.5%;
+    }
+
+    .button-ios{
+      width: 95.5%;
+      height: 9vh;
+      margin: 0 2%;
+      background-color: rgb( 0, 152, 219);
+    }
+
+    .toolbar-title-md{
+      font-size: 1.5rem;
+    }
+}

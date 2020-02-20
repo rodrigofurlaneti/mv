@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Combos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <div *ngIf="planos.length == 0">
+    <h3>Não existem combos cadastrados!</h3>
+    <button (click)='register()' ion-button>
+      (+) Novo Cadastro
+    </button>
+  </div>
+  <ion-list style="color: black; background-color: white;" *ngIf="planos && planos.length > 0">
+    <ion-item *ngFor="let plano of planos" text-wrap>
+      <h3>Convênio: {{plano.Convenio.Descricao}}</h3>
+      <p class="paragraph">{{plano.Nome}}</p>
+      <div class="text-center" item-end>
+          <button (click)='edit(plano)' ion-button clear>
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button (click)='trash(plano)' ion-button clear>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+      </div>
+    </ion-item>
+    <div>
+      <button (click)='register()' ion-button clear>
+        (+) Novo Cadastro
+      </button>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content style="color: white;" loadingSpinner="bubbles" loadingText="Carregando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

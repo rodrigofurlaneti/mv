@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pagamentos Recebidos</ion-title>
+  </ion-navbar>
+  <header-retire></header-retire>
+</ion-header>
+
+<ion-content padding class="listWhite">
+  <ion-fab top right style="margin-top: 15px;">
+    <button ion-button (click)="atualizar()">
+      Atualizar
+    </button>
+  </ion-fab>
+  <div *ngIf="!isLoading">
+    <ion-list *ngIf="listaPedidos && listaPedidos != null && listaPedidos.length > 0">
+      <ion-item *ngFor="let pedido of listaPedidos">
+        <div item-start (click)="detalhes(pedido)">
+          <figure class="product--thumb">
+            <img src="assets/image/order.png">
+          </figure>
+          <h4>#{{pedido.Id}} - {{pedido.DataInsercao | date: 'dd/MM/yyyy'}}</h4>
+          <p *ngIf="pedido.ListaCompra != null" class="item-valor-destaque">Total: R$
+            {{pedido.ListaCompra.Total.toFixed(2)}}</p>
+          <p *ngIf="pedido.ListaCompra == null" class="item-valor-destaque">Total: R$ {{pedido.Valor.toFixed(2)}}</p>
+        </div>
+
+        <div item-end class="text-center">
+          <div class="icone-acao" *ngIf="pedido.Status == 'Aguardando pagamento'">
+            <button ion-button clear large>
+              <ion-icon style="color:red" name="logo-usd"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Aguardando confirmação'">
+            <button (click)='confirmarPedido(pedido.Id)' ion-button clear>
+              <ion-icon style="color:green" name="thumbs-up"></ion-icon>
+            </button>
+            <button (click)='recusarPedido(pedido.Id)' ion-button clear>
+              <ion-icon style="color:red" name="thumbs-down"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Pedido recusado'">
+            <button ion-button clear>
+              <ion-icon style="color:red" name="thumbs-down"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Aguardando retirada'">
+            <button ion-button clear large>
+              <ion-icon style="color:red" name="time"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Em separação' && !pedido.Agendamento">
+            <button ion-button clear large>
+              <ion-icon style="color:green" name="cube"></ion-icon>
+            </button>
+            <button (click)='enviarPedido(pedido.Id)' ion-button clear>
+              <ion-icon style="color:green" name="thumbs-up"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Em separação' && pedido.Agendamento">
+            <button ion-button clear large>
+              <ion-icon style="color:green" name="cube"></ion-icon>
+            </button>
+            <button (click)='liberarRetiradaPedido(pedido.Id)' ion-button clear>
+              <ion-icon style="color:green" name="thumbs-up"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Pedido Enviado'">
+            <button ion-button clear large>
+              <ion-icon style="color:green" name="pin"></ion-icon>
+            </button>
+            <button (click)='ConfirmarEntregaPedido(pedido)' ion-button clear>
+              <ion-icon style="color:green" name="thumbs-up"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Pedido retirado'">
+            <button ion-button clear large>
+              <ion-icon style="color:green" name="happy"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao"
+            *ngIf="pedido.Status == 'Pagamento aprovado' || pedido.Status == 'Aguardando avaliação'">
+            <button ion-button clear large>
+              <ion-icon name="medal"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Pagamento não aprovado'">
+            <button ion-button clear large>
+              <ion-icon style="color:red" name="close-circle"></ion-icon>
+            </button>
+          </div>
+          <div class="icone-acao" *ngIf="pedido.Status == 'Pedido finalizado'">
+            <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 1">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 1">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 2">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 2">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 3">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 3">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 4">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 4">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao-check" *ngIf="pedido.AvaliacaoPedido.NotaPedido >= 5">
+            </ion-icon>
+            <ion-icon name="star" class="classificacao" *ngIf="pedido.AvaliacaoPedido.NotaPedido < 5">
+            </ion-icon>
+          </div>
+
+          <p class="status-pedido"><small>{{pedido.Status}}{{pedido.Motivo != null && pedido.Motivo != '' ? ': ' +
+            pedido.Motivo : ''}}</small></p>
+        </div>
+
+      </ion-item>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMore">
+        <ion-infinite-scroll-content style="color: white;" loadingSpinner="bubbles" loadingText="Carregando...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+    <div class="text-center" *ngIf="!listaPedidos || listaPedidos == null || listaPedidos.length == 0">
+      <p class="text-center">Ainda não há pagamentos realizados</p>
+    </div>
+  </div>
+</ion-content>

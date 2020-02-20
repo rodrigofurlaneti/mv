@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Meu Clube</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 class="text-center">OFERTAS DIÁRIAS</h1>
+  <product-struct #products></product-struct>
+  <h1 class="text-center">PARCEIROS</h1>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let fornecedor of fornecedores; let i = index;">
+        <ion-card class="card-parceiro">
+          <ion-card-header class="header-card-parceiro">
+            <div class="col-m">
+              <div (click)="detalhes(fornecedor)">
+                <div *ngIf="!fornecedor || fornecedor.Imagem == null ">
+                  <img src="assets/image/shop.png" class="img-produto-lista" alt="">
+                </div>
+                <div *ngIf="!fornecedor || fornecedor.Imagem != null ">
+                  <img src={{fornecedor.Imagem}} class="img-produto-lista" alt="">
+                </div>
+                <p class="text-center">{{fornecedor.Descricao}}</p>
+              </div>
+            </div>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="hasMore">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais parceiros...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

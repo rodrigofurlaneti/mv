@@ -1,0 +1,51 @@
+page-convenio-list {
+    #loja-scroll {
+        height: 45vh;
+    }
+
+    ion-fab{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: -10px;
+        background: map-get($colors, background-color);
+      }
+
+      .item {
+        background-color: transparent !important;
+        color: black;
+        border: transparent !important;
+        p{
+            color: black;
+        }
+        label{
+            color: black;
+        }
+        span {
+            color: black;
+        }
+    }
+    
+    .item.item-input {
+        background-color: transparent !important;
+        color: black;
+        border: transparent !important;
+    }
+
+    .range{
+        width: 60px;
+        background-color: map-get($map: $colors, $key: primary);
+        .button-inner{color: map-get($map: $colors, $key: background-color);}
+        font-size: 9px;
+        font-weight: bold;
+    }
+    
+    .selecionado{
+        width: 60px;
+        background-color: map-get($map: $colors, $key: primary);
+        .button-inner{color: white;}
+        font-size: 9px;
+        font-weight: bold;
+    }
+}

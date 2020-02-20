@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>    
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>    
+        <ion-title>Primeiro Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="listWhite">
+    <form [formGroup]="clientForm" (ngSubmit)="doSubmit()">
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Senha *</ion-label>
+                <ion-input class="input-edit" formControlName="senha" type="password"></ion-input>
+            </ion-item>
+            <small *ngIf="sended && !clientForm.controls['senha'].value  && !logado)">
+                Campo obrigatório
+            </small>
+            <ion-item >
+                <ion-label floating>Confirmar senha *</ion-label>
+                <ion-input class="input-edit" formControlName="confirmaSenha" type="password"></ion-input>
+            </ion-item>
+            <small *ngIf="sended && !clientForm.controls['confirmaSenha'].value  && !logado)">
+                Campo obrigatório
+            </small>
+          </ion-list>
+        <br>
+        <div>
+            <button class="cliente-form" type="submit" ion-button color="primary" block>
+              Salvar
+            </button>
+        </div>
+    </form>
+</ion-content>

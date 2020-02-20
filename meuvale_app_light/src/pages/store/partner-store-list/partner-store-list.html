@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Parceiros</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <stores-map #map></stores-map>
+  <div class="text-center" *ngIf="!lojas || lojas == null || lojas.length == 0">
+    <p>Ainda não há Establecimentos cadastrados</p>
+  </div>
+  <ion-scroll id="loja-scroll" scrollY="true">
+    <ion-list>
+      <ion-item *ngFor="let loja of lojas">
+        <div item-start class="text-center">
+          <ion-icon color="primary" class="loja-pin" name="pin"></ion-icon>
+          <br>
+          <small>{{loja.Distancia ? (loja.Distancia/1000).toFixed(2) : '--'}}<br>km</small>
+        </div>
+        <h3>{{loja.Descricao}}</h3>
+        <p>{{loja.Endereco.Resumo}}</p>
+        <small *ngIf="loja.Endereco.Cidade != null && loja.Endereco.Cidade.Estado != null">
+          <br />
+          {{loja.Endereco.Cidade.Descricao}}/{{loja.Endereco.Cidade.Estado.Sigla}}
+        </small>
+        <div item-end>
+          <button (click)='goToStoreRegister(loja)' ion-button clear>
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button (click)='entrar(loja)' ion-button clear>
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+  <ion-fab bottom right>
+    <button ion-fab (click)="goToStoreRegister()">
+      <ion-icon large name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

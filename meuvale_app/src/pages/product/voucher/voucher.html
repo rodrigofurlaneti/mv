@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Seu Voucher</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="logo-white">
+    <img class="logo-white" *ngIf="pedido.Loja" src={{pedido.Loja.Logo}} alt="">
+    <img class="logo-white" *ngIf="pedido.Fornecedor" src={{pedido.Fornecedor.Logo}} alt="">
+  </div>
+  <h1 class="h1-default">Voucher #{{pedido.Id}}</h1>
+  <div *ngIf="pedido.Status == 'Aguardando retirada'">
+    <p class="text-boxed text-center">Exiba o QRCode para resgatar seu voucher!</p>
+    <div class="text-center">
+      <qr-code [value]="pedido.QrCode.Url" size="250"></qr-code>
+    </div>
+  </div>
+  <h1 class="h1-default">Instruções de uso</h1>
+  <div class="tutorial-desconto">
+    <ol *ngFor="let info of pedido.ProdutoPreco.Produto.Descricoes; let i = index">
+      <li><span>{{i+1}}</span><span>{{info.Descricao}}</span></li>
+    </ol>
+  </div>
+</ion-content>

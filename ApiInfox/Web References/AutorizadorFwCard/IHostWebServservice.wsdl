@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IHostWebServservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="EchoTest0Request">
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="EchoTest0Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaSaldo1Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaSaldo1Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaSaldoDetalhado2Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaSaldoDetalhado2Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaExtrato3Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaExtrato3Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaRecargaCartao4Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaRecargaCartao4Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaSaldoFrota5Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaSaldoFrota5Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaSaldoFatura6Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaSaldoFatura6Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaProposta7Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_id_proposta" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_propostatx" type="xs:string" />
+    <part name="p_id_estado_proposta" type="xs:string" />
+    <part name="p_desc_estado_proposta" type="xs:string" />
+    <part name="p_buf_ocorrencia" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaProposta7Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_propostatx" type="xs:string" />
+    <part name="p_id_estado_proposta" type="xs:string" />
+    <part name="p_desc_estado_proposta" type="xs:string" />
+    <part name="p_buf_ocorrencia" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="SimulaCompraVista8Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="SimulaCompraVista8Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="SimulaCompraParcLoja9Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="SimulaCompraParcLoja9Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="SimulaCompraParcAdm10Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="SimulaCompraParcAdm10Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ConsultaRecebiveis11Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ConsultaRecebiveis11Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="BloqueioCartaoPerda12Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="BloqueioCartaoPerda12Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="BloqueioCartaoRoubo13Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="BloqueioCartaoRoubo13Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="BloqueioCartaoSenhaInv14Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="BloqueioCartaoSenhaInv14Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="BloqueioCartaoDanificado15Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="BloqueioCartaoDanificado15Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="BloqueioCartaoErroEmbossing16Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="BloqueioCartaoErroEmbossing16Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesbloqueioCartao17Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesbloqueioCartao17Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="TrocaSenhaCartao18Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_senha_nova" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="TrocaSenhaCartao18Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="ValidaSenhaCartao19Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_nro_tentativas" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="ValidaSenhaCartao19Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_nro_tentativas" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelarCartao20Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelarCartao20Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CompraVista21Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CompraVista21Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CompraParcLoja22Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CompraParcLoja22Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CompraParcAdm23Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CompraParcAdm23Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CompraGestaoFrota24Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_dados_produto" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CompraGestaoFrota24Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="Saque25Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_parcela" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="Saque25Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="PagamentoFaturaCarne26Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_ndoc" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="PagamentoFaturaCarne26Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="RecargaCelular27Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_ddd" type="xs:string" />
+    <part name="p_celular" type="xs:string" />
+    <part name="p_operadora" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="RecargaCelular27Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="RecargaPrePago28Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_valor" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_cvc" type="xs:string" />
+    <part name="p_cpf" type="xs:string" />
+    <part name="p_datanas" type="xs:string" />
+    <part name="p_nome_cartao" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="RecargaPrePago28Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaCompraVista29Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaCompraVista29Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaCompraParcLoja30Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaCompraParcLoja30Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaCompraParcAdm31Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaCompraParcAdm31Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaCompraGestaoFrota32Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaCompraGestaoFrota32Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaSaque33Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaSaque33Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaPagFaturaCarne34Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaPagFaturaCarne34Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CancelaRecargaPrePago35Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CancelaRecargaPrePago35Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCompraVista36Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCompraVista36Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCompraParcLoja37Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCompraParcLoja37Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCompraParcAdm38Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCompraParcAdm38Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCompraGestaoFrota39Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCompraGestaoFrota39Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazSaque40Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazSaque40Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazPagFaturaCarne41Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazPagFaturaCarne41Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazRecargaCelular42Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazRecargaCelular42Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazRecargaPrePago43Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazRecargaPrePago43Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaCompraVista44Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaCompraVista44Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaCompraParcLoja45Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaCompraParcLoja45Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaCompraParcAdm46Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaCompraParcAdm46Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaCompraGestaoFrota47Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaCompraGestaoFrota47Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaSaque48Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaSaque48Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaPagFaturaCarne49Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaPagFaturaCarne49Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="DesfazCancelaRecargaPrePago50Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_nsu_rederx" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="DesfazCancelaRecargaPrePago50Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="Inicializacao51Request">
+    <part name="p_codcliente" type="xs:string" />
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_workkey" type="xs:string" />
+    <part name="p_chave_acessotx" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="Inicializacao51Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_workkey" type="xs:string" />
+    <part name="p_chave_acessotx" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="InicializacaoFrota52Request">
+    <part name="p_codcliente" type="xs:string" />
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_workkey" type="xs:string" />
+    <part name="p_chave_acessotx" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="InicializacaoFrota52Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_workkey" type="xs:string" />
+    <part name="p_chave_acessotx" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="Fechamento53Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="Fechamento53Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_dados_mens" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="TrocaProdutoUsuario54Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_proposta" type="xs:string" />
+    <part name="p_produto" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_cartao_novo" type="xs:string" />
+    <part name="p_transacao" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="TrocaProdutoUsuario54Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_cartao_novo" type="xs:string" />
+    <part name="p_transacao" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="CadastroPropostaProduto55Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_id_propostarx" type="xs:string" />
+    <part name="p_id_cliente" type="xs:string" />
+    <part name="p_id_agente" type="xs:string" />
+    <part name="p_prop_dia_vencto" type="xs:string" />
+    <part name="p_prop_idproduto" type="xs:string" />
+    <part name="p_prop_idperfil" type="xs:string" />
+    <part name="p_prop_cpf" type="xs:string" />
+    <part name="p_prop_nome" type="xs:string" />
+    <part name="p_prop_datanasc" type="xs:string" />
+    <part name="p_prop_sexo" type="xs:string" />
+    <part name="p_prop_naturalidade" type="xs:string" />
+    <part name="p_prop_uf" type="xs:string" />
+    <part name="p_prop_estadocivil" type="xs:string" />
+    <part name="p_prop_nacionalidade" type="xs:string" />
+    <part name="p_prop_docident" type="xs:string" />
+    <part name="p_prop_docidentuf" type="xs:string" />
+    <part name="p_prop_docidenttp" type="xs:string" />
+    <part name="p_prop_docidentorgao" type="xs:string" />
+    <part name="p_prop_docidentdata" type="xs:string" />
+    <part name="p_prop_filiacaomat" type="xs:string" />
+    <part name="p_prop_filiacaopat" type="xs:string" />
+    <part name="p_prop_grauescola" type="xs:string" />
+    <part name="p_prop_nropis" type="xs:string" />
+    <part name="p_prop_email" type="xs:string" />
+    <part name="p_end_cep" type="xs:string" />
+    <part name="p_end_endereco" type="xs:string" />
+    <part name="p_end_numero" type="xs:string" />
+    <part name="p_end_compl" type="xs:string" />
+    <part name="p_end_bairro" type="xs:string" />
+    <part name="p_end_cidade" type="xs:string" />
+    <part name="p_end_uf" type="xs:string" />
+    <part name="p_endcor_cep" type="xs:string" />
+    <part name="p_endcor_endereco" type="xs:string" />
+    <part name="p_endcor_numero" type="xs:string" />
+    <part name="p_endcor_compl" type="xs:string" />
+    <part name="p_endcor_bairro" type="xs:string" />
+    <part name="p_endcor_cidade" type="xs:string" />
+    <part name="p_endcor_uf" type="xs:string" />
+    <part name="p_foneres_ddd" type="xs:string" />
+    <part name="p_foneres" type="xs:string" />
+    <part name="p_fonerec_ddd" type="xs:string" />
+    <part name="p_fonerec" type="xs:string" />
+    <part name="p_fonecom_ddd" type="xs:string" />
+    <part name="p_fonecom" type="xs:string" />
+    <part name="p_fonecel_ddd" type="xs:string" />
+    <part name="p_fonecel" type="xs:string" />
+    <part name="p_res_imovelsituacao" type="xs:string" />
+    <part name="p_res_aluguelmensal" type="xs:string" />
+    <part name="p_res_prestacaocasa" type="xs:string" />
+    <part name="p_res_residdesde" type="xs:string" />
+    <part name="p_prof_razaosocial" type="xs:string" />
+    <part name="p_prof_nomefantasia" type="xs:string" />
+    <part name="p_prof_cargo" type="xs:string" />
+    <part name="p_prof_tempoemp" type="xs:string" />
+    <part name="p_prof_cep" type="xs:string" />
+    <part name="p_prof_endereco" type="xs:string" />
+    <part name="p_prof_numero" type="xs:string" />
+    <part name="p_prof_compl" type="xs:string" />
+    <part name="p_prof_bairro" type="xs:string" />
+    <part name="p_prof_cidade" type="xs:string" />
+    <part name="p_prof_uf" type="xs:string" />
+    <part name="p_prof_dddfone" type="xs:string" />
+    <part name="p_prof_fone" type="xs:string" />
+    <part name="p_prof_codprofissao" type="xs:string" />
+    <part name="p_prof_sitemprego" type="xs:string" />
+    <part name="p_prof_dataadmissao" type="xs:string" />
+    <part name="p_prof_proprietario" type="xs:string" />
+    <part name="p_ref_nome1" type="xs:string" />
+    <part name="p_ref_relaciona1" type="xs:string" />
+    <part name="p_ref_ddd1" type="xs:string" />
+    <part name="p_ref_fone1" type="xs:string" />
+    <part name="p_ref_nome2" type="xs:string" />
+    <part name="p_ref_relaciona2" type="xs:string" />
+    <part name="p_ref_ddd2" type="xs:string" />
+    <part name="p_ref_fone2" type="xs:string" />
+    <part name="p_ref_nrobanco1" type="xs:string" />
+    <part name="p_ref_banco1" type="xs:string" />
+    <part name="p_ref_agencia1" type="xs:string" />
+    <part name="p_ref_abertura1" type="xs:string" />
+    <part name="p_ref_nrobanco2" type="xs:string" />
+    <part name="p_ref_banco2" type="xs:string" />
+    <part name="p_ref_agencia2" type="xs:string" />
+    <part name="p_ref_abertura2" type="xs:string" />
+    <part name="p_ref_cartao1" type="xs:string" />
+    <part name="p_ref_tpcartao1" type="xs:string" />
+    <part name="p_ref_cartao2" type="xs:string" />
+    <part name="p_ref_tpcartao2" type="xs:string" />
+    <part name="p_ref_outroscartao" type="xs:string" />
+    <part name="p_ref_salario" type="xs:string" />
+    <part name="p_ref_despesabruta" type="xs:string" />
+    <part name="p_ref_outrenda" type="xs:string" />
+    <part name="p_ref_descoutrenda" type="xs:string" />
+    <part name="p_ref_ndependentes" type="xs:string" />
+    <part name="p_ref_carroproprio" type="xs:string" />
+    <part name="p_conj_cpf" type="xs:string" />
+    <part name="p_conj_nome" type="xs:string" />
+    <part name="p_conj_datanasc" type="xs:string" />
+    <part name="p_conj_codprofissao" type="xs:string" />
+    <part name="p_conj_cargo" type="xs:string" />
+    <part name="p_conj_dataadmissao" type="xs:string" />
+    <part name="p_conj_renda" type="xs:string" />
+    <part name="p_compra_limite" type="xs:string" />
+    <part name="p_observacao" type="xs:string" />
+    <part name="p_nro_beneficio" type="xs:string" />
+    <part name="p_senha_cartao" type="xs:string" />
+    <part name="p_consignado_agencia" type="xs:string" />
+    <part name="p_consignado_agenciadv" type="xs:string" />
+    <part name="p_consignado_conta" type="xs:string" />
+    <part name="p_consignado_contadv" type="xs:string" />
+    <part name="p_end_dne_cod" type="xs:string" />
+    <part name="p_end_dne_cepini" type="xs:string" />
+    <part name="p_end_dne_cepfim" type="xs:string" />
+    <part name="p_endcor_dne_cod" type="xs:string" />
+    <part name="p_endcor_dne_cepini" type="xs:string" />
+    <part name="p_endcor_dne_cepfim" type="xs:string" />
+    <part name="p_prof_dne_cod" type="xs:string" />
+    <part name="p_prof_dne_cepini" type="xs:string" />
+    <part name="p_prof_dne_cepfim" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_usuario" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_propostatx" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="CadastroPropostaProduto55Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_usuario" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_propostatx" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <message name="AtualizaLimite56Request">
+    <part name="p_chave_acesso" type="xs:string" />
+    <part name="p_codestab" type="xs:string" />
+    <part name="p_tipocaptura" type="xs:string" />
+    <part name="p_terminal" type="xs:string" />
+    <part name="p_cartao" type="xs:string" />
+    <part name="p_nsu" type="xs:string" />
+    <part name="p_trilha2" type="xs:string" />
+    <part name="p_senha" type="xs:string" />
+    <part name="p_limite" type="xs:string" />
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+  </message>
+  <message name="AtualizaLimite56Response">
+    <part name="p_codresp" type="xs:string" />
+    <part name="p_nsu_rede" type="xs:string" />
+    <part name="p_saldo_disp" type="xs:string" />
+    <part name="p_strresp" type="xs:string" />
+    <part name="return" type="xs:int" />
+  </message>
+  <portType name="IHostWebServ">
+    <operation name="EchoTest">
+      <input message="tns:EchoTest0Request" />
+      <output message="tns:EchoTest0Response" />
+    </operation>
+    <operation name="ConsultaSaldo">
+      <input message="tns:ConsultaSaldo1Request" />
+      <output message="tns:ConsultaSaldo1Response" />
+    </operation>
+    <operation name="ConsultaSaldoDetalhado">
+      <input message="tns:ConsultaSaldoDetalhado2Request" />
+      <output message="tns:ConsultaSaldoDetalhado2Response" />
+    </operation>
+    <operation name="ConsultaExtrato">
+      <input message="tns:ConsultaExtrato3Request" />
+      <output message="tns:ConsultaExtrato3Response" />
+    </operation>
+    <operation name="ConsultaRecargaCartao">
+      <input message="tns:ConsultaRecargaCartao4Request" />
+      <output message="tns:ConsultaRecargaCartao4Response" />
+    </operation>
+    <operation name="ConsultaSaldoFrota">
+      <input message="tns:ConsultaSaldoFrota5Request" />
+      <output message="tns:ConsultaSaldoFrota5Response" />
+    </operation>
+    <operation name="ConsultaSaldoFatura">
+      <input message="tns:ConsultaSaldoFatura6Request" />
+      <output message="tns:ConsultaSaldoFatura6Response" />
+    </operation>
+    <operation name="ConsultaProposta">
+      <input message="tns:ConsultaProposta7Request" />
+      <output message="tns:ConsultaProposta7Response" />
+    </operation>
+    <operation name="SimulaCompraVista">
+      <input message="tns:SimulaCompraVista8Request" />
+      <output message="tns:SimulaCompraVista8Response" />
+    </operation>
+    <operation name="SimulaCompraParcLoja">
+      <input message="tns:SimulaCompraParcLoja9Request" />
+      <output message="tns:SimulaCompraParcLoja9Response" />
+    </operation>
+    <operation name="SimulaCompraParcAdm">
+      <input message="tns:SimulaCompraParcAdm10Request" />
+      <output message="tns:SimulaCompraParcAdm10Response" />
+    </operation>
+    <operation name="ConsultaRecebiveis">
+      <input message="tns:ConsultaRecebiveis11Request" />
+      <output message="tns:ConsultaRecebiveis11Response" />
+    </operation>
+    <operation name="BloqueioCartaoPerda">
+      <input message="tns:BloqueioCartaoPerda12Request" />
+      <output message="tns:BloqueioCartaoPerda12Response" />
+    </operation>
+    <operation name="BloqueioCartaoRoubo">
+      <input message="tns:BloqueioCartaoRoubo13Request" />
+      <output message="tns:BloqueioCartaoRoubo13Response" />
+    </operation>
+    <operation name="BloqueioCartaoSenhaInv">
+      <input message="tns:BloqueioCartaoSenhaInv14Request" />
+      <output message="tns:BloqueioCartaoSenhaInv14Response" />
+    </operation>
+    <operation name="BloqueioCartaoDanificado">
+      <input message="tns:BloqueioCartaoDanificado15Request" />
+      <output message="tns:BloqueioCartaoDanificado15Response" />
+    </operation>
+    <operation name="BloqueioCartaoErroEmbossing">
+      <input message="tns:BloqueioCartaoErroEmbossing16Request" />
+      <output message="tns:BloqueioCartaoErroEmbossing16Response" />
+    </operation>
+    <operation name="DesbloqueioCartao">
+      <input message="tns:DesbloqueioCartao17Request" />
+      <output message="tns:DesbloqueioCartao17Response" />
+    </operation>
+    <operation name="TrocaSenhaCartao">
+      <input message="tns:TrocaSenhaCartao18Request" />
+      <output message="tns:TrocaSenhaCartao18Response" />
+    </operation>
+    <operation name="ValidaSenhaCartao">
+      <input message="tns:ValidaSenhaCartao19Request" />
+      <output message="tns:ValidaSenhaCartao19Response" />
+    </operation>
+    <operation name="CancelarCartao">
+      <input message="tns:CancelarCartao20Request" />
+      <output message="tns:CancelarCartao20Response" />
+    </operation>
+    <operation name="CompraVista">
+      <input message="tns:CompraVista21Request" />
+      <output message="tns:CompraVista21Response" />
+    </operation>
+    <operation name="CompraParcLoja">
+      <input message="tns:CompraParcLoja22Request" />
+      <output message="tns:CompraParcLoja22Response" />
+    </operation>
+    <operation name="CompraParcAdm">
+      <input message="tns:CompraParcAdm23Request" />
+      <output message="tns:CompraParcAdm23Response" />
+    </operation>
+    <operation name="CompraGestaoFrota">
+      <input message="tns:CompraGestaoFrota24Request" />
+      <output message="tns:CompraGestaoFrota24Response" />
+    </operation>
+    <operation name="Saque">
+      <input message="tns:Saque25Request" />
+      <output message="tns:Saque25Response" />
+    </operation>
+    <operation name="PagamentoFaturaCarne">
+      <input message="tns:PagamentoFaturaCarne26Request" />
+      <output message="tns:PagamentoFaturaCarne26Response" />
+    </operation>
+    <operation name="RecargaCelular">
+      <input message="tns:RecargaCelular27Request" />
+      <output message="tns:RecargaCelular27Response" />
+    </operation>
+    <operation name="RecargaPrePago">
+      <input message="tns:RecargaPrePago28Request" />
+      <output message="tns:RecargaPrePago28Response" />
+    </operation>
+    <operation name="CancelaCompraVista">
+      <input message="tns:CancelaCompraVista29Request" />
+      <output message="tns:CancelaCompraVista29Response" />
+    </operation>
+    <operation name="CancelaCompraParcLoja">
+      <input message="tns:CancelaCompraParcLoja30Request" />
+      <output message="tns:CancelaCompraParcLoja30Response" />
+    </operation>
+    <operation name="CancelaCompraParcAdm">
+      <input message="tns:CancelaCompraParcAdm31Request" />
+      <output message="tns:CancelaCompraParcAdm31Response" />
+    </operation>
+    <operation name="CancelaCompraGestaoFrota">
+      <input message="tns:CancelaCompraGestaoFrota32Request" />
+      <output message="tns:CancelaCompraGestaoFrota32Response" />
+    </operation>
+    <operation name="CancelaSaque">
+      <input message="tns:CancelaSaque33Request" />
+      <output message="tns:CancelaSaque33Response" />
+    </operation>
+    <operation name="CancelaPagFaturaCarne">
+      <input message="tns:CancelaPagFaturaCarne34Request" />
+      <output message="tns:CancelaPagFaturaCarne34Response" />
+    </operation>
+    <operation name="CancelaRecargaPrePago">
+      <input message="tns:CancelaRecargaPrePago35Request" />
+      <output message="tns:CancelaRecargaPrePago35Response" />
+    </operation>
+    <operation name="DesfazCompraVista">
+      <input message="tns:DesfazCompraVista36Request" />
+      <output message="tns:DesfazCompraVista36Response" />
+    </operation>
+    <operation name="DesfazCompraParcLoja">
+      <input message="tns:DesfazCompraParcLoja37Request" />
+      <output message="tns:DesfazCompraParcLoja37Response" />
+    </operation>
+    <operation name="DesfazCompraParcAdm">
+      <input message="tns:DesfazCompraParcAdm38Request" />
+      <output message="tns:DesfazCompraParcAdm38Response" />
+    </operation>
+    <operation name="DesfazCompraGestaoFrota">
+      <input message="tns:DesfazCompraGestaoFrota39Request" />
+      <output message="tns:DesfazCompraGestaoFrota39Response" />
+    </operation>
+    <operation name="DesfazSaque">
+      <input message="tns:DesfazSaque40Request" />
+      <output message="tns:DesfazSaque40Response" />
+    </operation>
+    <operation name="DesfazPagFaturaCarne">
+      <input message="tns:DesfazPagFaturaCarne41Request" />
+      <output message="tns:DesfazPagFaturaCarne41Response" />
+    </operation>
+    <operation name="DesfazRecargaCelular">
+      <input message="tns:DesfazRecargaCelular42Request" />
+      <output message="tns:DesfazRecargaCelular42Response" />
+    </operation>
+    <operation name="DesfazRecargaPrePago">
+      <input message="tns:DesfazRecargaPrePago43Request" />
+      <output message="tns:DesfazRecargaPrePago43Response" />
+    </operation>
+    <operation name="DesfazCancelaCompraVista">
+      <input message="tns:DesfazCancelaCompraVista44Request" />
+      <output message="tns:DesfazCancelaCompraVista44Response" />
+    </operation>
+    <operation name="DesfazCancelaCompraParcLoja">
+      <input message="tns:DesfazCancelaCompraParcLoja45Request" />
+      <output message="tns:DesfazCancelaCompraParcLoja45Response" />
+    </operation>
+    <operation name="DesfazCancelaCompraParcAdm">
+      <input message="tns:DesfazCancelaCompraParcAdm46Request" />
+      <output message="tns:DesfazCancelaCompraParcAdm46Response" />
+    </operation>
+    <operation name="DesfazCancelaCompraGestaoFrota">
+      <input message="tns:DesfazCancelaCompraGestaoFrota47Request" />
+      <output message="tns:DesfazCancelaCompraGestaoFrota47Response" />
+    </operation>
+    <operation name="DesfazCancelaSaque">
+      <input message="tns:DesfazCancelaSaque48Request" />
+      <output message="tns:DesfazCancelaSaque48Response" />
+    </operation>
+    <operation name="DesfazCancelaPagFaturaCarne">
+      <input message="tns:DesfazCancelaPagFaturaCarne49Request" />
+      <output message="tns:DesfazCancelaPagFaturaCarne49Response" />
+    </operation>
+    <operation name="DesfazCancelaRecargaPrePago">
+      <input message="tns:DesfazCancelaRecargaPrePago50Request" />
+      <output message="tns:DesfazCancelaRecargaPrePago50Response" />
+    </operation>
+    <operation name="Inicializacao">
+      <input message="tns:Inicializacao51Request" />
+      <output message="tns:Inicializacao51Response" />
+    </operation>
+    <operation name="InicializacaoFrota">
+      <input message="tns:InicializacaoFrota52Request" />
+      <output message="tns:InicializacaoFrota52Response" />
+    </operation>
+    <operation name="Fechamento">
+      <input message="tns:Fechamento53Request" />
+      <output message="tns:Fechamento53Response" />
+    </operation>
+    <operation name="TrocaProdutoUsuario">
+      <input message="tns:TrocaProdutoUsuario54Request" />
+      <output message="tns:TrocaProdutoUsuario54Response" />
+    </operation>
+    <operation name="CadastroPropostaProduto">
+      <input message="tns:CadastroPropostaProduto55Request" />
+      <output message="tns:CadastroPropostaProduto55Response" />
+    </operation>
+    <operation name="AtualizaLimite">
+      <input message="tns:AtualizaLimite56Request" />
+      <output message="tns:AtualizaLimite56Response" />
+    </operation>
+  </portType>
+  <binding name="IHostWebServbinding" type="tns:IHostWebServ">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="EchoTest">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#EchoTest" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaSaldo">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaSaldo" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaSaldoDetalhado">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaSaldoDetalhado" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaExtrato">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaExtrato" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaRecargaCartao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaRecargaCartao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaSaldoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaSaldoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaSaldoFatura">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaSaldoFatura" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaProposta">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaProposta" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SimulaCompraVista">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#SimulaCompraVista" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SimulaCompraParcLoja">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#SimulaCompraParcLoja" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="SimulaCompraParcAdm">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#SimulaCompraParcAdm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ConsultaRecebiveis">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ConsultaRecebiveis" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="BloqueioCartaoPerda">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#BloqueioCartaoPerda" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="BloqueioCartaoRoubo">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#BloqueioCartaoRoubo" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="BloqueioCartaoSenhaInv">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#BloqueioCartaoSenhaInv" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="BloqueioCartaoDanificado">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#BloqueioCartaoDanificado" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="BloqueioCartaoErroEmbossing">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#BloqueioCartaoErroEmbossing" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesbloqueioCartao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesbloqueioCartao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="TrocaSenhaCartao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#TrocaSenhaCartao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="ValidaSenhaCartao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#ValidaSenhaCartao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelarCartao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelarCartao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CompraVista">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CompraVista" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CompraParcLoja">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CompraParcLoja" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CompraParcAdm">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CompraParcAdm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CompraGestaoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CompraGestaoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Saque">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#Saque" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="PagamentoFaturaCarne">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#PagamentoFaturaCarne" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="RecargaCelular">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#RecargaCelular" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="RecargaPrePago">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#RecargaPrePago" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaCompraVista">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaCompraVista" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaCompraParcLoja">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaCompraParcLoja" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaCompraParcAdm">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaCompraParcAdm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaCompraGestaoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaCompraGestaoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaSaque">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaSaque" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaPagFaturaCarne">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaPagFaturaCarne" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CancelaRecargaPrePago">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CancelaRecargaPrePago" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCompraVista">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCompraVista" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCompraParcLoja">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCompraParcLoja" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCompraParcAdm">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCompraParcAdm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCompraGestaoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCompraGestaoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazSaque">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazSaque" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazPagFaturaCarne">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazPagFaturaCarne" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazRecargaCelular">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazRecargaCelular" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazRecargaPrePago">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazRecargaPrePago" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaCompraVista">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaCompraVista" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaCompraParcLoja">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaCompraParcLoja" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaCompraParcAdm">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaCompraParcAdm" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaCompraGestaoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaCompraGestaoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaSaque">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaSaque" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaPagFaturaCarne">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaPagFaturaCarne" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DesfazCancelaRecargaPrePago">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#DesfazCancelaRecargaPrePago" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Inicializacao">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#Inicializacao" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="InicializacaoFrota">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#InicializacaoFrota" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="Fechamento">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#Fechamento" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="TrocaProdutoUsuario">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#TrocaProdutoUsuario" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="CadastroPropostaProduto">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#CadastroPropostaProduto" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="AtualizaLimite">
+      <soap:operation soapAction="urn:HostWebServInt-IHostWebServ#AtualizaLimite" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:HostWebServInt-IHostWebServ" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IHostWebServservice">
+    <port name="IHostWebServPort" binding="tns:IHostWebServbinding">
+      <soap:address location="http://autorizador.fwcard.com.br:5063/soap/IHostWebServ" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,34 @@
+page-parceiros {
+    .ofertas-slides {
+        padding-bottom: 20px;
+    }
+    ion-slides {
+        margin-bottom: 20px;
+    }
+    .center-topic {
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .lista-produtos {
+        width: 100% !important;
+        margin: 0 auto;
+        ion-slide {
+            width: 90% !important;
+            padding-left: 8%
+        }
+    }
+    .font-pequescript{
+        text-align: center;
+        font-size: 45px;
+        font-family: 'pequescript' !important;
+    }
+    .img-produto {
+        max-width: 60%;
+    }
+    .img-fornecedor {
+        display: block;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <ion-item item-end>
+            <ion-title>Facebook Like
+            </ion-title>
+            <ion-icon name="close" (click)=close() item-end style='font-size: 15px; color: black'></ion-icon>
+        </ion-item>
+    </ion-navbar>
+
+</ion-header>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v6.0"></script>
+
+<ion-content padding class="listWhite">
+    <ion-item>
+        <div item-start>
+            <ion-icon name='logo-facebook' style='font-size: 60px;'></ion-icon>
+        </div>
+        <div item-end style="font-size: 16px;">
+            Curta nossa página e tenha acesso aos melhores benefícios do país.
+        </div>
+    </ion-item>
+    <!-- <ion-item>
+            <div class="fb-like" data-href="https://www.facebook.com/MeuValeBeneficios/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="false"></div>
+    </ion-item> -->
+    <button class="store-form" ion-button color="primary" block (click)=facebook()>
+        <ion-icon name='logo-facebook' style='font-size: 30px;'></ion-icon>&nbsp; CURTIR
+    </button>
+
+</ion-content>

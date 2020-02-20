@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Selecione uma loja</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="listWhite">
+  <ion-scroll id="loja-scroll" scrollY="true">
+    <ion-list>
+      <ion-item *ngFor="let loja of lojas" (click)="entrar(loja)">
+        <div item-start class="text-center">
+          <ion-icon color="primary" class="loja-pin" name="pin"></ion-icon>
+          <br>
+          <small>{{loja.Distancia ? (loja.Distancia/1000).toFixed(2) : '--'}}<br>km</small>
+        </div>
+        <h3>{{loja.Descricao}}</h3>
+        <h3>{{loja.Classificacao}}</h3>
+        <p>{{loja.Endereco.Resumo}}</p>
+        <p *ngIf="loja.Endereco.Cidade != null && loja.Endereco.Cidade.Estado != null">
+          {{loja.Endereco.Cidade.Descricao}}/{{loja.Endereco.Cidade.Estado.Sigla}}
+        </p>
+      </ion-item>
+      <div *ngIf="lojas && lojas.length <= 0">
+        <p class="text-center">Ainda não há Establecimentos cadastrados!</p>
+      </div>
+    </ion-list>
+  </ion-scroll>
+  <div *ngIf="lojas && lojas.length <= 0">
+    <button class="store-form" type="submit" ion-button color="primary" block (click)="cadastrarLoja()">
+      Cadastrar Loja
+    </button>
+  </div>
+</ion-content>

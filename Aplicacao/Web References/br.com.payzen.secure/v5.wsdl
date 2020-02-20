@@ -1,0 +1,1755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:tns="http://v5.ws.vads.lyra.com/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="v5" targetNamespace="http://v5.ws.vads.lyra.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://v5.ws.vads.lyra.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="cancelCapturedPayment" type="tns:cancelCapturedPayment" />
+      <xs:element name="cancelCapturedPaymentResponse" type="tns:cancelCapturedPaymentResponse" />
+      <xs:element name="cancelPayment" type="tns:cancelPayment" />
+      <xs:element name="cancelPaymentResponse" type="tns:cancelPaymentResponse" />
+      <xs:element name="cancelSubscription" type="tns:cancelSubscription" />
+      <xs:element name="cancelSubscriptionResponse" type="tns:cancelSubscriptionResponse" />
+      <xs:element name="cancelToken" type="tns:cancelToken" />
+      <xs:element name="cancelTokenResponse" type="tns:cancelTokenResponse" />
+      <xs:element name="capturePayment" type="tns:capturePayment" />
+      <xs:element name="capturePaymentResponse" type="tns:capturePaymentResponse" />
+      <xs:element name="checkThreeDSAuthentication" type="tns:checkThreeDSAuthentication" />
+      <xs:element name="checkThreeDSAuthenticationResponse" type="tns:checkThreeDSAuthenticationResponse" />
+      <xs:element name="createPayment" type="tns:createPayment" />
+      <xs:element name="createPaymentResponse" type="tns:createPaymentResponse" />
+      <xs:element name="createSubscription" type="tns:createSubscription" />
+      <xs:element name="createSubscriptionResponse" type="tns:createSubscriptionResponse" />
+      <xs:element name="createToken" type="tns:createToken" />
+      <xs:element name="createTokenByIban" type="tns:createTokenByIban" />
+      <xs:element name="createTokenByIbanResponse" type="tns:createTokenByIbanResponse" />
+      <xs:element name="createTokenFromTransaction" type="tns:createTokenFromTransaction" />
+      <xs:element name="createTokenFromTransactionResponse" type="tns:createTokenFromTransactionResponse" />
+      <xs:element name="createTokenResponse" type="tns:createTokenResponse" />
+      <xs:element name="duplicatePayment" type="tns:duplicatePayment" />
+      <xs:element name="duplicatePaymentResponse" type="tns:duplicatePaymentResponse" />
+      <xs:element name="findPayments" type="tns:findPayments" />
+      <xs:element name="findPaymentsResponse" type="tns:findPaymentsResponse" />
+      <xs:element name="getPaymentDetails" type="tns:getPaymentDetails" />
+      <xs:element name="getPaymentDetailsResponse" type="tns:getPaymentDetailsResponse" />
+      <xs:element name="getPaymentUuid" type="tns:getPaymentUuid" />
+      <xs:element name="getPaymentUuidResponse" type="tns:getPaymentUuidResponse" />
+      <xs:element name="getSubscriptionDetails" type="tns:getSubscriptionDetails" />
+      <xs:element name="getSubscriptionDetailsResponse" type="tns:getSubscriptionDetailsResponse" />
+      <xs:element name="getTokenDetails" type="tns:getTokenDetails" />
+      <xs:element name="getTokenDetailsResponse" type="tns:getTokenDetailsResponse" />
+      <xs:element name="reactivateToken" type="tns:reactivateToken" />
+      <xs:element name="reactivateTokenResponse" type="tns:reactivateTokenResponse" />
+      <xs:element name="refundPayment" type="tns:refundPayment" />
+      <xs:element name="refundPaymentResponse" type="tns:refundPaymentResponse" />
+      <xs:element name="updatePayment" type="tns:updatePayment" />
+      <xs:element name="updatePaymentDetails" type="tns:updatePaymentDetails" />
+      <xs:element name="updatePaymentDetailsResponse" type="tns:updatePaymentDetailsResponse" />
+      <xs:element name="updatePaymentResponse" type="tns:updatePaymentResponse" />
+      <xs:element name="updateSubscription" type="tns:updateSubscription" />
+      <xs:element name="updateSubscriptionResponse" type="tns:updateSubscriptionResponse" />
+      <xs:element name="updateToken" type="tns:updateToken" />
+      <xs:element name="updateTokenResponse" type="tns:updateTokenResponse" />
+      <xs:element name="validatePayment" type="tns:validatePayment" />
+      <xs:element name="validatePaymentResponse" type="tns:validatePaymentResponse" />
+      <xs:element name="verifyThreeDSEnrollment" type="tns:verifyThreeDSEnrollment" />
+      <xs:element name="verifyThreeDSEnrollmentResponse" type="tns:verifyThreeDSEnrollmentResponse" />
+      <xs:complexType name="cancelCapturedPayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="commonRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="paymentSource" type="xs:string" />
+          <xs:element minOccurs="0" name="submissionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="contractNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="comment" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="queryRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uuid" type="xs:string" />
+          <xs:element minOccurs="0" name="orderId" type="xs:string" />
+          <xs:element minOccurs="0" name="subscriptionId" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentToken" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelCapturedPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelCapturedPaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="commonResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:int" />
+          <xs:element minOccurs="0" name="responseCodeDetail" type="xs:string" />
+          <xs:element minOccurs="0" name="transactionStatusLabel" type="xs:string" />
+          <xs:element minOccurs="0" name="shopId" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentSource" type="xs:string" />
+          <xs:element minOccurs="0" name="submissionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="contractNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentToken" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="wsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="requestId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="capturePayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="settlementRequest" type="tns:settlementRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="settlementRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="transactionUuids" type="xs:string" />
+          <xs:element minOccurs="0" name="commission" type="xs:double" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="capturePaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="capturePaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTokenByIban">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="ibanRequest" type="tns:ibanRequest" />
+          <xs:element minOccurs="0" name="customerRequest" type="tns:customerRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ibanRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="iban" type="xs:string" />
+          <xs:element minOccurs="0" name="legalName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="customerRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="billingDetails" type="tns:billingDetailsRequest" />
+          <xs:element minOccurs="0" name="shippingDetails" type="tns:shippingDetailsRequest" />
+          <xs:element minOccurs="0" name="extraDetails" type="tns:extraDetailsRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="billingDetailsRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reference" type="xs:string" />
+          <xs:element minOccurs="0" name="title" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:custStatus" />
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="address2" type="xs:string" />
+          <xs:element minOccurs="0" name="district" type="xs:string" />
+          <xs:element minOccurs="0" name="zipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="language" type="xs:string" />
+          <xs:element minOccurs="0" name="cellPhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="legalName" type="xs:string" />
+          <xs:element minOccurs="0" name="identityCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDetailsRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="tns:custStatus" />
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="address2" type="xs:string" />
+          <xs:element minOccurs="0" name="district" type="xs:string" />
+          <xs:element minOccurs="0" name="zipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryCompanyName" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingSpeed" type="tns:deliverySpeed" />
+          <xs:element minOccurs="0" name="shippingMethod" type="tns:deliveryType" />
+          <xs:element minOccurs="0" name="legalName" type="xs:string" />
+          <xs:element minOccurs="0" name="identityCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="extraDetailsRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ipAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="fingerPrintId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTokenByIbanResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTokenByIbanResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="paymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="effectiveAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="effectiveCurrency" type="xs:int" />
+          <xs:element minOccurs="0" name="expectedCaptureDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="manualValidation" type="xs:int" />
+          <xs:element minOccurs="0" name="operationType" type="xs:int" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="externalTransactionId" type="xs:string" />
+          <xs:element minOccurs="0" name="liabilityShift" type="xs:string" />
+          <xs:element minOccurs="0" name="transactionUuid" type="xs:string" />
+          <xs:element minOccurs="0" name="sequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentType" type="tns:paymentType" />
+          <xs:element minOccurs="0" name="nsu" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentError" type="xs:int" />
+          <xs:element minOccurs="0" name="wallet" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="orderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="extInfo" type="tns:extInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="extInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="key" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="scheme" type="xs:string" />
+          <xs:element minOccurs="0" name="brand" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="productCode" type="xs:string" />
+          <xs:element minOccurs="0" name="bankCode" type="xs:string" />
+          <xs:element minOccurs="0" name="expiryMonth" type="xs:int" />
+          <xs:element minOccurs="0" name="expiryYear" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authorizationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mode" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="captureResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="number" type="xs:int" />
+          <xs:element minOccurs="0" name="reconciliationStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="refundAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="refundCurrency" type="xs:int" />
+          <xs:element minOccurs="0" name="chargeback" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="customerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="billingDetails" type="tns:billingDetailsResponse" />
+          <xs:element minOccurs="0" name="shippingDetails" type="tns:shippingDetailsResponse" />
+          <xs:element minOccurs="0" name="extraDetails" type="tns:extraDetailsResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="billingDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reference" type="xs:string" />
+          <xs:element minOccurs="0" name="title" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:custStatus" />
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="district" type="xs:string" />
+          <xs:element minOccurs="0" name="zipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="language" type="xs:string" />
+          <xs:element minOccurs="0" name="cellPhoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="legalName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="type" type="tns:custStatus" />
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="streetNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="address2" type="xs:string" />
+          <xs:element minOccurs="0" name="district" type="xs:string" />
+          <xs:element minOccurs="0" name="zipCode" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryCompanyName" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingSpeed" type="tns:deliverySpeed" />
+          <xs:element minOccurs="0" name="shippingMethod" type="tns:deliveryType" />
+          <xs:element minOccurs="0" name="legalName" type="xs:string" />
+          <xs:element minOccurs="0" name="identityCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="extraDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ipAddress" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="markResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="threeDSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authenticationRequestData" type="tns:authenticationRequestData" />
+          <xs:element minOccurs="0" name="authenticationResultData" type="tns:authenticationResultData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticationRequestData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="threeDSAcctId" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDSAcsUrl" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDSBrand" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDSEncodedPareq" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDSEnrolled" type="xs:string" />
+          <xs:element minOccurs="0" name="threeDSRequestId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticationResultData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="brand" type="xs:string" />
+          <xs:element minOccurs="0" name="enrolled" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="eci" type="xs:string" />
+          <xs:element minOccurs="0" name="xid" type="xs:string" />
+          <xs:element minOccurs="0" name="cavv" type="xs:string" />
+          <xs:element minOccurs="0" name="cavvAlgorithm" type="xs:string" />
+          <xs:element minOccurs="0" name="signValid" type="xs:string" />
+          <xs:element minOccurs="0" name="transactionCondition" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="extraResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="paymentOptionCode" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentOptionOccNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="boletoPdfUrl" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscriptionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subscriptionId" type="xs:string" />
+          <xs:element minOccurs="0" name="effectDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cancelDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="initialAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="rrule" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="initialAmountNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="pastPaymentNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="totalPaymentNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fraudManagementResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="riskControl" type="tns:riskControl" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="riskAnalysis" type="tns:riskAnalysis" />
+          <xs:element minOccurs="0" name="riskAssessments" type="tns:riskAssessments" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="riskControl">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="riskAnalysis">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="score" type="xs:string" />
+          <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="tns:riskAnalysisProcessingStatus" />
+          <xs:element minOccurs="0" name="requestId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="extraInfo" nillable="true" type="tns:extInfo" />
+          <xs:element minOccurs="0" name="fingerPrintId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="riskAssessments">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="results" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shoppingCartResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cartItemInfo" type="tns:cartItemInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cartItemInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productLabel" type="xs:string" />
+          <xs:element minOccurs="0" name="productType" type="tns:productType" />
+          <xs:element minOccurs="0" name="productRef" type="xs:string" />
+          <xs:element minOccurs="0" name="productQty" type="xs:int" />
+          <xs:element minOccurs="0" name="productAmount" type="xs:string" />
+          <xs:element minOccurs="0" name="productVat" type="xs:string" />
+          <xs:element minOccurs="0" name="productExtId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reactivateToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="reactivateTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reactivateTokenResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="duplicatePayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="paymentRequest" type="tns:paymentRequest" />
+          <xs:element minOccurs="0" name="orderRequest" type="tns:orderRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="paymentRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string" />
+          <xs:element minOccurs="0" name="retryUuid" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="expectedCaptureDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="manualValidation" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentOptionCode" type="xs:string" />
+          <xs:element minOccurs="0" name="acquirerTransientData" type="xs:string" />
+          <xs:element minOccurs="0" name="firstInstallmentDelay" type="xs:int" />
+          <xs:element minOccurs="0" name="overridePaymentCinematic" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="orderRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="extInfo" type="tns:extInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="duplicatePaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="duplicatePaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelPayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelPaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkThreeDSAuthentication">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="threeDSRequest" type="tns:threeDSRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="threeDSRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mode" type="tns:threeDSMode" />
+          <xs:element minOccurs="0" name="requestId" type="xs:string" />
+          <xs:element minOccurs="0" name="pares" type="xs:string" />
+          <xs:element minOccurs="0" name="brand" type="xs:string" />
+          <xs:element minOccurs="0" name="enrolled" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="eci" type="xs:string" />
+          <xs:element minOccurs="0" name="xid" type="xs:string" />
+          <xs:element minOccurs="0" name="cavv" type="xs:string" />
+          <xs:element minOccurs="0" name="algorithm" type="xs:string" />
+          <xs:element minOccurs="0" name="mpiExtension" type="tns:mpiExtensionRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mpiExtensionRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="extensionData" type="tns:extInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkThreeDSAuthenticationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="checkThreeDSAuthenticationResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+          <xs:element minOccurs="0" name="paymentRequest" type="tns:paymentRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updatePaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePaymentDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+          <xs:element minOccurs="0" name="shoppingCartRequest" type="tns:shoppingCartRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shoppingCartRequest">
+        <xs:sequence>
+          <xs:element name="insuranceAmount" type="xs:long" />
+          <xs:element name="shippingAmount" type="xs:long" />
+          <xs:element name="taxAmount" type="xs:long" />
+          <xs:element maxOccurs="unbounded" name="cartItemInfo" type="tns:cartItemInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updatePaymentDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updatePaymentDetailsResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPaymentDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+          <xs:element minOccurs="0" name="extendedResponseRequest" type="tns:extendedResponseRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="extendedResponseRequest">
+        <xs:sequence>
+          <xs:element name="isNsuRequested" type="xs:boolean" />
+          <xs:element name="isWalletRequested" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPaymentDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getPaymentDetailsResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="tokenResponse" type="tns:tokenResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cancellationDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+          <xs:element minOccurs="0" name="customerRequest" type="tns:customerRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cardRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="scheme" type="xs:string" />
+          <xs:element minOccurs="0" name="expiryMonth" type="xs:int" />
+          <xs:element minOccurs="0" name="expiryYear" type="xs:int" />
+          <xs:element minOccurs="0" name="cardSecurityCode" type="xs:string" />
+          <xs:element minOccurs="0" name="cardHolderBirthDay" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="paymentToken" type="xs:string" />
+          <xs:element minOccurs="0" name="cardHolderName" type="xs:string" />
+          <xs:element minOccurs="0" name="proofOfIdType" type="xs:string" />
+          <xs:element minOccurs="0" name="proofOfIdNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updateTokenResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelSubscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelSubscriptionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelSubscriptionResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundPayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="paymentRequest" type="tns:paymentRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="refundPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="refundPaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTokenFromTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTokenFromTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTokenFromTransactionResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verifyThreeDSEnrollment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="paymentRequest" type="tns:paymentRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+          <xs:element minOccurs="0" name="techRequest" type="tns:techRequest" />
+          <xs:element minOccurs="0" name="threeDSRequest" type="tns:threeDSRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="techRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="browserUserAgent" type="xs:string" />
+          <xs:element minOccurs="0" name="browserAccept" type="xs:string" />
+          <xs:element minOccurs="0" name="integrationType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verifyThreeDSEnrollmentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="verifyThreeDSEnrollmentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validatePayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validatePaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="validatePaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPaymentUuid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="legacyTransactionKeyRequest" type="tns:legacyTransactionKeyRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="legacyTransactionKeyRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string" />
+          <xs:element minOccurs="0" name="sequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="creationDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPaymentUuidResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="legacyTransactionKeyResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createPayment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="threeDSRequest" type="tns:threeDSRequest" />
+          <xs:element minOccurs="0" name="paymentRequest" type="tns:paymentRequest" />
+          <xs:element minOccurs="0" name="orderRequest" type="tns:orderRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+          <xs:element minOccurs="0" name="customerRequest" type="tns:customerRequest" />
+          <xs:element minOccurs="0" name="techRequest" type="tns:techRequest" />
+          <xs:element minOccurs="0" name="shoppingCartRequest" type="tns:shoppingCartRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createPaymentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createPaymentResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createSubscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="orderRequest" type="tns:orderRequest" />
+          <xs:element minOccurs="0" name="subscriptionRequest" type="tns:subscriptionRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscriptionRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subscriptionId" type="xs:string" />
+          <xs:element minOccurs="0" name="effectDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="initialAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="initialAmountNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="rrule" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createSubscriptionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createSubscriptionResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSubscriptionDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getSubscriptionDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getSubscriptionDetailsResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="tokenResponse" type="tns:tokenResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateSubscription">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+          <xs:element minOccurs="0" name="subscriptionRequest" type="tns:subscriptionRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateSubscriptionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updateSubscriptionResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cancelTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelTokenResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commonRequest" type="tns:commonRequest" />
+          <xs:element minOccurs="0" name="cardRequest" type="tns:cardRequest" />
+          <xs:element minOccurs="0" name="customerRequest" type="tns:customerRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTokenResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTokenResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="shoppingCartResponse" type="tns:shoppingCartResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findPayments">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findPaymentsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="findPaymentsResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="transactionItem" type="tns:transactionItem" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="transactionItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionUuid" type="xs:string" />
+          <xs:element minOccurs="0" name="transactionStatusLabel" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:int" />
+          <xs:element minOccurs="0" name="expectedCaptureDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTokenDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="queryRequest" type="tns:queryRequest" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTokenDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="getTokenDetailsResult">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:wsResponse">
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="commonResponse" type="tns:commonResponse" />
+                    <xs:element minOccurs="0" name="paymentResponse" type="tns:paymentResponse" />
+                    <xs:element minOccurs="0" name="orderResponse" type="tns:orderResponse" />
+                    <xs:element minOccurs="0" name="cardResponse" type="tns:cardResponse" />
+                    <xs:element minOccurs="0" name="authorizationResponse" type="tns:authorizationResponse" />
+                    <xs:element minOccurs="0" name="captureResponse" type="tns:captureResponse" />
+                    <xs:element minOccurs="0" name="customerResponse" type="tns:customerResponse" />
+                    <xs:element minOccurs="0" name="markResponse" type="tns:markResponse" />
+                    <xs:element minOccurs="0" name="subscriptionResponse" type="tns:subscriptionResponse" />
+                    <xs:element minOccurs="0" name="extraResponse" type="tns:extraResponse" />
+                    <xs:element minOccurs="0" name="fraudManagementResponse" type="tns:fraudManagementResponse" />
+                    <xs:element minOccurs="0" name="threeDSResponse" type="tns:threeDSResponse" />
+                    <xs:element minOccurs="0" name="tokenResponse" type="tns:tokenResponse" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="custStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PRIVATE" />
+          <xs:enumeration value="COMPANY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="deliverySpeed">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="STANDARD" />
+          <xs:enumeration value="EXPRESS" />
+          <xs:enumeration value="PRIORITY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="deliveryType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RECLAIM_IN_SHOP" />
+          <xs:enumeration value="RELAY_POINT" />
+          <xs:enumeration value="RECLAIM_IN_STATION" />
+          <xs:enumeration value="PACKAGE_DELIVERY_COMPANY" />
+          <xs:enumeration value="ETICKET" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="paymentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SINGLE" />
+          <xs:enumeration value="INSTALLMENT" />
+          <xs:enumeration value="SPLIT" />
+          <xs:enumeration value="SUBSCRIPTION" />
+          <xs:enumeration value="RETRY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="riskAnalysisProcessingStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="P_TO_SEND" />
+          <xs:enumeration value="P_SEND_KO" />
+          <xs:enumeration value="P_PENDING_AT_ANALYZER" />
+          <xs:enumeration value="P_SEND_OK" />
+          <xs:enumeration value="P_MANUAL" />
+          <xs:enumeration value="P_SKIPPED" />
+          <xs:enumeration value="P_SEND_EXPIRED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="productType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FOOD_AND_GROCERY" />
+          <xs:enumeration value="AUTOMOTIVE" />
+          <xs:enumeration value="ENTERTAINMENT" />
+          <xs:enumeration value="HOME_AND_GARDEN" />
+          <xs:enumeration value="HOME_APPLIANCE" />
+          <xs:enumeration value="AUCTION_AND_GROUP_BUYING" />
+          <xs:enumeration value="FLOWERS_AND_GIFTS" />
+          <xs:enumeration value="COMPUTER_AND_SOFTWARE" />
+          <xs:enumeration value="HEALTH_AND_BEAUTY" />
+          <xs:enumeration value="SERVICE_FOR_INDIVIDUAL" />
+          <xs:enumeration value="SERVICE_FOR_BUSINESS" />
+          <xs:enumeration value="SPORTS" />
+          <xs:enumeration value="CLOTHING_AND_ACCESSORIES" />
+          <xs:enumeration value="TRAVEL" />
+          <xs:enumeration value="HOME_AUDIO_PHOTO_VIDEO" />
+          <xs:enumeration value="TELEPHONY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="threeDSMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DISABLED" />
+          <xs:enumeration value="ENABLED_CREATE" />
+          <xs:enumeration value="ENABLED_FINALIZE" />
+          <xs:enumeration value="MERCHANT_3DS" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateTokenResponse">
+    <wsdl:part name="parameters" element="tns:updateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTokenDetailsResponse">
+    <wsdl:part name="parameters" element="tns:getTokenDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="createTokenByIban">
+    <wsdl:part name="parameters" element="tns:createTokenByIban" />
+  </wsdl:message>
+  <wsdl:message name="reactivateToken">
+    <wsdl:part name="parameters" element="tns:reactivateToken" />
+  </wsdl:message>
+  <wsdl:message name="capturePaymentResponse">
+    <wsdl:part name="parameters" element="tns:capturePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelPayment">
+    <wsdl:part name="parameters" element="tns:cancelPayment" />
+  </wsdl:message>
+  <wsdl:message name="checkThreeDSAuthentication">
+    <wsdl:part name="parameters" element="tns:checkThreeDSAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="createTokenFromTransactionResponse">
+    <wsdl:part name="parameters" element="tns:createTokenFromTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePaymentDetails">
+    <wsdl:part name="parameters" element="tns:updatePaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="refundPaymentResponse">
+    <wsdl:part name="parameters" element="tns:refundPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="findPaymentsResponse">
+    <wsdl:part name="parameters" element="tns:findPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentDetails">
+    <wsdl:part name="parameters" element="tns:getPaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="updatePaymentResponse">
+    <wsdl:part name="parameters" element="tns:updatePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelTokenResponse">
+    <wsdl:part name="parameters" element="tns:cancelTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkThreeDSAuthenticationResponse">
+    <wsdl:part name="parameters" element="tns:checkThreeDSAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="createTokenFromTransaction">
+    <wsdl:part name="parameters" element="tns:createTokenFromTransaction" />
+  </wsdl:message>
+  <wsdl:message name="createTokenByIbanResponse">
+    <wsdl:part name="parameters" element="tns:createTokenByIbanResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyThreeDSEnrollment">
+    <wsdl:part name="parameters" element="tns:verifyThreeDSEnrollment" />
+  </wsdl:message>
+  <wsdl:message name="createSubscriptionResponse">
+    <wsdl:part name="parameters" element="tns:createSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="createPayment">
+    <wsdl:part name="parameters" element="tns:createPayment" />
+  </wsdl:message>
+  <wsdl:message name="getSubscriptionDetails">
+    <wsdl:part name="parameters" element="tns:getSubscriptionDetails" />
+  </wsdl:message>
+  <wsdl:message name="updateSubscription">
+    <wsdl:part name="parameters" element="tns:updateSubscription" />
+  </wsdl:message>
+  <wsdl:message name="getTokenDetails">
+    <wsdl:part name="parameters" element="tns:getTokenDetails" />
+  </wsdl:message>
+  <wsdl:message name="cancelCapturedPayment">
+    <wsdl:part name="parameters" element="tns:cancelCapturedPayment" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentUuidResponse">
+    <wsdl:part name="parameters" element="tns:getPaymentUuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifyThreeDSEnrollmentResponse">
+    <wsdl:part name="parameters" element="tns:verifyThreeDSEnrollmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="capturePayment">
+    <wsdl:part name="parameters" element="tns:capturePayment" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubscriptionResponse">
+    <wsdl:part name="parameters" element="tns:cancelSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="duplicatePayment">
+    <wsdl:part name="parameters" element="tns:duplicatePayment" />
+  </wsdl:message>
+  <wsdl:message name="updatePaymentDetailsResponse">
+    <wsdl:part name="parameters" element="tns:updatePaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="updatePayment">
+    <wsdl:part name="parameters" element="tns:updatePayment" />
+  </wsdl:message>
+  <wsdl:message name="createPaymentResponse">
+    <wsdl:part name="parameters" element="tns:createPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateToken">
+    <wsdl:part name="parameters" element="tns:updateToken" />
+  </wsdl:message>
+  <wsdl:message name="cancelSubscription">
+    <wsdl:part name="parameters" element="tns:cancelSubscription" />
+  </wsdl:message>
+  <wsdl:message name="cancelPaymentResponse">
+    <wsdl:part name="parameters" element="tns:cancelPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="refundPayment">
+    <wsdl:part name="parameters" element="tns:refundPayment" />
+  </wsdl:message>
+  <wsdl:message name="cancelCapturedPaymentResponse">
+    <wsdl:part name="parameters" element="tns:cancelCapturedPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="duplicatePaymentResponse">
+    <wsdl:part name="parameters" element="tns:duplicatePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="validatePayment">
+    <wsdl:part name="parameters" element="tns:validatePayment" />
+  </wsdl:message>
+  <wsdl:message name="updateSubscriptionResponse">
+    <wsdl:part name="parameters" element="tns:updateSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentDetailsResponse">
+    <wsdl:part name="parameters" element="tns:getPaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPaymentUuid">
+    <wsdl:part name="parameters" element="tns:getPaymentUuid" />
+  </wsdl:message>
+  <wsdl:message name="reactivateTokenResponse">
+    <wsdl:part name="parameters" element="tns:reactivateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="createSubscription">
+    <wsdl:part name="parameters" element="tns:createSubscription" />
+  </wsdl:message>
+  <wsdl:message name="cancelToken">
+    <wsdl:part name="parameters" element="tns:cancelToken" />
+  </wsdl:message>
+  <wsdl:message name="createToken">
+    <wsdl:part name="parameters" element="tns:createToken" />
+  </wsdl:message>
+  <wsdl:message name="getSubscriptionDetailsResponse">
+    <wsdl:part name="parameters" element="tns:getSubscriptionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="findPayments">
+    <wsdl:part name="parameters" element="tns:findPayments" />
+  </wsdl:message>
+  <wsdl:message name="createTokenResponse">
+    <wsdl:part name="parameters" element="tns:createTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="validatePaymentResponse">
+    <wsdl:part name="parameters" element="tns:validatePaymentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PaymentAPI">
+    <wsdl:operation name="cancelCapturedPayment">
+      <wsdl:input name="cancelCapturedPayment" message="tns:cancelCapturedPayment" />
+      <wsdl:output name="cancelCapturedPaymentResponse" message="tns:cancelCapturedPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="capturePayment">
+      <wsdl:input name="capturePayment" message="tns:capturePayment" />
+      <wsdl:output name="capturePaymentResponse" message="tns:capturePaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createTokenByIban">
+      <wsdl:input name="createTokenByIban" message="tns:createTokenByIban" />
+      <wsdl:output name="createTokenByIbanResponse" message="tns:createTokenByIbanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reactivateToken">
+      <wsdl:input name="reactivateToken" message="tns:reactivateToken" />
+      <wsdl:output name="reactivateTokenResponse" message="tns:reactivateTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="duplicatePayment">
+      <wsdl:input name="duplicatePayment" message="tns:duplicatePayment" />
+      <wsdl:output name="duplicatePaymentResponse" message="tns:duplicatePaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelPayment">
+      <wsdl:input name="cancelPayment" message="tns:cancelPayment" />
+      <wsdl:output name="cancelPaymentResponse" message="tns:cancelPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkThreeDSAuthentication">
+      <wsdl:input name="checkThreeDSAuthentication" message="tns:checkThreeDSAuthentication" />
+      <wsdl:output name="checkThreeDSAuthenticationResponse" message="tns:checkThreeDSAuthenticationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePayment">
+      <wsdl:input name="updatePayment" message="tns:updatePayment" />
+      <wsdl:output name="updatePaymentResponse" message="tns:updatePaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updatePaymentDetails">
+      <wsdl:input name="updatePaymentDetails" message="tns:updatePaymentDetails" />
+      <wsdl:output name="updatePaymentDetailsResponse" message="tns:updatePaymentDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentDetails">
+      <wsdl:input name="getPaymentDetails" message="tns:getPaymentDetails" />
+      <wsdl:output name="getPaymentDetailsResponse" message="tns:getPaymentDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateToken">
+      <wsdl:input name="updateToken" message="tns:updateToken" />
+      <wsdl:output name="updateTokenResponse" message="tns:updateTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubscription">
+      <wsdl:input name="cancelSubscription" message="tns:cancelSubscription" />
+      <wsdl:output name="cancelSubscriptionResponse" message="tns:cancelSubscriptionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="refundPayment">
+      <wsdl:input name="refundPayment" message="tns:refundPayment" />
+      <wsdl:output name="refundPaymentResponse" message="tns:refundPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createTokenFromTransaction">
+      <wsdl:input name="createTokenFromTransaction" message="tns:createTokenFromTransaction" />
+      <wsdl:output name="createTokenFromTransactionResponse" message="tns:createTokenFromTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="verifyThreeDSEnrollment">
+      <wsdl:input name="verifyThreeDSEnrollment" message="tns:verifyThreeDSEnrollment" />
+      <wsdl:output name="verifyThreeDSEnrollmentResponse" message="tns:verifyThreeDSEnrollmentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="validatePayment">
+      <wsdl:input name="validatePayment" message="tns:validatePayment" />
+      <wsdl:output name="validatePaymentResponse" message="tns:validatePaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentUuid">
+      <wsdl:input name="getPaymentUuid" message="tns:getPaymentUuid" />
+      <wsdl:output name="getPaymentUuidResponse" message="tns:getPaymentUuidResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createPayment">
+      <wsdl:input name="createPayment" message="tns:createPayment" />
+      <wsdl:output name="createPaymentResponse" message="tns:createPaymentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createSubscription">
+      <wsdl:input name="createSubscription" message="tns:createSubscription" />
+      <wsdl:output name="createSubscriptionResponse" message="tns:createSubscriptionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriptionDetails">
+      <wsdl:input name="getSubscriptionDetails" message="tns:getSubscriptionDetails" />
+      <wsdl:output name="getSubscriptionDetailsResponse" message="tns:getSubscriptionDetailsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSubscription">
+      <wsdl:input name="updateSubscription" message="tns:updateSubscription" />
+      <wsdl:output name="updateSubscriptionResponse" message="tns:updateSubscriptionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelToken">
+      <wsdl:input name="cancelToken" message="tns:cancelToken" />
+      <wsdl:output name="cancelTokenResponse" message="tns:cancelTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createToken">
+      <wsdl:input name="createToken" message="tns:createToken" />
+      <wsdl:output name="createTokenResponse" message="tns:createTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="findPayments">
+      <wsdl:input name="findPayments" message="tns:findPayments" />
+      <wsdl:output name="findPaymentsResponse" message="tns:findPaymentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTokenDetails">
+      <wsdl:input name="getTokenDetails" message="tns:getTokenDetails" />
+      <wsdl:output name="getTokenDetailsResponse" message="tns:getTokenDetailsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="v5SoapBinding" type="tns:PaymentAPI">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cancelCapturedPayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="cancelCapturedPayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelCapturedPaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="capturePayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="capturePayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="capturePaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTokenByIban">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="createTokenByIban">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createTokenByIbanResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reactivateToken">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="reactivateToken">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reactivateTokenResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="duplicatePayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="duplicatePayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="duplicatePaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="cancelPayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelPaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkThreeDSAuthentication">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="checkThreeDSAuthentication">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkThreeDSAuthenticationResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updatePayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePaymentDetails">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updatePaymentDetails">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePaymentDetailsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentDetails">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPaymentDetails">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPaymentDetailsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateToken">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updateToken">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateTokenResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelSubscription">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="cancelSubscription">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelSubscriptionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="refundPayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="refundPayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="refundPaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createTokenFromTransaction">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="createTokenFromTransaction">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createTokenFromTransactionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyThreeDSEnrollment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="verifyThreeDSEnrollment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="verifyThreeDSEnrollmentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validatePayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="validatePayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validatePaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentUuid">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getPaymentUuid">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPaymentUuidResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createPayment">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="createPayment">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createPaymentResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSubscription">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="createSubscription">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createSubscriptionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubscriptionDetails">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getSubscriptionDetails">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getSubscriptionDetailsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubscription">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="updateSubscription">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateSubscriptionResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelToken">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="cancelToken">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cancelTokenResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createToken">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="createToken">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createTokenResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findPayments">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="findPayments">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="findPaymentsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTokenDetails">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input name="getTokenDetails">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTokenDetailsResponse">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="v5">
+    <wsdl:port name="PaymentAPIImplPort" binding="tns:v5SoapBinding">
+      <soap12:address location="https://secure.payzen.com.br/vads-ws/v5" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

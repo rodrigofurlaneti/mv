@@ -1,0 +1,202 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cadastrar Combo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="listWhite">
+  <ion-card class="text-center">
+    <ion-card-header>
+      Filtro de Restrições
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label stacked>Pais *</ion-label>
+        <ion-select [(ngModel)]="paisSelected" [disabled]="!paises.length">
+          <ion-option *ngFor="let pais of paises" [value]="pais.Id">{{pais.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Estado *</ion-label>
+        <ion-select [(ngModel)]="estadoSelected" (ionChange)="onChangeEstado()" [disabled]="!estados.length">
+          <ion-option *ngFor="let estado of estados" [value]="estado.Id">{{estado.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Cidade *</ion-label>
+        <ion-select [(ngModel)]="cidadeSelected" [disabled]="!cidades.length">
+          <ion-option *ngFor="let cidade of cidades" [value]="cidade.Id">{{cidade.Descricao}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <div class="text-center">
+    <ion-item *ngIf="!lojaSelecionada">
+      <p>Busque o convênio por:</p>
+      <p>Nome Fantasia, Razão Social ou CNPJ</p>
+    </ion-item>
+    <ion-searchbar style="width: 90%; left: 0%" [(ngModel)]="lojaPesquisa" placeholder="Digite aqui para pesquisar"
+      name="pesquisa" (ionInput)="search()" debounce=500 *ngIf="!lojaSelecionada">
+    </ion-searchbar>
+    <p *ngIf="lojaSelecionada">Convênio Selecionado: {{lojaSelecionada.Descricao}}</p>
+    <button [hidden]="!limparBusca" style="color: red;" (click)="limparBuscaLojas()">
+      Alterar Convênio
+    </button>
+    <ion-list>
+      <ion-item style="color: white" *ngFor="let loja of lojasFilter" (click)="retornaLojas(loja)">
+        {{loja.Descricao}}
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Foto / Ícone
+    </ion-card-header>
+    <ion-card-content>
+      <div class="img-produto-detalhe-container">
+        <div *ngIf="!fotos || fotos.length === 0">
+          <img src="assets/image/logo.png" alt="">
+        </div>
+
+        <div *ngIf="fotos && fotos.length === 1">
+          <img src="{{fotos[0].split(';')[0]}}" alt="">
+          <button ion-button primary block (click)="trashFoto(fotos[0])">
+            <ion-icon large name="trash"></ion-icon>
+            Remover
+          </button>
+        </div>
+
+        <ion-slides pager autoplay="900" loop="true" speed="9000" *ngIf="fotos && fotos.length > 1">
+          <ion-slide #slider *ngFor="let foto of fotos">
+            <img src="{{foto.split(';')[0]}}">
+            <ion-fab top right>
+              <button ion-fab (click)="trashFoto(foto)">
+                <ion-icon large name="trash"></ion-icon>
+              </button>
+            </ion-fab>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- file-name definite o nome do arquivo, tem de ter a extençao .png, padrão timestamp-->
+  <!-- eventos (uploadStart), (uploadComplete), (imageCaptureError), (uploadError) -->
+  <div class="text-center">
+    <h3>Adicionar imagens: </h3>
+    <firebase-uploader path-file="combo" file-name="{{date}}.png" (uploadComplete)="handleEvent($event)">
+    </firebase-uploader>
+  </div>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Dados do
+      <p>Plano</p>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+        <div class="descricao">
+          <ion-item>
+            <ion-label stacked>Nome *</ion-label>
+            <ion-input formControlName="nome" type="text"></ion-input>
+          </ion-item>
+        </div>
+      </form>
+      <ion-item text-wrap>
+        <ion-label stacked>Adicione aqui os Benefícios do combo:</ion-label>
+        <ion-input class="input-edit" [(ngModel)]="beneficio" type="text" placeholder="Ex.: Plano Odontológico">
+        </ion-input>
+      </ion-item>
+      <button type="submit" primary ion-button block (click)="adicionarBeneficio()">
+        Adicionar a lista
+      </button>
+      <div *ngIf="!beneficios || beneficios.length === 0">
+        <h3>Nenhum benefício adicionado!</h3>
+      </div>
+      <ion-list *ngIf="beneficios && beneficios.length > 0">
+        <ion-item *ngFor="let ben of beneficios">
+          <h3 style="color: white;">{{ben}}</h3>
+          <div class="text-center" item-end>
+            <button (click)='trashBeneficio(ben)' ion-button clear>
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="text-center">
+    <ion-card-header>
+      Valores
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+        <ion-item class="text-center">
+          <ion-label>Preço de Venda: *</ion-label>
+          <ion-input formControlName="precovenda" class="text-center" type="text" name="money" placeholder="(R$) 0.00"
+            [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2'}"></ion-input>
+        </ion-item>
+
+        <ion-item class="text-center">
+          <ion-label>Preço Desconto: </ion-label>
+          <ion-input formControlName="precodesconto" class="text-center" type="text" name="money"
+            placeholder="(R$) 0.00" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ',', decimal: '2'}">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="text-center">
+          <ion-label>Início Vigência: *</ion-label>
+          <ion-input class="text-center" formControlName="inicioVigencia"
+            [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+        </ion-item>
+
+        <ion-item class="text-center">
+          <ion-label>Fim Vigência: *</ion-label>
+          <ion-input class="text-center" formControlName="fimVigencia"
+            [brmasker]="{mask:'00/00/0000', len:10, type:'num'}" type="tel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Ativo</ion-label>
+          <ion-toggle slot="end" formControlName="status">
+          </ion-toggle>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      % de limite de Adiantamento
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item text-wrap>
+        <ion-label stacked>Percentual</ion-label>
+        <ion-input class="input-edit" [(ngModel)]="percentual" type="number" placeholder="Ex.: 30%"> </ion-input>
+      </ion-item>
+      <button type="submit" primary ion-button block (click)="adicionarPercentual()">
+        Adicionar a lista
+      </button>
+    </ion-card-content>
+    <ion-list *ngIf="percentuais && percentuais.length > 0">
+      <ion-item *ngFor="let perc of percentuais">
+        <h3 style="color: white;">{{perc}} %</h3>
+        <div class="text-center" item-end>
+          <button (click)='trashPerc(perc)' ion-button clear>
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <form [formGroup]="productForm" (ngSubmit)="doSubmit()">
+    <button type="submit" primary ion-button block>
+      Salvar
+    </button>
+  </form>
+</ion-content>
